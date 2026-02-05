@@ -242,11 +242,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <form id="deleteForm" method="POST" class="d-inline">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Hapus</button>
-                </form>
+                <button type="button" class="btn btn-danger" onclick="deleteMotor()">Hapus</button>
             </div>
         </div>
     </div>
@@ -254,12 +250,96 @@
 
 @push('scripts')
 <script>
+// Setup CSRF token for AJAX requests
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
 function confirmDelete(motorId, motorName) {
     document.getElementById('motorName').textContent = motorName;
-    document.getElementById('deleteForm').action = 
-        "{{ route('admin.motors.destroy', ':motor') }}".replace(':motor', motorId);
+    
+    // Store motor ID for AJAX delete
+    document.getElementById('deleteModal').setAttribute('data-motor-id', motorId);
     
     new bootstrap.Modal(document.getElementById('deleteModal')).show();
+}
+
+function deleteMotor() {
+    const modal = document.getElementById('deleteModal');
+    const motorId = modal.getAttribute('data-motor-id');
+    const deleteBtn = modal.querySelector('.btn-danger');
+    
+    // Disable button and show loading
+    deleteBtn.disabled = true;
+    deleteBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menghapus...';
+    
+    // Use AJAX to delete
+    fetch(`/admin/motors/${motorId}/ajax`, {
+        method: 'DELETE',
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Show success message
+            showAlert('success', data.message);
+            
+            // Remove the row from table
+            const row = document.querySelector(`button[onclick*="${motorId}"]`).closest('tr');
+            if (row) {
+                row.remove();
+            }
+            
+            // Close modal
+            bootstrap.Modal.getInstance(modal).hide();
+            
+            // Refresh page after 1 second to update counts
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+        } else {
+            showAlert('error', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showAlert('error', 'Terjadi kesalahan saat menghapus motor. Silakan coba lagi.');
+    })
+    .finally(() => {
+        // Re-enable button
+        deleteBtn.disabled = false;
+        deleteBtn.innerHTML = 'Hapus';
+    });
+}
+
+function showAlert(type, message) {
+    const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+    const iconClass = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle';
+    
+    const alertHtml = `
+        <div class="alert ${alertClass} alert-dismissible fade show" role="alert">
+            <i class="fas ${iconClass} me-2"></i>${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    `;
+    
+    // Insert alert at the top of the page
+    const container = document.querySelector('.main-content .container-fluid');
+    container.insertAdjacentHTML('afterbegin', alertHtml);
+    
+    // Auto-dismiss after 5 seconds
+    setTimeout(() => {
+        const alert = container.querySelector('.alert');
+        if (alert) {
+            alert.remove();
+        }
+    }, 5000);
 }
 
 // Auto-submit form on filter change
@@ -286,6 +366,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Refresh CSRF token every 5 minutes
+    setInterval(function() {
+        fetch('/admin/csrf-token')
+            .then(response => response.json())
+            .then(data => {
+                document.querySelectorAll('input[name="_token"]').forEach(input => {
+                    input.value = data.token;
+                });
+                // Update meta tag
+                const metaToken = document.querySelector('meta[name="csrf-token"]');
+                if (metaToken) {
+                    metaToken.setAttribute('content', data.token);
+                }
+            })
+            .catch(console.error);
+    }, 300000); // 5 minutes
 });
 </script>
 @endpush

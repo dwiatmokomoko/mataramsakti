@@ -19,12 +19,18 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [AdminController::class, 'login'])->name('login');
     Route::post('/login', [AdminController::class, 'authenticate'])->name('authenticate');
     
+    // CSRF Token refresh route
+    Route::get('/csrf-token', function () {
+        return response()->json(['token' => csrf_token()]);
+    })->middleware(['auth']);
+    
     Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
         Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
         
         // Motor Management (Basic Info)
         Route::resource('motors', MotorController::class);
+        Route::delete('/motors/{motor}/ajax', [MotorController::class, 'destroyAjax'])->name('motors.destroy.ajax');
         
         // Motor Models Management
         Route::prefix('motors/{motor}/models')->name('motors.models.')->group(function () {

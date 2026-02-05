@@ -104,15 +104,66 @@ class MotorController extends Controller
 
     public function destroy(Motor $motor)
     {
-        // Check if motor has models
-        if ($motor->models()->count() > 0) {
-            return redirect()->route('admin.motors.index')
-                ->with('error', 'Tidak dapat menghapus motor yang memiliki model');
-        }
-        
-        $motor->delete();
+        try {
+            // Check if motor has models
+            if ($motor->models()->count() > 0) {
+                return redirect()->route('admin.motors.index')
+                    ->with('error', 'Tidak dapat menghapus motor yang memiliki model. Hapus semua model terlebih dahulu.');
+            }
+            
+            // Delete associated image if exists
+            if ($motor->image && \Storage::disk('public')->exists($motor->image)) {
+                \Storage::disk('public')->delete($motor->image);
+            }
+            
+            $motorName = $motor->name;
+            $motor->delete();
 
-        return redirect()->route('admin.motors.index')
-            ->with('success', 'Motor berhasil dihapus');
+            return redirect()->route('admin.motors.index')
+                ->with('success', "Motor {$motorName} berhasil dihapus");
+                
+        } catch (\Exception $e) {
+            \Log::error('Error deleting motor: ' . $e->getMessage());
+            
+            return redirect()->route('admin.motors.index')
+                ->with('error', 'Terjadi kesalahan saat menghapus motor. Silakan coba lagi.');
+        }
+    }
+    
+    /**
+     * Delete motor via AJAX
+     */
+    public function destroyAjax(Motor $motor)
+    {
+        try {
+            // Check if motor has models
+            if ($motor->models()->count() > 0) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Tidak dapat menghapus motor yang memiliki model. Hapus semua model terlebih dahulu.'
+                ], 400);
+            }
+            
+            // Delete associated image if exists
+            if ($motor->image && \Storage::disk('public')->exists($motor->image)) {
+                \Storage::disk('public')->delete($motor->image);
+            }
+            
+            $motorName = $motor->name;
+            $motor->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => "Motor {$motorName} berhasil dihapus"
+            ]);
+            
+        } catch (\Exception $e) {
+            \Log::error('Error deleting motor via AJAX: ' . $e->getMessage());
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Terjadi kesalahan saat menghapus motor. Silakan coba lagi.'
+            ], 500);
+        }
     }
 }
