@@ -10,9 +10,43 @@ use Illuminate\Support\Facades\Storage;
 
 class MotorModelController extends Controller
 {
-    public function index(Motor $motor)
+    public function index(Motor $motor, Request $request)
     {
-        $models = $motor->models()->withCount('variants')->latest()->paginate(10);
+        $query = $motor->models()->withCount('variants');
+        
+        // Search functionality
+        if ($request->filled('search')) {
+            $search = $request->get('search');
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'ILIKE', "%{$search}%")
+                  ->orWhere('full_name', 'ILIKE', "%{$search}%")
+                  ->orWhere('description', 'ILIKE', "%{$search}%");
+            });
+        }
+        
+        // Status filter
+        if ($request->filled('status')) {
+            if ($request->get('status') === 'active') {
+                $query->where('is_active', true);
+            } elseif ($request->get('status') === 'inactive') {
+                $query->where('is_active', false);
+            } elseif ($request->get('status') === 'featured') {
+                $query->where('is_featured', true);
+            }
+        }
+        
+        // Sort
+        $sortBy = $request->get('sort', 'created_at');
+        $sortOrder = $request->get('order', 'desc');
+        
+        if (in_array($sortBy, ['name', 'full_name', 'price_otr', 'created_at'])) {
+            $query->orderBy($sortBy, $sortOrder);
+        } else {
+            $query->latest();
+        }
+        
+        $models = $query->paginate(10)->appends($request->query());
+        
         return view('admin.motor-models.index', compact('motor', 'models'));
     }
 

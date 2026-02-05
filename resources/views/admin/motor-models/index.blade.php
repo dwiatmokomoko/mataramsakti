@@ -52,8 +52,58 @@
         </h5>
         <span class="badge bg-info">{{ $models->total() }} Model</span>
     </div>
+    
+    <!-- Search and Filter Section -->
+    <div class="card-body border-bottom">
+        <form method="GET" action="{{ route('admin.motors.models.index', $motor) }}" class="row g-3">
+            <div class="col-md-5">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    <input type="text" class="form-control" name="search" 
+                           placeholder="Cari nama model atau deskripsi..." 
+                           value="{{ request('search') }}">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select" name="status">
+                    <option value="">Semua Status</option>
+                    <option value="active" {{ request('status') == 'active' ? 'selected' : '' }}>Aktif</option>
+                    <option value="inactive" {{ request('status') == 'inactive' ? 'selected' : '' }}>Nonaktif</option>
+                    <option value="featured" {{ request('status') == 'featured' ? 'selected' : '' }}>Featured</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="form-select" name="sort">
+                    <option value="created_at" {{ request('sort') == 'created_at' ? 'selected' : '' }}>Terbaru</option>
+                    <option value="name" {{ request('sort') == 'name' ? 'selected' : '' }}>Nama Model</option>
+                    <option value="price_otr" {{ request('sort') == 'price_otr' ? 'selected' : '' }}>Harga</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <div class="btn-group w-100" role="group">
+                    <button type="submit" class="btn btn-outline-primary">
+                        <i class="fas fa-filter"></i>
+                    </button>
+                    <a href="{{ route('admin.motors.models.index', $motor) }}" class="btn btn-outline-secondary">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+    
     <div class="card-body">
         @if($models->count() > 0)
+        <!-- Results Info -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="text-muted">
+                Menampilkan {{ $models->firstItem() }} - {{ $models->lastItem() }} 
+                dari {{ $models->total() }} model
+                @if(request('search'))
+                    untuk pencarian "<strong>{{ request('search') }}</strong>"
+                @endif
+            </div>
+        </div>
         <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
@@ -120,18 +170,34 @@
             </table>
         </div>
 
-        <!-- Pagination -->
-        <div class="d-flex justify-content-center">
-            {{ $models->links() }}
+        <!-- Enhanced Pagination -->
+        <div class="d-flex justify-content-between align-items-center mt-4">
+            <div class="text-muted">
+                <small>
+                    Halaman {{ $models->currentPage() }} dari {{ $models->lastPage() }}
+                </small>
+            </div>
+            <div>
+                {{ $models->links('pagination::bootstrap-4') }}
+            </div>
         </div>
         @else
         <div class="text-center py-5">
-            <i class="fas fa-cogs fa-4x text-muted mb-3"></i>
-            <h5 class="text-muted">Belum ada model untuk motor {{ $motor->name }}</h5>
-            <p class="text-muted">Tambahkan model pertama untuk motor ini</p>
-            <a href="{{ route('admin.motors.models.create', $motor) }}" class="btn btn-primary">
-                <i class="fas fa-plus me-2"></i>Tambah Model Pertama
-            </a>
+            @if(request()->hasAny(['search', 'status']))
+                <i class="fas fa-search fa-4x text-muted mb-3"></i>
+                <h5 class="text-muted">Tidak ada model yang ditemukan</h5>
+                <p class="text-muted">Coba ubah kriteria pencarian Anda</p>
+                <a href="{{ route('admin.motors.models.index', $motor) }}" class="btn btn-outline-primary">
+                    <i class="fas fa-times me-2"></i>Reset Pencarian
+                </a>
+            @else
+                <i class="fas fa-cogs fa-4x text-muted mb-3"></i>
+                <h5 class="text-muted">Belum ada model untuk motor {{ $motor->name }}</h5>
+                <p class="text-muted">Tambahkan model pertama untuk motor ini</p>
+                <a href="{{ route('admin.motors.models.create', $motor) }}" class="btn btn-primary">
+                    <i class="fas fa-plus me-2"></i>Tambah Model Pertama
+                </a>
+            @endif
         </div>
         @endif
     </div>
@@ -161,6 +227,7 @@
     </div>
 </div>
 
+@push('scripts')
 <script>
 function confirmDelete(modelId, modelName) {
     document.getElementById('modelName').textContent = modelName;
@@ -169,5 +236,20 @@ function confirmDelete(modelId, modelName) {
     
     new bootstrap.Modal(document.getElementById('deleteModal')).show();
 }
+
+// Auto-submit form on filter change
+document.addEventListener('DOMContentLoaded', function() {
+    const statusSelect = document.querySelector('select[name="status"]');
+    const sortSelect = document.querySelector('select[name="sort"]');
+    
+    [statusSelect, sortSelect].forEach(select => {
+        if (select) {
+            select.addEventListener('change', function() {
+                this.form.submit();
+            });
+        }
+    });
+});
 </script>
+@endpush
 @endsection

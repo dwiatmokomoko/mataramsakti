@@ -9,10 +9,49 @@ use Illuminate\Http\Request;
 
 class MotorController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $motors = Motor::withCount(['models', 'activeModels'])->latest()->paginate(10);
-        return view('admin.motors.index', compact('motors'));
+        $query = Motor::withCount(['models', 'activeModels']);
+        
+        // Search functionality
+        if ($request->filled('search')) {
+            $search = $request->get('search');
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'ILIKE', "%{$search}%")
+                  ->orWhere('category', 'ILIKE', "%{$search}%")
+                  ->orWhere('description', 'ILIKE', "%{$search}%");
+            });
+        }
+        
+        // Category filter
+        if ($request->filled('category')) {
+            $query->where('category', $request->get('category'));
+        }
+        
+        // Status filter
+        if ($request->filled('status')) {
+            if ($request->get('status') === 'active') {
+                $query->where('is_active', true);
+            } elseif ($request->get('status') === 'inactive') {
+                $query->where('is_active', false);
+            }
+        }
+        
+        // Sort
+        $sortBy = $request->get('sort', 'created_at');
+        $sortOrder = $request->get('order', 'desc');
+        
+        if (in_array($sortBy, ['name', 'category', 'created_at'])) {
+            $query->orderBy($sortBy, $sortOrder);
+        } else {
+            $query->latest();
+        }
+        
+        $motors = $query->paginate(10)->appends($request->query());
+        
+        $categories = Motor::distinct('category')->pluck('category')->sort();
+        
+        return view('admin.motors.index', compact('motors', 'categories'));
     }
 
     public function create()
