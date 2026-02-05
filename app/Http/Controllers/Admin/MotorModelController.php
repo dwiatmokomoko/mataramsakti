@@ -49,18 +49,18 @@ class MotorModelController extends Controller
             ->with('success', 'Model motor berhasil ditambahkan');
     }
 
-    public function show(Motor $motor, MotorModel $model)
+    public function show(Motor $motor, MotorModel $motorModel)
     {
-        $model->load('variants');
-        return view('admin.motor-models.show', compact('motor', 'model'));
+        $motorModel->load('variants');
+        return view('admin.motor-models.show', compact('motor', 'motorModel'));
     }
 
-    public function edit(Motor $motor, MotorModel $model)
+    public function edit(Motor $motor, MotorModel $motorModel)
     {
-        return view('admin.motor-models.edit', compact('motor', 'model'));
+        return view('admin.motor-models.edit', compact('motor', 'motorModel'));
     }
 
-    public function update(Request $request, Motor $motor, MotorModel $model)
+    public function update(Request $request, Motor $motor, MotorModel $motorModel)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -79,31 +79,31 @@ class MotorModelController extends Controller
         
         if ($request->hasFile('image')) {
             // Delete old image
-            if ($model->image) {
-                Storage::disk('public')->delete($model->image);
+            if ($motorModel->image) {
+                Storage::disk('public')->delete($motorModel->image);
             }
             $data['image'] = $request->file('image')->store('motor-models', 'public');
         }
 
-        $model->update($data);
+        $motorModel->update($data);
 
         return redirect()->route('admin.motors.models.index', $motor)
             ->with('success', 'Model motor berhasil diupdate');
     }
 
-    public function destroy(Motor $motor, MotorModel $model)
+    public function destroy(Motor $motor, MotorModel $motorModel)
     {
         // Check if model has variants
-        if ($model->variants()->count() > 0) {
+        if ($motorModel->variants()->count() > 0) {
             return redirect()->route('admin.motors.models.index', $motor)
                 ->with('error', 'Tidak dapat menghapus model yang memiliki varian warna');
         }
 
-        if ($model->image) {
-            Storage::disk('public')->delete($model->image);
+        if ($motorModel->image) {
+            Storage::disk('public')->delete($motorModel->image);
         }
         
-        $model->delete();
+        $motorModel->delete();
 
         return redirect()->route('admin.motors.models.index', $motor)
             ->with('success', 'Model motor berhasil dihapus');
