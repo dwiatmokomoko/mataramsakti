@@ -1,6 +1,48 @@
 @extends('layouts.app')
 
-@section('title', 'Yamaha Motor Indonesia - Dealer Resmi')
+@section('seo')
+    <x-seo 
+        title="Yamaha Motor Indonesia - Dealer Resmi Motor Yamaha Terbaru"
+        description="Dealer resmi Yamaha Motor Indonesia. Jual motor Yamaha terbaru 2024 dengan harga terbaik, cicilan 0%, dan layanan purna jual terpercaya. Temukan NMAX, R15, Aerox, XMAX, dan semua motor Yamaha."
+        :keywords="['yamaha motor indonesia', 'dealer yamaha', 'motor yamaha 2024', 'harga motor yamaha', 'yamaha nmax', 'yamaha r15', 'yamaha aerox', 'yamaha xmax', 'cicilan motor yamaha 0%', 'kredit motor yamaha', 'service yamaha', 'spare part yamaha original']"
+        :structured-data="[
+            [
+                '@context' => 'https://schema.org',
+                '@type' => 'Organization',
+                'name' => 'Yamaha Motor Indonesia',
+                'url' => config('app.url'),
+                'logo' => 'https://www.yamaha-motor.co.id/web_new/shared/image/logo-sepeda-motor-yamaha-indonesia.png',
+                'description' => 'Dealer resmi Yamaha Motor Indonesia dengan layanan terpercaya',
+                'address' => [
+                    '@type' => 'PostalAddress',
+                    'addressCountry' => 'ID',
+                    'addressLocality' => 'Indonesia'
+                ],
+                'contactPoint' => [
+                    '@type' => 'ContactPoint',
+                    'telephone' => '+62-21-12345678',
+                    'contactType' => 'customer service'
+                ],
+                'sameAs' => [
+                    'https://www.facebook.com/YamahaMotorID',
+                    'https://www.instagram.com/yamaha_motor_id',
+                    'https://www.youtube.com/YamahaMotorID'
+                ]
+            ],
+            [
+                '@context' => 'https://schema.org',
+                '@type' => 'WebSite',
+                'name' => 'Yamaha Motor Indonesia',
+                'url' => config('app.url'),
+                'potentialAction' => [
+                    '@type' => 'SearchAction',
+                    'target' => config('app.url') . '/search?q={search_term_string}',
+                    'query-input' => 'required name=search_term_string'
+                ]
+            ]
+        ]"
+    />
+@endsection
 
 @section('content')
 <style>

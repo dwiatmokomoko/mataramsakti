@@ -19,6 +19,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Force HTTPS in production
+        if (config('app.env') === 'production') {
+            \URL::forceScheme('https');
+        }
+        
+        // Register SEO Helper globally
+        if (!class_exists('SEO')) {
+            class_alias(\App\Helpers\SEOHelper::class, 'SEO');
+        }
     }
 }

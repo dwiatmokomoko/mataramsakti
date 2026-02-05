@@ -1,6 +1,76 @@
 @extends('layouts.app')
 
-@section('title', $motor->name . ' - Detail Motor Yamaha')
+@section('seo')
+    @php
+        use App\Helpers\SEOHelper;
+        
+        $motorTitle = $motor->name . ' - Motor Yamaha Terbaru ' . date('Y');
+        $motorDescription = "Jual {$motor->name} Yamaha terbaru dengan harga mulai dari " . 
+                           ($motor->models->min('price_otr') ? 'Rp ' . number_format($motor->models->min('price_otr'), 0, ',', '.') : 'harga terbaik') . 
+                           ". Cicilan 0%, garansi resmi, dan layanan purna jual terpercaya. Spesifikasi lengkap {$motor->name}.";
+        
+        $motorKeywords = [
+            strtolower($motor->name),
+            'yamaha ' . strtolower($motor->name),
+            'harga ' . strtolower($motor->name),
+            'spesifikasi ' . strtolower($motor->name),
+            'cicilan ' . strtolower($motor->name),
+            strtolower($motor->category) . ' yamaha',
+            'motor ' . strtolower($motor->category)
+        ];
+        
+        $motorImage = $motor->models->first()?->image ? 
+                     asset('storage/' . $motor->models->first()->image) : 
+                     asset('images/yamaha-' . strtolower($motor->name) . '.jpg');
+        
+        $structuredData = [
+            [
+                '@context' => 'https://schema.org',
+                '@type' => 'Product',
+                'name' => $motor->name,
+                'description' => $motorDescription,
+                'brand' => [
+                    '@type' => 'Brand',
+                    'name' => 'Yamaha'
+                ],
+                'manufacturer' => [
+                    '@type' => 'Organization',
+                    'name' => 'Yamaha Motor Co., Ltd.'
+                ],
+                'category' => $motor->category,
+                'image' => $motorImage,
+                'url' => request()->url()
+            ]
+        ];
+        
+        if ($motor->models->count() > 0) {
+            $offers = [];
+            foreach ($motor->models as $model) {
+                $offers[] = [
+                    '@type' => 'Offer',
+                    'name' => $model->full_name,
+                    'price' => $model->price_otr,
+                    'priceCurrency' => 'IDR',
+                    'availability' => $model->is_active ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+                    'seller' => [
+                        '@type' => 'Organization',
+                        'name' => 'Yamaha Motor Indonesia'
+                    ]
+                ];
+            }
+            $structuredData[0]['offers'] = $offers;
+        }
+    @endphp
+    
+    <x-seo 
+        :title="$motorTitle"
+        :description="$motorDescription"
+        :keywords="$motorKeywords"
+        :image="$motorImage"
+        type="product"
+        :structured-data="$structuredData"
+    />
+@endsection
 
 @section('content')
 <style>
@@ -447,6 +517,13 @@
 {{-- VARIANT & PRICE Section --}}
 <div class="variant-price-section">
     <div class="container">
+        <!-- Breadcrumb -->
+        <x-breadcrumb :items="[
+            ['title' => 'Motor Yamaha', 'url' => route('home') . '#motors'],
+            ['title' => $motor->category],
+            ['title' => $motor->name]
+        ]" />
+        
         {{-- Header --}}
         <div class="text-center mb-4">
             <h2 class="variant-price-title">VARIANT & PRICE</h2>

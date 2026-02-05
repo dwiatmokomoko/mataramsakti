@@ -11,6 +11,12 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/motor/{motor}', [App\Http\Controllers\MotorDetailController::class, 'show'])->name('motor.detail');
 Route::post('/motor/{motor}/calculate-credit', [App\Http\Controllers\MotorDetailController::class, 'calculateCredit'])->name('motor.calculate-credit');
 
+// SEO Routes
+Route::get('/sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap.index');
+Route::get('/sitemap-main.xml', [App\Http\Controllers\SitemapController::class, 'main'])->name('sitemap.main');
+Route::get('/sitemap-motors.xml', [App\Http\Controllers\SitemapController::class, 'motors'])->name('sitemap.motors');
+Route::get('/robots.txt', [App\Http\Controllers\RobotsController::class, 'robots'])->name('robots');
+
 // Add login route for Laravel's auth system
 Route::get('/login', [AdminController::class, 'login'])->name('login');
 
