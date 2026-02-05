@@ -11,6 +11,9 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/motor/{motor}', [App\Http\Controllers\MotorDetailController::class, 'show'])->name('motor.detail');
 Route::post('/motor/{motor}/calculate-credit', [App\Http\Controllers\MotorDetailController::class, 'calculateCredit'])->name('motor.calculate-credit');
 
+// Add login route for Laravel's auth system
+Route::get('/login', [AdminController::class, 'login'])->name('login');
+
 // Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [AdminController::class, 'login'])->name('login');

@@ -409,6 +409,7 @@
         <div class="d-flex justify-content-center flex-wrap" id="categoryButtons">
             <button class="btn btn-outline-dark category-filter active" data-category="all">Semua</button>
             <button class="btn btn-outline-dark category-filter" data-category="Maxi">Maxi</button>
+            <button class="btn btn-outline-dark category-filter" data-category="Classy">Classy</button>
             <button class="btn btn-outline-dark category-filter" data-category="Matic">Matic</button>
             <button class="btn btn-outline-dark category-filter" data-category="Sport">Sport</button>
             <button class="btn btn-outline-dark category-filter" data-category="Moped">Moped</button>
