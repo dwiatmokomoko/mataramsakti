@@ -17,6 +17,31 @@ Route::get('/sitemap-main.xml', [App\Http\Controllers\SitemapController::class, 
 Route::get('/sitemap-motors.xml', [App\Http\Controllers\SitemapController::class, 'motors'])->name('sitemap.motors');
 Route::get('/robots.txt', [App\Http\Controllers\RobotsController::class, 'robots'])->name('robots');
 
+// Location-Specific Pages for Local SEO
+Route::get('/dealer-yamaha-wates', function () {
+    return view('location-wates');
+})->name('location.wates');
+
+Route::get('/dealer-yamaha-kulon-progo', function () {
+    return view('location-kulon-progo');
+})->name('location.kulon-progo');
+
+Route::get('/dealer-yamaha-sleman', function () {
+    return view('location-sleman');
+})->name('location.sleman');
+
+Route::get('/dealer-yamaha-bantul', function () {
+    return view('location-bantul');
+})->name('location.bantul');
+
+Route::get('/dealer-yamaha-gunung-kidul', function () {
+    return view('location-gunung-kidul');
+})->name('location.gunung-kidul');
+
+Route::get('/dealer-yamaha-wonosari', function () {
+    return view('location-wonosari');
+})->name('location.wonosari');
+
 // Add login route for Laravel's auth system
 Route::get('/login', [AdminController::class, 'login'])->name('login');
 

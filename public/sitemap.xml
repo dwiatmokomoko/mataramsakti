@@ -48,4 +48,47 @@
     
     <!-- Add more motor pages as needed -->
     
+    <!-- Location Pages - High Priority for Local SEO -->
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-wates</loc>
+        <lastmod>2026-02-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-kulon-progo</loc>
+        <lastmod>2026-02-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-sleman</loc>
+        <lastmod>2026-02-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-bantul</loc>
+        <lastmod>2026-02-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-gunung-kidul</loc>
+        <lastmod>2026-02-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-wonosari</loc>
+        <lastmod>2026-02-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    
 </urlset>
