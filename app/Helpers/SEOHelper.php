@@ -6,7 +6,7 @@ class SEOHelper
 {
     public static function generateTitle($title = null, $suffix = true)
     {
-        $baseTitle = 'Dealer Resmi Yamaha Jogja - Harga OTR Motor Yamaha 2026 Termurah';
+        $baseTitle = 'Dealer Yamaha Wates Kulon Progo Jogja - Harga Motor 2026 Termurah';
         
         if (!$title) {
             return $baseTitle;
@@ -21,7 +21,7 @@ class SEOHelper
     
     public static function generateDescription($description = null)
     {
-        $defaultDescription = 'Dealer Resmi Yamaha Jogja - Showroom Motor Yamaha Terdekat. Harga OTR 2026 NMAX, Aerox, Fazzio, R15, XSR155 termurah. Promo DP 0%, kredit tanpa survey, cicilan ringan. Melayani Sleman, Bantul, Wates, Kulon Progo, Gunung Kidul. Sales Yamaha Jogja 24 Jam via WA. Ready stock semua tipe!';
+        $defaultDescription = 'Dealer Yamaha Wates Kulon Progo Jogja - Showroom Motor Yamaha Terdekat di Wates. Harga OTR 2026 NMAX, Aerox, Fazzio, R15, XSR155 termurah se-Jogja. Promo DP 0%, kredit tanpa survey, cicilan ringan. Melayani Wates, Sentolo, Nanggulan, Galur, Pengasih, Sleman, Bantul, Gunung Kidul. Sales Yamaha 24 Jam WA 0856-4195-6326. Ready stock!';
         
         return $description ?: $defaultDescription;
     }
@@ -29,159 +29,466 @@ class SEOHelper
     public static function generateKeywords($keywords = [])
     {
         $defaultKeywords = [
-            // I. KATA KUNCI UTAMA (High Volume & Buying Intent)
-            'dealer resmi yamaha jogja',
-            'showroom motor yamaha terdekat',
-            'pusat penjualan yamaha yogyakarta',
-            'dealer yamaha 3s jogja',
-            'yamaha motor indonesia jogja',
-            'marketing yamaha jogja online',
-            'sales resmi yamaha jogja 24 jam',
-            'kontak wa sales yamaha jogja',
-            'alamat dealer yamaha paling lengkap di jogja',
+            // ========================================
+            // TIER 1: ULTRA HIGH PRIORITY - WATES & KULON PROGO
+            // ========================================
+            'dealer yamaha wates',
+            'yamaha wates',
+            'showroom yamaha wates',
+            'motor yamaha wates',
+            'dealer resmi yamaha wates',
+            'dealer yamaha kulon progo',
+            'yamaha kulon progo',
+            'showroom yamaha kulon progo',
+            'motor yamaha kulon progo',
+            'dealer resmi yamaha kulon progo',
+            'harga motor yamaha wates 2026',
+            'harga motor yamaha kulon progo 2026',
+            'harga otr yamaha wates',
+            'harga otr yamaha kulon progo',
+            'promo yamaha wates',
+            'promo yamaha kulon progo',
+            'kredit motor yamaha wates',
+            'kredit motor yamaha kulon progo',
+            'yamaha wates terdekat',
+            'yamaha kulon progo terdekat',
             
-            // Harga & Promo 2026
+            // Kecamatan di Kulon Progo (EXHAUSTIVE)
+            'yamaha sentolo',
+            'dealer yamaha sentolo',
+            'yamaha nanggulan',
+            'dealer yamaha nanggulan',
+            'yamaha galur',
+            'dealer yamaha galur',
+            'yamaha lendah',
+            'dealer yamaha lendah',
+            'yamaha pengasih',
+            'dealer yamaha pengasih',
+            'yamaha panjatan',
+            'dealer yamaha panjatan',
+            'yamaha girimulyo',
+            'dealer yamaha girimulyo',
+            'yamaha kokap',
+            'dealer yamaha kokap',
+            'yamaha kalibawang',
+            'dealer yamaha kalibawang',
+            'yamaha samigaluh',
+            'dealer yamaha samigaluh',
+            'yamaha temon',
+            'dealer yamaha temon',
+            
+            // ========================================
+            // TIER 2: HIGH PRIORITY - JOGJA GENERAL
+            // ========================================
+            'dealer yamaha jogja',
+            'yamaha jogja',
+            'dealer resmi yamaha jogja',
+            'showroom motor yamaha jogja',
+            'showroom yamaha jogja',
+            'pusat yamaha jogja',
+            'motor yamaha jogja',
+            'yamaha motor jogja',
+            'dealer yamaha yogyakarta',
+            'yamaha yogyakarta',
+            'showroom yamaha yogyakarta',
+            'harga motor yamaha jogja 2026',
             'harga otr yamaha jogja 2026',
             'promo yamaha jogja 2026',
-            'diskon akhir tahun yamaha jogja',
-            'promo lebaran motor yamaha jogja',
-            'voucher diskon pembelian motor yamaha jogja',
-            'potongan harga cash yamaha jogja',
-            'harga motor yamaha plat ab',
-            'biaya balik nama yamaha jogja',
+            'kredit motor yamaha jogja',
+            'yamaha jogja terdekat',
             
-            // II. KATA KUNCI PRODUK (Model Specific)
-            // MAXI
-            'yamaha nmax turbo jogja',
-            'harga nmax neo jogja',
-            'kredit nmax turbo tech max jogja',
-            'nmax generasi terbaru jogja',
-            'aerox 155 connected abs jogja',
-            'aerox cyber city jogja',
-            'harga aerox standard jogja',
-            'yamaha xmax tech max jogja',
-            'harga xmax 250 connected jogja',
-            'yamaha lexi lx 155 jogja',
-            
-            // CLASSY
-            'yamaha fazzio hybrid connected jogja',
-            'fazzio neo vs lux jogja',
-            'harga fazzio warna mint jogja',
-            'kredit fazzio dp ringan jogja',
-            'yamaha grand filano hybrid connected jogja',
-            'grand filano lux jogja',
-            
-            // SPORT
-            'yamaha r15m connected abs jogja',
-            'harga r25 jogja',
-            'yamaha r15 v4 jogja',
-            'yamaha mt-25 jogja',
-            'yamaha mt-15 jogja',
-            'yamaha xsr 155 jogja',
-            'yamaha wr 155 r jogja',
-            'harga motor trail yamaha jogja',
-            
-            // MOPED & MATIC ENTRY
-            'yamaha gear 125 s version jogja',
-            'yamaha mio m3 125 cw jogja',
-            'yamaha fino grande 125 jogja',
-            'yamaha x-ride 125 jogja',
-            'yamaha jupiter z1 jogja',
-            'yamaha vega force jogja',
-            
-            // III. KATA KUNCI GEO-SPATIAL (Micro-Local SEO)
-            // Kabupaten & Kota
+            // ========================================
+            // TIER 3: SLEMAN AREA (EXHAUSTIVE)
+            // ========================================
+            'dealer yamaha sleman',
             'yamaha sleman',
+            'showroom yamaha sleman',
+            'yamaha depok sleman',
+            'dealer yamaha depok',
+            'yamaha seturan',
+            'dealer yamaha seturan',
+            'yamaha gejayan',
+            'dealer yamaha gejayan',
+            'yamaha godean',
+            'dealer yamaha godean',
+            'yamaha kalasan',
+            'dealer yamaha kalasan',
+            'yamaha jalan magelang',
+            'dealer yamaha jalan magelang',
+            'yamaha jalan kaliurang',
+            'dealer yamaha jalan kaliurang',
+            'yamaha jakal',
+            'dealer yamaha jakal',
+            'yamaha mlati',
+            'dealer yamaha mlati',
+            'yamaha gamping',
+            'dealer yamaha gamping',
+            'yamaha ngaglik',
+            'dealer yamaha ngaglik',
+            'yamaha seyegan',
+            'dealer yamaha seyegan',
+            'yamaha minggir',
+            'dealer yamaha minggir',
+            'yamaha moyudan',
+            'dealer yamaha moyudan',
+            'yamaha tempel',
+            'dealer yamaha tempel',
+            'yamaha turi',
+            'dealer yamaha turi',
+            'yamaha pakem',
+            'dealer yamaha pakem',
+            'yamaha cangkringan',
+            'dealer yamaha cangkringan',
+            'yamaha prambanan',
+            'dealer yamaha prambanan',
+            
+            // ========================================
+            // TIER 4: BANTUL AREA (EXHAUSTIVE)
+            // ========================================
+            'dealer yamaha bantul',
             'yamaha bantul',
-            'yamaha kulon progo',
-            'yamaha wates',
+            'showroom yamaha bantul',
+            'yamaha sewon',
+            'dealer yamaha sewon',
+            'yamaha kasihan',
+            'dealer yamaha kasihan',
+            'yamaha jalan parangtritis',
+            'dealer yamaha jalan parangtritis',
+            'yamaha banguntapan',
+            'dealer yamaha banguntapan',
+            'yamaha imogiri',
+            'dealer yamaha imogiri',
+            'yamaha pandak',
+            'dealer yamaha pandak',
+            'yamaha bambanglipuro',
+            'dealer yamaha bambanglipuro',
+            'yamaha piyungan',
+            'dealer yamaha piyungan',
+            'yamaha pleret',
+            'dealer yamaha pleret',
+            'yamaha jetis bantul',
+            'dealer yamaha jetis bantul',
+            'yamaha sanden',
+            'dealer yamaha sanden',
+            'yamaha kretek',
+            'dealer yamaha kretek',
+            'yamaha pundong',
+            'dealer yamaha pundong',
+            'yamaha dlingo',
+            'dealer yamaha dlingo',
+            
+            // ========================================
+            // TIER 5: GUNUNG KIDUL AREA
+            // ========================================
+            'dealer yamaha gunung kidul',
             'yamaha gunung kidul',
             'yamaha wonosari',
+            'dealer yamaha wonosari',
+            'yamaha playen',
+            'dealer yamaha playen',
+            'yamaha gedangsari',
+            'dealer yamaha gedangsari',
+            'yamaha nglipar',
+            'dealer yamaha nglipar',
+            'yamaha semanu',
+            'dealer yamaha semanu',
+            
+            // ========================================
+            // TIER 6: KOTA YOGYAKARTA
+            // ========================================
             'yamaha kota yogyakarta',
-            
-            // Kecamatan/Area Padat
-            'yamaha depok',
-            'yamaha seturan',
-            'yamaha gejayan',
-            'yamaha godean',
-            'yamaha kalasan',
-            'yamaha jalan magelang',
-            'yamaha jalan kaliurang',
-            'yamaha jakal',
+            'dealer yamaha kota yogyakarta',
             'yamaha umbulharjo',
+            'dealer yamaha umbulharjo',
             'yamaha kotagede',
+            'dealer yamaha kotagede',
             'yamaha jetis',
+            'dealer yamaha jetis',
             'yamaha malioboro',
+            'dealer yamaha malioboro',
             'yamaha gondokusuman',
-            'yamaha sewon',
-            'yamaha kasihan',
-            'yamaha jalan parangtritis',
-            'yamaha banguntapan',
-            'yamaha imogiri',
-            'yamaha prambanan',
-            'yamaha tempel',
-            'yamaha piyungan',
+            'dealer yamaha gondokusuman',
+            'yamaha mergangsan',
+            'dealer yamaha mergangsan',
+            'yamaha mantrijeron',
+            'dealer yamaha mantrijeron',
+            'yamaha kraton',
+            'dealer yamaha kraton',
+            'yamaha pakualaman',
+            'dealer yamaha pakualaman',
+            'yamaha danurejan',
+            'dealer yamaha danurejan',
+            'yamaha gedongtengen',
+            'dealer yamaha gedongtengen',
+            'yamaha ngampilan',
+            'dealer yamaha ngampilan',
+            'yamaha wirobrajan',
+            'dealer yamaha wirobrajan',
+            'yamaha tegalrejo',
+            'dealer yamaha tegalrejo',
             
-            // IV. KATA KUNCI FINANSIAL & KREDIT
+            // ========================================
+            // TIER 7: HARGA & PROMO (ULTRA SPECIFIC)
+            // ========================================
+            'harga nmax wates',
+            'harga nmax kulon progo',
+            'harga nmax jogja',
+            'harga aerox wates',
+            'harga aerox kulon progo',
+            'harga aerox jogja',
+            'harga fazzio wates',
+            'harga fazzio kulon progo',
+            'harga fazzio jogja',
+            'harga r15 wates',
+            'harga r15 kulon progo',
+            'harga r15 jogja',
+            'harga xsr155 wates',
+            'harga xsr155 kulon progo',
+            'harga xsr155 jogja',
+            'harga lexi wates',
+            'harga lexi kulon progo',
+            'harga lexi jogja',
+            'harga xmax wates',
+            'harga xmax kulon progo',
+            'harga xmax jogja',
+            'harga mt15 wates',
+            'harga mt15 kulon progo',
+            'harga mt15 jogja',
+            'harga grand filano wates',
+            'harga grand filano kulon progo',
+            'harga grand filano jogja',
+            'harga gear 125 wates',
+            'harga gear 125 kulon progo',
+            'harga gear 125 jogja',
+            'harga mio m3 wates',
+            'harga mio m3 kulon progo',
+            'harga mio m3 jogja',
+            
+            // Promo Spesifik
+            'promo motor yamaha wates',
+            'promo motor yamaha kulon progo',
+            'promo motor yamaha jogja',
+            'diskon yamaha wates',
+            'diskon yamaha kulon progo',
+            'diskon yamaha jogja',
+            'cashback yamaha wates',
+            'cashback yamaha kulon progo',
+            'cashback yamaha jogja',
+            
+            // ========================================
+            // TIER 8: KREDIT & FINANSIAL (ULTRA DETAILED)
+            // ========================================
+            'kredit motor yamaha wates',
+            'kredit motor yamaha kulon progo',
             'kredit motor yamaha jogja',
-            'cash tempo motor yamaha jogja',
-            'arisan motor yamaha jogja',
-            'kredit motor dp 0 jogja',
-            'dp 500rb motor yamaha jogja',
-            'angsuran 500 ribuan yamaha jogja',
-            'tabel angsuran yamaha jogja terbaru',
-            'kredit yamaha via baf jogja',
-            'kredit yamaha adira jogja',
-            'kredit yamaha wom finance jogja',
-            'syarat kredit motor bca finance',
+            'kredit nmax wates',
+            'kredit nmax kulon progo',
+            'kredit nmax jogja',
+            'kredit aerox wates',
+            'kredit aerox kulon progo',
+            'kredit aerox jogja',
+            'dp 0 yamaha wates',
+            'dp 0 yamaha kulon progo',
+            'dp 0 yamaha jogja',
+            'dp 500rb yamaha wates',
+            'dp 500rb yamaha kulon progo',
+            'dp 500rb yamaha jogja',
+            'dp 1 juta yamaha wates',
+            'dp 1 juta yamaha kulon progo',
+            'dp 1 juta yamaha jogja',
+            'angsuran 500rb yamaha wates',
+            'angsuran 500rb yamaha kulon progo',
+            'angsuran 500rb yamaha jogja',
+            'angsuran 1 juta yamaha wates',
+            'angsuran 1 juta yamaha kulon progo',
+            'angsuran 1 juta yamaha jogja',
+            'cicilan ringan yamaha wates',
+            'cicilan ringan yamaha kulon progo',
+            'cicilan ringan yamaha jogja',
+            'kredit tanpa survey wates',
+            'kredit tanpa survey kulon progo',
+            'kredit tanpa survey jogja',
+            'kredit motor ktp luar wates',
+            'kredit motor ktp luar kulon progo',
             'kredit motor ktp luar jogja',
-            'kredit motor untuk anak kos jogja',
-            'kredit motor tanpa slip gaji jogja',
             
-            // V. KATA KUNCI BERBASIS PENGGUNA (Persona)
-            'motor yamaha terbaik untuk mahasiswa jogja',
-            'diskon motor mahasiswa ugm',
-            'diskon motor mahasiswa uny',
-            'diskon motor mahasiswa uii',
-            'motor irit untuk kuliah jogja',
-            'motor yamaha paling irit untuk grab jogja',
-            'motor yamaha paling irit untuk gojek jogja',
-            'skema kredit motor khusus ojol jogja',
-            'motor yamaha untuk kurir paket jogja',
-            'motor bagasi besar untuk belanja pasar jogja',
-            'motor yamaha ringan untuk wanita jogja',
-            'pilihan warna motor cewek yamaha jogja',
+            // Leasing Spesifik
+            'kredit yamaha baf wates',
+            'kredit yamaha baf kulon progo',
+            'kredit yamaha baf jogja',
+            'kredit yamaha adira wates',
+            'kredit yamaha adira kulon progo',
+            'kredit yamaha adira jogja',
+            'kredit yamaha wom finance wates',
+            'kredit yamaha wom finance kulon progo',
+            'kredit yamaha wom finance jogja',
+            'kredit yamaha bca finance wates',
+            'kredit yamaha bca finance kulon progo',
+            'kredit yamaha bca finance jogja',
             
-            // VI. KATA KUNCI SEMANTIK & LSI
-            'teknologi blue core hybrid yamaha',
-            'fitur y-connect yamaha',
-            'vva variable valve actuation',
-            'garansi rangka 5 tahun yamaha',
-            'bengkel service injeksi yamaha jogja',
-            'sparepart asli yamaha jogja',
-            'oli yamalube asli jogja',
-            'smart key system keyless yamaha',
+            // ========================================
+            // TIER 9: MODEL SPECIFIC (EXHAUSTIVE)
+            // ========================================
+            // NMAX Series
+            'yamaha nmax turbo wates',
+            'yamaha nmax turbo kulon progo',
+            'yamaha nmax turbo jogja',
+            'nmax connected wates',
+            'nmax connected kulon progo',
+            'nmax connected jogja',
+            'nmax tech max wates',
+            'nmax tech max kulon progo',
+            'nmax tech max jogja',
             
-            // VII. KATA KUNCI PERBANDINGAN
+            // Aerox Series
+            'aerox 155 connected wates',
+            'aerox 155 connected kulon progo',
+            'aerox 155 connected jogja',
+            'aerox s version wates',
+            'aerox s version kulon progo',
+            'aerox s version jogja',
+            
+            // Fazzio Series
+            'fazzio hybrid connected wates',
+            'fazzio hybrid connected kulon progo',
+            'fazzio hybrid connected jogja',
+            'fazzio neo wates',
+            'fazzio neo kulon progo',
+            'fazzio neo jogja',
+            
+            // R Series
+            'r15 connected wates',
+            'r15 connected kulon progo',
+            'r15 connected jogja',
+            'r15 v4 wates',
+            'r15 v4 kulon progo',
+            'r15 v4 jogja',
+            'r25 wates',
+            'r25 kulon progo',
+            'r25 jogja',
+            
+            // ========================================
+            // TIER 10: PERSONA & USE CASE
+            // ========================================
+            'motor yamaha untuk mahasiswa wates',
+            'motor yamaha untuk mahasiswa kulon progo',
+            'motor yamaha untuk mahasiswa jogja',
+            'motor yamaha untuk ojol wates',
+            'motor yamaha untuk ojol kulon progo',
+            'motor yamaha untuk ojol jogja',
+            'motor yamaha untuk wanita wates',
+            'motor yamaha untuk wanita kulon progo',
+            'motor yamaha untuk wanita jogja',
+            'motor yamaha irit wates',
+            'motor yamaha irit kulon progo',
+            'motor yamaha irit jogja',
+            'motor yamaha matic wates',
+            'motor yamaha matic kulon progo',
+            'motor yamaha matic jogja',
+            'motor yamaha sport wates',
+            'motor yamaha sport kulon progo',
+            'motor yamaha sport jogja',
+            
+            // ========================================
+            // TIER 11: LONG TAIL QUESTIONS
+            // ========================================
+            'dealer yamaha terdekat dari wates',
+            'dealer yamaha terdekat dari kulon progo',
+            'dealer yamaha terdekat dari jogja',
+            'alamat dealer yamaha di wates',
+            'alamat dealer yamaha di kulon progo',
+            'alamat dealer yamaha di jogja',
+            'nomor telepon dealer yamaha wates',
+            'nomor telepon dealer yamaha kulon progo',
+            'nomor telepon dealer yamaha jogja',
+            'jam buka dealer yamaha wates',
+            'jam buka dealer yamaha kulon progo',
+            'jam buka dealer yamaha jogja',
+            'cara ke dealer yamaha wates',
+            'cara ke dealer yamaha kulon progo',
+            'cara ke dealer yamaha jogja',
+            
+            // ========================================
+            // TIER 12: SERVICE & SPARE PART
+            // ========================================
+            'service yamaha wates',
+            'service yamaha kulon progo',
+            'service yamaha jogja',
+            'bengkel yamaha wates',
+            'bengkel yamaha kulon progo',
+            'bengkel yamaha jogja',
+            'spare part yamaha wates',
+            'spare part yamaha kulon progo',
+            'spare part yamaha jogja',
+            'oli yamalube wates',
+            'oli yamalube kulon progo',
+            'oli yamalube jogja',
+            
+            // ========================================
+            // TIER 13: COMPARISON KEYWORDS
+            // ========================================
+            'nmax vs pcx wates',
+            'nmax vs pcx kulon progo',
             'nmax vs pcx jogja',
+            'aerox vs vario wates',
+            'aerox vs vario kulon progo',
+            'aerox vs vario jogja',
+            'fazzio vs scoopy wates',
+            'fazzio vs scoopy kulon progo',
             'fazzio vs scoopy jogja',
-            'grand filano vs stylo jogja',
-            'aerox vs vario 160 jogja',
-            'kelebihan dan kekurangan yamaha gear 125',
-            'perbandingan bunga leasing motor jogja',
             
-            // VIII. LONG TAIL KEYWORDS
-            'dealer yamaha terdekat yang buka hari minggu di jogja',
-            'persyaratan kredit motor yamaha untuk karyawan kontrak di jogja',
-            'berapa lama indent yamaha fazzio di jogja',
-            'cara servis kunjung yamaha ke rumah di area sleman',
-            'daftar harga motor matic yamaha termurah di jogja 2026',
-            
-            // TYPO KEYWORDS (untuk meta tag)
+            // ========================================
+            // TIER 14: TYPO & VARIATIONS
+            // ========================================
             'yamaha yogya',
+            'yamaha yogyakarta',
+            'diler yamaha wates',
+            'diler yamaha kulon progo',
             'diler yamaha jogja',
-            'kredit ymaha jogja',
-            'motor yamah jogja'
+            'dealer yama wates',
+            'dealer yama kulon progo',
+            'dealer yama jogja',
+            
+            // ========================================
+            // TIER 15: BRAND & TRUST SIGNALS
+            // ========================================
+            'dealer resmi yamaha wates',
+            'dealer resmi yamaha kulon progo',
+            'dealer resmi yamaha jogja',
+            'dealer 3s yamaha wates',
+            'dealer 3s yamaha kulon progo',
+            'dealer 3s yamaha jogja',
+            'yamaha motor indonesia wates',
+            'yamaha motor indonesia kulon progo',
+            'yamaha motor indonesia jogja',
+            'sales yamaha wates',
+            'sales yamaha kulon progo',
+            'sales yamaha jogja',
+            'marketing yamaha wates',
+            'marketing yamaha kulon progo',
+            'marketing yamaha jogja',
+            
+            // ========================================
+            // TIER 16: CONTACT & URGENCY
+            // ========================================
+            'wa dealer yamaha wates',
+            'wa dealer yamaha kulon progo',
+            'wa dealer yamaha jogja',
+            'whatsapp yamaha wates',
+            'whatsapp yamaha kulon progo',
+            'whatsapp yamaha jogja',
+            'kontak yamaha wates',
+            'kontak yamaha kulon progo',
+            'kontak yamaha jogja',
+            'sales yamaha 24 jam wates',
+            'sales yamaha 24 jam kulon progo',
+            'sales yamaha 24 jam jogja',
+            'ready stock yamaha wates',
+            'ready stock yamaha kulon progo',
+            'ready stock yamaha jogja',
+            'indent yamaha wates',
+            'indent yamaha kulon progo',
+            'indent yamaha jogja'
         ];
         
         $allKeywords = array_merge($defaultKeywords, $keywords);

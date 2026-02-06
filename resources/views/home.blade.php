@@ -2,10 +2,10 @@
 
 @section('seo')
     <x-seo 
-        title="Dealer Resmi Yamaha Jogja - Harga OTR Motor Yamaha 2026 Termurah"
+        title="Dealer Yamaha Wates Kulon Progo Jogja - Harga Motor 2026 Termurah"
         :suffix="false"
-        description="Dealer Resmi Yamaha Jogja - Showroom Motor Yamaha Terdekat. Harga OTR 2026 NMAX, Aerox, Fazzio, R15, XSR155 termurah. Promo DP 0%, kredit tanpa survey, cicilan ringan. Melayani Sleman, Bantul, Wates, Kulon Progo, Gunung Kidul. Sales Yamaha Jogja 24 Jam via WA. Ready stock semua tipe!"
-        :keywords="['dealer resmi yamaha jogja', 'showroom motor yamaha terdekat', 'harga otr yamaha jogja 2026', 'promo yamaha jogja 2026', 'yamaha nmax jogja', 'yamaha aerox jogja', 'yamaha fazzio jogja', 'kredit motor yamaha jogja', 'yamaha sleman', 'yamaha bantul', 'yamaha wates', 'sales yamaha jogja 24 jam', 'motor yamaha termurah jogja', 'dp 0 yamaha jogja', 'yamaha kulon progo']"
+        description="Dealer Yamaha Wates Kulon Progo Jogja - Showroom Motor Yamaha Terdekat di Wates. Harga OTR 2026 NMAX, Aerox, Fazzio, R15, XSR155 termurah se-Jogja. Promo DP 0%, kredit tanpa survey, cicilan ringan. Melayani Wates, Sentolo, Nanggulan, Galur, Pengasih, Sleman, Bantul, Gunung Kidul. Sales Yamaha 24 Jam WA 0856-4195-6326. Ready stock!"
+        :keywords="['dealer yamaha wates', 'yamaha wates', 'dealer yamaha kulon progo', 'yamaha kulon progo', 'dealer yamaha jogja', 'yamaha jogja', 'harga motor yamaha wates 2026', 'harga motor yamaha kulon progo 2026', 'harga motor yamaha jogja 2026', 'showroom yamaha wates', 'showroom yamaha kulon progo', 'kredit motor yamaha wates', 'kredit motor yamaha kulon progo', 'promo yamaha wates', 'promo yamaha kulon progo']"
         :structured-data="[
             [
                 '@context' => 'https://schema.org',
