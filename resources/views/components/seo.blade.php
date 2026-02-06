@@ -7,13 +7,14 @@
     'type' => 'website',
     'structuredData' => null,
     'noindex' => false,
-    'canonical' => null
+    'canonical' => null,
+    'suffix' => true
 ])
 
 @php
     use App\Helpers\SEOHelper;
     
-    $seoTitle = SEOHelper::generateTitle($title);
+    $seoTitle = SEOHelper::generateTitle($title, $suffix);
     $seoDescription = SEOHelper::generateDescription($description);
     $seoKeywords = SEOHelper::generateKeywords($keywords);
     $canonicalUrl = SEOHelper::generateCanonicalUrl($canonical);
