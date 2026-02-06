@@ -6,7 +6,7 @@ class SEOHelper
 {
     public static function generateTitle($title = null, $suffix = true)
     {
-        $baseTitle = 'Dealer Yamaha Jogja Resmi - Harga Promo & Kredit Murah 2026';
+        $baseTitle = 'Dealer Yamaha Jogja Wates - Harga Motor 2026 OTR Jogja';
         
         if (!$title) {
             return $baseTitle;
@@ -21,7 +21,7 @@ class SEOHelper
     
     public static function generateDescription($description = null)
     {
-        $defaultDescription = 'Dealer resmi Yamaha Jogja - Jual motor Yamaha terbaru 2026 dengan harga OTR Jogja terbaik, promo DP murah, cicilan 0%, kredit tanpa survey. Melayani Sleman, Bantul, Kulon Progo, Gunung Kidul. Showroom Yamaha terlengkap di Yogyakarta dengan layanan purna jual terpercaya.';
+        $defaultDescription = 'Dealer Yamaha Jogja Wates Kulon Progo - Jual motor Yamaha 2026 harga OTR Jogja termurah, promo DP 0%, cicilan ringan tanpa survey. Melayani Sleman, Bantul, Kulon Progo, Gunung Kidul. NMAX, Aerox, R15, Fazzio, XSR155 ready stock. Showroom Yamaha terlengkap di Yogyakarta.';
         
         return $description ?: $defaultDescription;
     }
@@ -29,100 +29,98 @@ class SEOHelper
     public static function generateKeywords($keywords = [])
     {
         $defaultKeywords = [
-            // Core Keywords
+            // PRIMARY KEYWORDS - Paling Penting
             'dealer yamaha jogja',
             'yamaha jogja',
-            'motor yamaha jogja',
-            'showroom yamaha jogja',
-            'dealer resmi yamaha yogyakarta',
-            'pusat motor yamaha jogja',
+            'dealer yamaha wates',
+            'yamaha wates',
+            'dealer yamaha kulon progo',
+            'yamaha kulon progo',
             
-            // Geo-Targeting - Kota & Kabupaten
+            // SECONDARY KEYWORDS - Lokasi Spesifik
             'dealer yamaha sleman',
             'dealer yamaha bantul',
-            'dealer yamaha kulon progo',
             'dealer yamaha gunung kidul',
+            'yamaha sleman',
+            'yamaha bantul',
+            'yamaha gunung kidul',
             'yamaha jogja kota',
+            'yamaha yogyakarta',
+            'dealer yamaha yogyakarta',
             
-            // Geo-Targeting - Area Spesifik
-            'yamaha wates',
-            'dealer yamaha wates',
-            'yamaha depok sleman',
+            // HARGA & TAHUN - Sangat Penting
+            'harga motor yamaha jogja 2026',
+            'harga motor yamaha wates 2026',
+            'harga yamaha jogja 2026',
+            'motor yamaha jogja 2026',
+            'motor yamaha wates 2026',
+            'harga otr yamaha jogja',
+            'harga otr yamaha wates',
+            'pricelist yamaha jogja 2026',
+            'daftar harga yamaha jogja',
+            
+            // MODEL SPECIFIC + LOKASI
+            'harga nmax jogja',
+            'harga nmax wates',
+            'harga aerox jogja',
+            'harga aerox wates',
+            'harga r15 jogja',
+            'harga fazzio jogja',
+            'harga xsr155 jogja',
+            'harga lexi jogja',
+            'harga xmax jogja',
+            'harga mt15 jogja',
+            
+            // PROMO & KREDIT + LOKASI
+            'promo yamaha jogja',
+            'promo yamaha wates',
+            'promo motor yamaha jogja 2026',
+            'kredit motor yamaha jogja',
+            'kredit motor yamaha wates',
+            'dp motor yamaha jogja',
+            'cicilan motor yamaha jogja',
+            'kredit yamaha jogja tanpa survey',
+            
+            // SHOWROOM & DEALER
+            'showroom yamaha jogja',
+            'showroom yamaha wates',
+            'dealer resmi yamaha jogja',
+            'dealer resmi yamaha wates',
+            'pusat yamaha jogja',
+            'toko motor yamaha jogja',
+            
+            // AREA SPESIFIK JOGJA
             'yamaha jalan magelang',
             'yamaha jalan kaliurang',
+            'yamaha depok sleman',
             'yamaha godean',
             'yamaha sewon bantul',
+            'yamaha sentolo',
+            'yamaha nanggulan',
             
-            // Harga & Brosur
-            'daftar harga motor yamaha jogja 2026',
-            'pricelist yamaha jogja terbaru',
-            'brosur kredit yamaha jogja',
-            'harga otr yamaha jogja',
-            'harga motor yamaha jogja 2026',
+            // LONG TAIL KEYWORDS
+            'dealer yamaha terdekat jogja',
+            'dealer yamaha terdekat wates',
+            'beli motor yamaha di jogja',
+            'beli motor yamaha di wates',
+            'motor yamaha murah jogja',
+            'motor yamaha murah wates',
+            'yamaha jogja dp murah',
+            'yamaha wates dp murah',
             
-            // Promo & Diskon
-            'promo motor yamaha jogja',
-            'promo motor yamaha jogja bulan ini',
-            'diskon dealer yamaha jogja',
-            'cashback beli motor yamaha jogja',
-            'promo yamaha jogja 2026',
-            
-            // Kredit & Angsuran
-            'kredit motor murah jogja',
-            'simulasi kredit motor yamaha jogja',
-            'dp minim motor yamaha jogja',
-            'angsuran ringan yamaha jogja',
-            'kredit motor yamaha tanpa survey jogja',
-            'syarat kredit motor yamaha jogja',
-            'cicilan motor yamaha jogja',
-            'kredit motor yamaha jogja',
-            
-            // Target Pasar Khusus
-            'kredit motor mahasiswa jogja',
-            'promo yamaha untuk mahasiswa jogja',
-            'kredit motor untuk pns jogja',
-            'kredit motor untuk karyawan jogja',
-            'motor yamaha cocok untuk ojol jogja',
-            'kredit syariah motor yamaha jogja',
-            
-            // Model Specific - MAXI
-            'harga nmax jogja',
-            'kredit yamaha nmax jogja',
-            'harga aerox connected jogja',
-            'yamaha xmax jogja',
-            'yamaha lexi lx 155 jogja',
-            'promo yamaha nmax jogja',
-            
-            // Model Specific - Classy
-            'yamaha fazzio jogja',
-            'harga grand filano jogja',
-            'warna baru fazzio jogja',
-            'indent grand filano jogja',
-            
-            // Model Specific - Sport & Moped
-            'yamaha r15 connected jogja',
-            'yamaha mt-15 jogja',
-            'yamaha xsr 155 jogja',
-            'yamaha wr 155 jogja',
-            'yamaha jupiter z1 jogja',
-            'yamaha vega force jogja',
-            
-            // Model Specific - Matic Entry
-            'yamaha mio m3 jogja',
-            'yamaha gear 125 jogja',
-            'yamaha fino jogja',
-            
-            // Long-tail Keywords
-            'dealer yamaha terdekat dari lokasi saya',
-            'perbandingan nmax dan pcx jogja',
-            'alamat dealer yamaha terlengkap di jogja',
-            'cara pengajuan kredit motor yamaha online jogja',
-            'testimoni pembelian di yamahajogja',
-            'layanan service kunjung yamaha jogja',
-            'bengkel resmi yamaha jogja',
+            // SERVICE & SPARE PART
             'service yamaha jogja',
+            'service yamaha wates',
             'spare part yamaha jogja',
-            'spare part original yamaha jogja'
+            'spare part yamaha wates',
+            'bengkel yamaha jogja',
+            'bengkel yamaha wates',
+            
+            // TARGET MARKET
+            'motor yamaha untuk mahasiswa jogja',
+            'kredit motor yamaha pns jogja',
+            'motor yamaha ojol jogja',
+            'motor yamaha karyawan jogja'
         ];
         
         $allKeywords = array_merge($defaultKeywords, $keywords);

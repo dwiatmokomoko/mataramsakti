@@ -2,9 +2,9 @@
 
 @section('seo')
     <x-seo 
-        title="Yamaha Motor Indonesia - Dealer Resmi Motor Yamaha Terbaru"
-        description="Dealer resmi Yamaha Motor Indonesia. Jual motor Yamaha terbaru 2024 dengan harga terbaik, cicilan 0%, dan layanan purna jual terpercaya. Temukan NMAX, R15, Aerox, XMAX, dan semua motor Yamaha."
-        :keywords="['yamaha motor indonesia', 'dealer yamaha', 'motor yamaha 2024', 'harga motor yamaha', 'yamaha nmax', 'yamaha r15', 'yamaha aerox', 'yamaha xmax', 'cicilan motor yamaha 0%', 'kredit motor yamaha', 'service yamaha', 'spare part yamaha original']"
+        title="Dealer Yamaha Jogja Wates - Harga Motor Yamaha 2026 OTR Jogja Termurah"
+        description="Dealer Yamaha Jogja Wates Kulon Progo - Jual motor Yamaha 2026 harga OTR Jogja termurah, promo DP 0%, cicilan ringan. Melayani Sleman, Bantul, Kulon Progo, Gunung Kidul. NMAX, Aerox, R15, Fazzio, XSR155 ready stock!"
+        :keywords="['dealer yamaha jogja', 'yamaha jogja', 'dealer yamaha wates', 'yamaha wates', 'harga motor yamaha jogja 2026', 'dealer yamaha kulon progo', 'yamaha sleman', 'yamaha bantul', 'dealer yamaha yogyakarta', 'harga nmax jogja', 'harga aerox jogja', 'kredit motor yamaha jogja', 'promo yamaha jogja', 'showroom yamaha jogja', 'yamaha jogja kota']"
         :structured-data="[
             [
                 '@context' => 'https://schema.org',
