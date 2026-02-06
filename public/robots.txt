@@ -1,2 +1,17 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin
+Disallow: /login
+Disallow: /register
+
+Sitemap: http://yamahajogja.id:20275/sitemap.xml
+
+# Specific for Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Specific for Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
