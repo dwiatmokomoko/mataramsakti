@@ -4,30 +4,53 @@
     @php
         use App\Helpers\SEOHelper;
         
-        $motorTitle = $motor->name . ' - Motor Yamaha Terbaru ' . date('Y');
-        $motorDescription = "Jual {$motor->name} Yamaha terbaru dengan harga mulai dari " . 
-                           ($motor->models->min('price_otr') ? 'Rp ' . number_format($motor->models->min('price_otr'), 0, ',', '.') : 'harga terbaik') . 
-                           ". Cicilan 0%, garansi resmi, dan layanan purna jual terpercaya. Spesifikasi lengkap {$motor->name}.";
+        // Generate location-specific title
+        $motorTitle = $motor->name . ' Wates Kulon Progo - Harga OTR Jogja ' . date('Y');
         
+        // Get price range
+        $minPrice = $motor->models->min('price_otr');
+        $maxPrice = $motor->models->max('price_otr');
+        $priceText = $minPrice ? 'Rp ' . number_format($minPrice, 0, ',', '.') : 'harga terbaik';
+        if ($minPrice && $maxPrice && $minPrice != $maxPrice) {
+            $priceText .= ' - Rp ' . number_format($maxPrice, 0, ',', '.');
+        }
+        
+        // Rich description with location and specs
+        $motorDescription = "Jual {$motor->name} Yamaha di Wates, Kulon Progo, Yogyakarta. Harga OTR Jogja mulai {$priceText}. " .
+                           "Cicilan 0%, DP ringan, proses cepat. Dealer resmi Yamaha melayani Wates, Sentolo, Nanggulan, Galur, Lendah, Pengasih, Panjatan, dan sekitar Kulon Progo. " .
+                           "Spesifikasi lengkap {$motor->name}, test drive, trade-in, dan layanan purna jual terpercaya.";
+        
+        // Location-specific keywords
         $motorKeywords = [
-            strtolower($motor->name),
-            'yamaha ' . strtolower($motor->name),
-            'harga ' . strtolower($motor->name),
+            strtolower($motor->name) . ' wates',
+            'yamaha ' . strtolower($motor->name) . ' wates',
+            'harga ' . strtolower($motor->name) . ' wates',
+            strtolower($motor->name) . ' kulon progo',
+            'yamaha ' . strtolower($motor->name) . ' kulon progo',
+            'harga ' . strtolower($motor->name) . ' kulon progo',
+            strtolower($motor->name) . ' jogja',
+            'harga ' . strtolower($motor->name) . ' jogja',
+            'harga otr ' . strtolower($motor->name) . ' jogja',
             'spesifikasi ' . strtolower($motor->name),
-            'cicilan ' . strtolower($motor->name),
-            strtolower($motor->category) . ' yamaha',
-            'motor ' . strtolower($motor->category)
+            'cicilan ' . strtolower($motor->name) . ' wates',
+            'kredit ' . strtolower($motor->name) . ' kulon progo',
+            'dp ' . strtolower($motor->name) . ' jogja',
+            strtolower($motor->category) . ' yamaha wates',
+            'motor ' . strtolower($motor->category) . ' kulon progo',
+            'dealer yamaha wates',
+            'showroom yamaha kulon progo'
         ];
         
         $motorImage = $motor->models->first()?->image ? 
                      asset('storage/' . $motor->models->first()->image) : 
                      asset('images/yamaha-' . strtolower($motor->name) . '.jpg');
         
+        // Enhanced structured data with location and offers
         $structuredData = [
             [
                 '@context' => 'https://schema.org',
                 '@type' => 'Product',
-                'name' => $motor->name,
+                'name' => $motor->name . ' Yamaha',
                 'description' => $motorDescription,
                 'brand' => [
                     '@type' => 'Brand',
@@ -39,24 +62,88 @@
                 ],
                 'category' => $motor->category,
                 'image' => $motorImage,
-                'url' => request()->url()
+                'url' => request()->url(),
+                'sku' => 'YAMAHA-' . strtoupper($motor->name),
+                'mpn' => strtoupper($motor->name)
+            ],
+            [
+                '@context' => 'https://schema.org',
+                '@type' => 'MotorcycleDealer',
+                'name' => 'Yamaha Wates Kulon Progo',
+                'description' => 'Dealer resmi Yamaha di Wates, Kulon Progo, Yogyakarta',
+                'url' => config('app.url'),
+                'address' => [
+                    '@type' => 'PostalAddress',
+                    'addressLocality' => 'Wates',
+                    'addressRegion' => 'Kulon Progo',
+                    'addressCountry' => 'ID',
+                    'postalCode' => '55611'
+                ],
+                'geo' => [
+                    '@type' => 'GeoCoordinates',
+                    'latitude' => '-7.8567',
+                    'longitude' => '110.1594'
+                ],
+                'areaServed' => [
+                    'Wates', 'Sentolo', 'Nanggulan', 'Galur', 'Lendah', 
+                    'Pengasih', 'Panjatan', 'Girimulyo', 'Kokap', 'Kalibawang', 
+                    'Samigaluh', 'Kulon Progo', 'Yogyakarta'
+                ],
+                'priceRange' => 'Rp 15.000.000 - Rp 500.000.000',
+                'telephone' => '+62-856-4195-6326',
+                'openingHours' => 'Mo-Su 08:00-17:00'
             ]
         ];
         
+        // Add offers for each model
         if ($motor->models->count() > 0) {
             $offers = [];
             foreach ($motor->models as $model) {
-                $offers[] = [
+                $offer = [
                     '@type' => 'Offer',
                     'name' => $model->full_name,
                     'price' => $model->price_otr,
                     'priceCurrency' => 'IDR',
                     'availability' => $model->is_active ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+                    'priceValidUntil' => date('Y-12-31'),
+                    'itemCondition' => 'https://schema.org/NewCondition',
                     'seller' => [
                         '@type' => 'Organization',
-                        'name' => 'Yamaha Motor Indonesia'
+                        'name' => 'Yamaha Wates Kulon Progo'
+                    ],
+                    'areaServed' => [
+                        '@type' => 'City',
+                        'name' => 'Wates, Kulon Progo, Yogyakarta'
                     ]
                 ];
+                
+                // Add specifications if available
+                if ($model->specifications && count($model->specifications) > 0) {
+                    $specs = $model->specifications;
+                    if (isset($specs['kapasitas_mesin'])) {
+                        $offer['additionalProperty'][] = [
+                            '@type' => 'PropertyValue',
+                            'name' => 'Kapasitas Mesin',
+                            'value' => $specs['kapasitas_mesin']
+                        ];
+                    }
+                    if (isset($specs['daya_maksimum'])) {
+                        $offer['additionalProperty'][] = [
+                            '@type' => 'PropertyValue',
+                            'name' => 'Daya Maksimum',
+                            'value' => $specs['daya_maksimum']
+                        ];
+                    }
+                    if (isset($specs['torsi_maksimum'])) {
+                        $offer['additionalProperty'][] = [
+                            '@type' => 'PropertyValue',
+                            'name' => 'Torsi Maksimum',
+                            'value' => $specs['torsi_maksimum']
+                        ];
+                    }
+                }
+                
+                $offers[] = $offer;
             }
             $structuredData[0]['offers'] = $offers;
         }
