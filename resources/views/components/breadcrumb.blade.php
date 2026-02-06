@@ -34,18 +34,18 @@
 <!-- Structured Data for Breadcrumb -->
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
+    "@@context": "https://schema.org",
+    "@@type": "BreadcrumbList",
     "itemListElement": [
         {
-            "@type": "ListItem",
+            "@@type": "ListItem",
             "position": 1,
             "name": "Home",
             "item": "{{ route('home') }}"
         }
         @foreach($items as $index => $item)
         ,{
-            "@type": "ListItem",
+            "@@type": "ListItem",
             "position": {{ $index + 2 }},
             "name": "{{ $item['title'] }}"
             @if(isset($item['url']) && !$loop->last)
