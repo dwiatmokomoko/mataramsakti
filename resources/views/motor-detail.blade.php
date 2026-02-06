@@ -4,8 +4,8 @@
     @php
         use App\Helpers\SEOHelper;
         
-        // Generate location-specific title
-        $motorTitle = $motor->name . ' Wates Kulon Progo - Harga OTR Jogja ' . date('Y');
+        // Generate location-specific title with 2026
+        $motorTitle = $motor->name . ' Jogja - Harga OTR & Kredit Murah 2026';
         
         // Get price range
         $minPrice = $motor->models->min('price_otr');
@@ -15,30 +15,66 @@
             $priceText .= ' - Rp ' . number_format($maxPrice, 0, ',', '.');
         }
         
-        // Rich description with location and specs
-        $motorDescription = "Jual {$motor->name} Yamaha di Wates, Kulon Progo, Yogyakarta. Harga OTR Jogja mulai {$priceText}. " .
-                           "Cicilan 0%, DP ringan, proses cepat. Dealer resmi Yamaha melayani Wates, Sentolo, Nanggulan, Galur, Lendah, Pengasih, Panjatan, dan sekitar Kulon Progo. " .
-                           "Spesifikasi lengkap {$motor->name}, test drive, trade-in, dan layanan purna jual terpercaya.";
+        // Rich description with comprehensive info
+        $motorDescription = "Jual {$motor->name} Yamaha di Jogja - Harga OTR Jogja 2026 mulai {$priceText}. " .
+                           "Dealer resmi Yamaha Jogja melayani Sleman, Bantul, Kulon Progo, Gunung Kidul. " .
+                           "Promo DP murah, cicilan 0%, kredit tanpa survey, angsuran ringan. " .
+                           "Spesifikasi lengkap {$motor->name}, test drive gratis, trade-in, garansi resmi, dan layanan purna jual terpercaya. " .
+                           "Showroom Yamaha terlengkap di Yogyakarta.";
         
-        // Location-specific keywords
+        // Comprehensive location-specific keywords
         $motorKeywords = [
-            strtolower($motor->name) . ' wates',
-            'yamaha ' . strtolower($motor->name) . ' wates',
-            'harga ' . strtolower($motor->name) . ' wates',
-            strtolower($motor->name) . ' kulon progo',
-            'yamaha ' . strtolower($motor->name) . ' kulon progo',
-            'harga ' . strtolower($motor->name) . ' kulon progo',
+            // Model + Lokasi Utama
             strtolower($motor->name) . ' jogja',
+            'yamaha ' . strtolower($motor->name) . ' jogja',
             'harga ' . strtolower($motor->name) . ' jogja',
+            'harga ' . strtolower($motor->name) . ' jogja 2026',
             'harga otr ' . strtolower($motor->name) . ' jogja',
-            'spesifikasi ' . strtolower($motor->name),
-            'cicilan ' . strtolower($motor->name) . ' wates',
-            'kredit ' . strtolower($motor->name) . ' kulon progo',
+            'harga otr ' . strtolower($motor->name) . ' jogja 2026',
+            
+            // Model + Kabupaten
+            strtolower($motor->name) . ' sleman',
+            strtolower($motor->name) . ' bantul',
+            strtolower($motor->name) . ' kulon progo',
+            strtolower($motor->name) . ' wates',
+            'yamaha ' . strtolower($motor->name) . ' sleman',
+            'yamaha ' . strtolower($motor->name) . ' bantul',
+            
+            // Buying Intent
+            'kredit ' . strtolower($motor->name) . ' jogja',
+            'kredit yamaha ' . strtolower($motor->name) . ' jogja',
+            'cicilan ' . strtolower($motor->name) . ' jogja',
             'dp ' . strtolower($motor->name) . ' jogja',
-            strtolower($motor->category) . ' yamaha wates',
-            'motor ' . strtolower($motor->category) . ' kulon progo',
-            'dealer yamaha wates',
-            'showroom yamaha kulon progo'
+            'dp minim ' . strtolower($motor->name) . ' jogja',
+            'angsuran ' . strtolower($motor->name) . ' jogja',
+            'promo ' . strtolower($motor->name) . ' jogja',
+            'promo yamaha ' . strtolower($motor->name) . ' jogja',
+            'promo yamaha ' . strtolower($motor->name) . ' jogja 2026',
+            'diskon ' . strtolower($motor->name) . ' jogja',
+            
+            // Specifications
+            'spesifikasi ' . strtolower($motor->name),
+            'spesifikasi ' . strtolower($motor->name) . ' 2026',
+            'review ' . strtolower($motor->name) . ' jogja',
+            'warna ' . strtolower($motor->name) . ' jogja',
+            'warna baru ' . strtolower($motor->name) . ' 2026',
+            
+            // Category
+            strtolower($motor->category) . ' yamaha jogja',
+            'motor ' . strtolower($motor->category) . ' jogja',
+            'motor ' . strtolower($motor->category) . ' terbaik jogja',
+            
+            // Dealer
+            'dealer yamaha jogja',
+            'dealer resmi yamaha jogja',
+            'showroom yamaha jogja',
+            
+            // Long-tail
+            'beli ' . strtolower($motor->name) . ' di jogja',
+            'indent ' . strtolower($motor->name) . ' jogja',
+            'test drive ' . strtolower($motor->name) . ' jogja',
+            'simulasi kredit ' . strtolower($motor->name) . ' jogja',
+            'syarat kredit ' . strtolower($motor->name) . ' jogja'
         ];
         
         $motorImage = $motor->models->first()?->image ? 
@@ -63,31 +99,31 @@
                 'category' => $motor->category,
                 'image' => $motorImage,
                 'url' => request()->url(),
-                'sku' => 'YAMAHA-' . strtoupper($motor->name),
-                'mpn' => strtoupper($motor->name)
+                'sku' => 'YAMAHA-' . strtoupper($motor->name) . '-2026',
+                'mpn' => strtoupper($motor->name),
+                'releaseDate' => '2026-01-01'
             ],
             [
                 '@context' => 'https://schema.org',
                 '@type' => 'MotorcycleDealer',
-                'name' => 'Yamaha Wates Kulon Progo',
-                'description' => 'Dealer resmi Yamaha di Wates, Kulon Progo, Yogyakarta',
+                'name' => 'Dealer Yamaha Jogja',
+                'description' => 'Dealer resmi Yamaha di Yogyakarta',
                 'url' => config('app.url'),
                 'address' => [
                     '@type' => 'PostalAddress',
-                    'addressLocality' => 'Wates',
-                    'addressRegion' => 'Kulon Progo',
+                    'addressLocality' => 'Yogyakarta',
+                    'addressRegion' => 'D.I. Yogyakarta',
                     'addressCountry' => 'ID',
-                    'postalCode' => '55611'
+                    'postalCode' => '55000'
                 ],
                 'geo' => [
                     '@type' => 'GeoCoordinates',
-                    'latitude' => '-7.8567',
-                    'longitude' => '110.1594'
+                    'latitude' => '-7.7956',
+                    'longitude' => '110.3695'
                 ],
                 'areaServed' => [
-                    'Wates', 'Sentolo', 'Nanggulan', 'Galur', 'Lendah', 
-                    'Pengasih', 'Panjatan', 'Girimulyo', 'Kokap', 'Kalibawang', 
-                    'Samigaluh', 'Kulon Progo', 'Yogyakarta'
+                    'Yogyakarta', 'Sleman', 'Bantul', 'Kulon Progo', 'Gunung Kidul',
+                    'Wates', 'Godean', 'Depok', 'Sewon', 'Sentolo', 'Nanggulan'
                 ],
                 'priceRange' => 'Rp 15.000.000 - Rp 500.000.000',
                 'telephone' => '+62-856-4195-6326',
@@ -105,15 +141,15 @@
                     'price' => $model->price_otr,
                     'priceCurrency' => 'IDR',
                     'availability' => $model->is_active ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
-                    'priceValidUntil' => date('Y-12-31'),
+                    'priceValidUntil' => '2026-12-31',
                     'itemCondition' => 'https://schema.org/NewCondition',
                     'seller' => [
                         '@type' => 'Organization',
-                        'name' => 'Yamaha Wates Kulon Progo'
+                        'name' => 'Dealer Yamaha Jogja'
                     ],
                     'areaServed' => [
                         '@type' => 'City',
-                        'name' => 'Wates, Kulon Progo, Yogyakarta'
+                        'name' => 'Yogyakarta, Sleman, Bantul, Kulon Progo, Gunung Kidul'
                     ]
                 ];
                 

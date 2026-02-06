@@ -6,7 +6,7 @@ class SEOHelper
 {
     public static function generateTitle($title = null, $suffix = true)
     {
-        $baseTitle = 'Yamaha Wates Kulon Progo - Dealer Resmi Yamaha Jogja';
+        $baseTitle = 'Dealer Yamaha Jogja Resmi - Harga Promo & Kredit Murah 2026';
         
         if (!$title) {
             return $baseTitle;
@@ -21,7 +21,7 @@ class SEOHelper
     
     public static function generateDescription($description = null)
     {
-        $defaultDescription = 'Dealer resmi Yamaha di Wates, Kulon Progo, Yogyakarta. Jual motor Yamaha terbaru dengan harga OTR Jogja terbaik, cicilan 0%, DP ringan, dan layanan purna jual terpercaya. Melayani wilayah Wates, Sentolo, Nanggulan, Galur, Lendah, Pengasih, Panjatan, Girimulyo, Kokap, Kalibawang, Samigaluh, dan sekitar Kulon Progo.';
+        $defaultDescription = 'Dealer resmi Yamaha Jogja - Jual motor Yamaha terbaru 2026 dengan harga OTR Jogja terbaik, promo DP murah, cicilan 0%, kredit tanpa survey. Melayani Sleman, Bantul, Kulon Progo, Gunung Kidul. Showroom Yamaha terlengkap di Yogyakarta dengan layanan purna jual terpercaya.';
         
         return $description ?: $defaultDescription;
     }
@@ -29,25 +29,100 @@ class SEOHelper
     public static function generateKeywords($keywords = [])
     {
         $defaultKeywords = [
+            // Core Keywords
+            'dealer yamaha jogja',
+            'yamaha jogja',
+            'motor yamaha jogja',
+            'showroom yamaha jogja',
+            'dealer resmi yamaha yogyakarta',
+            'pusat motor yamaha jogja',
+            
+            // Geo-Targeting - Kota & Kabupaten
+            'dealer yamaha sleman',
+            'dealer yamaha bantul',
+            'dealer yamaha kulon progo',
+            'dealer yamaha gunung kidul',
+            'yamaha jogja kota',
+            
+            // Geo-Targeting - Area Spesifik
             'yamaha wates',
             'dealer yamaha wates',
-            'yamaha kulon progo',
-            'dealer yamaha kulon progo',
-            'motor yamaha jogja',
-            'harga motor yamaha jogja',
-            'yamaha yogyakarta',
-            'dealer yamaha jogja',
-            'motor yamaha wates',
-            'harga otr jogja',
-            'cicilan motor yamaha wates',
-            'kredit motor yamaha kulon progo',
-            'yamaha nmax wates',
-            'yamaha aerox wates',
-            'yamaha r15 kulon progo',
-            'service yamaha wates',
-            'spare part yamaha kulon progo',
-            'dealer resmi yamaha wates',
-            'showroom yamaha kulon progo'
+            'yamaha depok sleman',
+            'yamaha jalan magelang',
+            'yamaha jalan kaliurang',
+            'yamaha godean',
+            'yamaha sewon bantul',
+            
+            // Harga & Brosur
+            'daftar harga motor yamaha jogja 2026',
+            'pricelist yamaha jogja terbaru',
+            'brosur kredit yamaha jogja',
+            'harga otr yamaha jogja',
+            'harga motor yamaha jogja 2026',
+            
+            // Promo & Diskon
+            'promo motor yamaha jogja',
+            'promo motor yamaha jogja bulan ini',
+            'diskon dealer yamaha jogja',
+            'cashback beli motor yamaha jogja',
+            'promo yamaha jogja 2026',
+            
+            // Kredit & Angsuran
+            'kredit motor murah jogja',
+            'simulasi kredit motor yamaha jogja',
+            'dp minim motor yamaha jogja',
+            'angsuran ringan yamaha jogja',
+            'kredit motor yamaha tanpa survey jogja',
+            'syarat kredit motor yamaha jogja',
+            'cicilan motor yamaha jogja',
+            'kredit motor yamaha jogja',
+            
+            // Target Pasar Khusus
+            'kredit motor mahasiswa jogja',
+            'promo yamaha untuk mahasiswa jogja',
+            'kredit motor untuk pns jogja',
+            'kredit motor untuk karyawan jogja',
+            'motor yamaha cocok untuk ojol jogja',
+            'kredit syariah motor yamaha jogja',
+            
+            // Model Specific - MAXI
+            'harga nmax jogja',
+            'kredit yamaha nmax jogja',
+            'harga aerox connected jogja',
+            'yamaha xmax jogja',
+            'yamaha lexi lx 155 jogja',
+            'promo yamaha nmax jogja',
+            
+            // Model Specific - Classy
+            'yamaha fazzio jogja',
+            'harga grand filano jogja',
+            'warna baru fazzio jogja',
+            'indent grand filano jogja',
+            
+            // Model Specific - Sport & Moped
+            'yamaha r15 connected jogja',
+            'yamaha mt-15 jogja',
+            'yamaha xsr 155 jogja',
+            'yamaha wr 155 jogja',
+            'yamaha jupiter z1 jogja',
+            'yamaha vega force jogja',
+            
+            // Model Specific - Matic Entry
+            'yamaha mio m3 jogja',
+            'yamaha gear 125 jogja',
+            'yamaha fino jogja',
+            
+            // Long-tail Keywords
+            'dealer yamaha terdekat dari lokasi saya',
+            'perbandingan nmax dan pcx jogja',
+            'alamat dealer yamaha terlengkap di jogja',
+            'cara pengajuan kredit motor yamaha online jogja',
+            'testimoni pembelian di yamahajogja',
+            'layanan service kunjung yamaha jogja',
+            'bengkel resmi yamaha jogja',
+            'service yamaha jogja',
+            'spare part yamaha jogja',
+            'spare part original yamaha jogja'
         ];
         
         $allKeywords = array_merge($defaultKeywords, $keywords);
@@ -62,12 +137,12 @@ class SEOHelper
     public static function generateOpenGraphData($data = [])
     {
         $defaults = [
-            'title' => 'Yamaha Wates Kulon Progo - Dealer Resmi Yamaha Jogja',
-            'description' => 'Dealer resmi Yamaha di Wates, Kulon Progo, Yogyakarta. Jual motor Yamaha terbaru dengan harga OTR Jogja terbaik, cicilan 0%, dan layanan terpercaya.',
+            'title' => 'Dealer Yamaha Jogja Resmi - Harga Promo & Kredit Murah 2026',
+            'description' => 'Dealer resmi Yamaha Jogja. Jual motor Yamaha terbaru 2026 dengan harga OTR Jogja terbaik, promo DP murah, cicilan 0%. Melayani Sleman, Bantul, Kulon Progo, Gunung Kidul.',
             'image' => asset('images/yamaha-og-image.jpg'),
             'url' => request()->url(),
             'type' => 'website',
-            'site_name' => 'Yamaha Wates Kulon Progo'
+            'site_name' => 'Yamaha Jogja'
         ];
         
         return array_merge($defaults, $data);
@@ -77,8 +152,8 @@ class SEOHelper
     {
         $defaults = [
             'card' => 'summary_large_image',
-            'title' => 'Yamaha Wates Kulon Progo - Dealer Resmi Yamaha Jogja',
-            'description' => 'Dealer resmi Yamaha di Wates, Kulon Progo, Yogyakarta. Jual motor Yamaha terbaru dengan harga OTR Jogja terbaik, cicilan 0%, dan layanan terpercaya.',
+            'title' => 'Dealer Yamaha Jogja Resmi - Harga Promo & Kredit Murah 2026',
+            'description' => 'Dealer resmi Yamaha Jogja. Jual motor Yamaha terbaru 2026 dengan harga OTR Jogja terbaik, promo DP murah, cicilan 0%.',
             'image' => asset('images/yamaha-twitter-card.jpg'),
             'site' => '@YamahaMotorID'
         ];
