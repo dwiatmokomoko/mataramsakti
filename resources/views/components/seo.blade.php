@@ -67,6 +67,9 @@
 <meta name="application-name" content="Yamaha Motor Indonesia">
 
 <!-- Favicon -->
+<link rel="icon" type="image/png" href="{{ asset('logoyamaha.png') }}">
+<link rel="shortcut icon" type="image/png" href="{{ asset('logoyamaha.png') }}">
+<link rel="apple-touch-icon" href="{{ asset('logoyamaha.png') }}">
 <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">

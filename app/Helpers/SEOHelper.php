@@ -6,7 +6,7 @@ class SEOHelper
 {
     public static function generateTitle($title = null, $suffix = true)
     {
-        $baseTitle = 'Dealer Yamaha Wates Kulon Progo Jogja - Harga Motor 2026 Termurah';
+        $baseTitle = 'Dealer Yamaha Wates Kulon Progo Jogja Sleman Bantul - Harga Motor 2026 Termurah OTR Jogja - Promo DP 0% Kredit Tanpa Survey';
         
         if (!$title) {
             return $baseTitle;

@@ -2,10 +2,10 @@
 
 @section('seo')
     <x-seo 
-        title="Dealer Yamaha Wates Kulon Progo Jogja - Harga Motor 2026 Termurah"
+        title="Dealer Yamaha Wates Kulon Progo Jogja Sleman Bantul - Harga Motor 2026 Termurah OTR Jogja - Promo DP 0% Kredit Tanpa Survey"
         :suffix="false"
-        description="Dealer Yamaha Wates Kulon Progo Jogja - Showroom Motor Yamaha Terdekat di Wates. Harga OTR 2026 NMAX, Aerox, Fazzio, R15, XSR155 termurah se-Jogja. Promo DP 0%, kredit tanpa survey, cicilan ringan. Melayani Wates, Sentolo, Nanggulan, Galur, Pengasih, Sleman, Bantul, Gunung Kidul. Sales Yamaha 24 Jam WA 0856-4195-6326. Ready stock!"
-        :keywords="['dealer yamaha wates', 'yamaha wates', 'dealer yamaha kulon progo', 'yamaha kulon progo', 'dealer yamaha jogja', 'yamaha jogja', 'harga motor yamaha wates 2026', 'harga motor yamaha kulon progo 2026', 'harga motor yamaha jogja 2026', 'showroom yamaha wates', 'showroom yamaha kulon progo', 'kredit motor yamaha wates', 'kredit motor yamaha kulon progo', 'promo yamaha wates', 'promo yamaha kulon progo']"
+        description="Dealer Yamaha Wates Kulon Progo Jogja Sleman Bantul - Showroom Motor Yamaha Terdekat di Wates. Harga OTR 2026 NMAX Turbo, Aerox Connected, Fazzio Hybrid, R15 V4, XSR155, Lexi, XMAX termurah se-Jogja. Promo DP 0%, kredit tanpa survey, cicilan ringan mulai 500rb/bulan. Melayani Wates, Sentolo, Nanggulan, Galur, Pengasih, Sleman, Depok, Seturan, Gejayan, Bantul, Sewon, Kasihan, Gunung Kidul. Sales Yamaha 24 Jam WA 0856-4195-6326. Ready stock semua tipe! Buka Senin-Minggu 08:00-17:00."
+        :keywords="['dealer yamaha wates', 'yamaha wates', 'dealer yamaha kulon progo', 'yamaha kulon progo', 'dealer yamaha jogja', 'yamaha jogja', 'dealer yamaha sleman', 'yamaha sleman', 'dealer yamaha bantul', 'yamaha bantul', 'harga motor yamaha wates 2026', 'harga motor yamaha kulon progo 2026', 'harga motor yamaha jogja 2026', 'harga nmax wates', 'harga aerox wates', 'harga fazzio wates', 'kredit motor yamaha wates', 'kredit motor yamaha kulon progo', 'promo yamaha wates', 'promo yamaha kulon progo', 'dp 0 yamaha wates', 'cicilan ringan yamaha wates', 'showroom yamaha wates', 'showroom yamaha kulon progo', 'sales yamaha wates 24 jam']"
         :structured-data="[
             [
                 '@context' => 'https://schema.org',
