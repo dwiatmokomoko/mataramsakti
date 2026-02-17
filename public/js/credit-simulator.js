@@ -6,9 +6,12 @@ let installmentTables = {};
 // Load installment tables from JSON file
 async function loadInstallmentTables() {
     try {
-        const response = await fetch('/data/installment-tables.json');
+        // Add timestamp to prevent caching
+        const timestamp = new Date().getTime();
+        const response = await fetch(`/data/installment-tables.json?v=${timestamp}`);
         installmentTables = await response.json();
         console.log('Installment tables loaded successfully');
+        console.log('Available prices:', Object.keys(installmentTables));
         return true;
     } catch (error) {
         console.error('Error loading installment tables:', error);
