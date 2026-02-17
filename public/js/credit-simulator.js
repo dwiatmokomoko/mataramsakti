@@ -20,14 +20,18 @@ function getInstallmentTable(motorPrice) {
     // Cari tabel yang exact match atau paling mendekati harga motor
     const priceStr = motorPrice.toString();
     
+    console.log('Looking for price:', priceStr, 'Type:', typeof motorPrice);
+    
     // Cek exact match dulu
     if (installmentTables[priceStr]) {
+        console.log('Exact match found for price:', priceStr);
         return installmentTables[priceStr];
     }
     
     // Jika tidak ada exact match, cari yang paling dekat
     const availablePrices = Object.keys(installmentTables);
     if (availablePrices.length === 0) {
+        console.log('No installment tables loaded');
         return null;
     }
     
@@ -35,6 +39,7 @@ function getInstallmentTable(motorPrice) {
         return Math.abs(parseInt(curr) - motorPrice) < Math.abs(parseInt(prev) - motorPrice) ? curr : prev;
     });
     
+    console.log('Closest price found:', priceKey, 'for requested price:', priceStr);
     return installmentTables[priceKey];
 }
 
@@ -122,6 +127,30 @@ function displayCreditPackages() {
     const tenors = [11, 17, 23, 29, 35];
     
     packagesContainer.innerHTML = '';
+    
+    // Check if price is exact match
+    const priceStr = motorPrice.toString();
+    const isExactMatch = installmentTables[priceStr] !== undefined;
+    
+    // Add warning if not exact match
+    if (!isExactMatch) {
+        const availablePrices = Object.keys(installmentTables);
+        const closestPrice = availablePrices.reduce((prev, curr) => {
+            return Math.abs(parseInt(curr) - motorPrice) < Math.abs(parseInt(prev) - motorPrice) ? curr : prev;
+        });
+        
+        const warningDiv = `
+            <div class="col-12">
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <strong>Perhatian:</strong> Harga motor ${formatRupiah(motorPrice)} tidak tersedia dalam tabel angsuran. 
+                    Menggunakan tabel terdekat: ${formatRupiah(parseInt(closestPrice))}. 
+                    Untuk informasi akurat, silakan hubungi dealer.
+                </div>
+            </div>
+        `;
+        packagesContainer.innerHTML = warningDiv;
+    }
     
     tenors.forEach((tenor) => {
         const installment = installmentData.installments[tenor];

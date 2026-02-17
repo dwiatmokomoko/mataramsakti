@@ -960,6 +960,30 @@
                 <input type="hidden" id="motorPriceInput" value="{{ $motorPrice }}">
                 
                 <div class="row mb-4">
+                    @if($motor->models->count() > 1)
+                    <div class="col-md-4">
+                        <label for="motorModelSelect" class="form-label fw-bold">Pilih Tipe</label>
+                        <select class="form-select form-select-lg" id="motorModelSelect" onchange="updateMotorPrice()">
+                            @foreach($motor->models as $model)
+                                <option value="{{ $model->price_otr }}" data-formatted="{{ $model->formatted_price_otr }}">
+                                    {{ $model->full_name }} - {{ $model->formatted_price_otr }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="motorPrice" class="form-label fw-bold">Harga Motor (OTR)</label>
+                        <input type="text" class="form-control form-control-lg" id="motorPrice" 
+                               value="{{ $motorFormattedPrice }}" readonly>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="dpAmount" class="form-label fw-bold">Uang Muka (DP)</label>
+                        <input type="number" class="form-control form-control-lg" id="dpAmount" 
+                               value="0" 
+                               min="0" max="{{ $motorPrice }}"
+                               placeholder="Masukkan DP">
+                    </div>
+                    @else
                     <div class="col-md-6">
                         <label for="motorPrice" class="form-label fw-bold">Harga Motor (OTR)</label>
                         <input type="text" class="form-control form-control-lg" id="motorPrice" 
@@ -972,6 +996,7 @@
                                min="0" max="{{ $motorPrice }}"
                                placeholder="Masukkan DP">
                     </div>
+                    @endif
                 </div>
 
                 <div class="alert alert-info">
@@ -1069,6 +1094,34 @@
 </style>
 
 <script>
+// Function to update motor price when model is selected
+function updateMotorPrice() {
+    const select = document.getElementById('motorModelSelect');
+    if (!select) return;
+    
+    const selectedOption = select.options[select.selectedIndex];
+    const newPrice = parseInt(selectedOption.value);
+    const formattedPrice = selectedOption.getAttribute('data-formatted');
+    
+    // Update hidden input
+    document.getElementById('motorPriceInput').value = newPrice;
+    
+    // Update display price
+    document.getElementById('motorPrice').value = formattedPrice;
+    
+    // Update DP max value
+    document.getElementById('dpAmount').setAttribute('max', newPrice);
+    
+    // Reset DP to 0
+    document.getElementById('dpAmount').value = 0;
+    
+    // Hide result
+    document.getElementById('creditResult').style.display = 'none';
+    
+    // Recalculate packages
+    displayCreditPackages();
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     let currentMotorPrice = {{ $firstModel ? $firstModel->price_otr : $motor->price_otr }};
 
