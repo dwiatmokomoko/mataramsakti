@@ -67,6 +67,11 @@ function displayCreditPackages() {
     const dpAmount = parseInt(document.getElementById('dpAmount').value) || 0;
     const packagesContainer = document.getElementById('creditPackages');
     
+    console.log('=== Display Credit Packages ===');
+    console.log('Motor Price Input Value:', document.getElementById('motorPriceInput').value);
+    console.log('Motor Price (parsed):', motorPrice);
+    console.log('DP Amount:', dpAmount);
+    
     // Check if tables are loaded
     if (Object.keys(installmentTables).length === 0) {
         packagesContainer.innerHTML = `
