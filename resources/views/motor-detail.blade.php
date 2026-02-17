@@ -1606,6 +1606,6 @@ document.getElementById('creditModal').addEventListener('shown.bs.modal', functi
 </script>
 
 {{-- Load Credit Simulator --}}
-<script src="{{ asset('js/credit-simulator.js') }}"></script>
+<script src="{{ asset('js/credit-simulator.js') }}?v={{ time() }}"></script>
 
 @endsection
