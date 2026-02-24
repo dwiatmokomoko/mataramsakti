@@ -38,7 +38,7 @@
 <title>{{ $seoTitle }}</title>
 <meta name="description" content="{{ $seoDescription }}">
 <meta name="keywords" content="{{ $seoKeywords }}">
-<meta name="author" content="Yamaha Motor Indonesia">
+<meta name="author" content="Yamaha Mataram Sakti Jogja">
 <meta name="robots" content="{{ $noindex ? 'noindex, nofollow' : 'index, follow' }}">
 <meta name="googlebot" content="{{ $noindex ? 'noindex, nofollow' : 'index, follow' }}">
 
@@ -64,7 +64,7 @@
 <!-- Additional Meta Tags -->
 <meta name="theme-color" content="#1e3c72">
 <meta name="msapplication-TileColor" content="#1e3c72">
-<meta name="application-name" content="Yamaha Motor Indonesia">
+<meta name="application-name" content="Yamaha Mataram Sakti Jogja">
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="{{ asset('logoyamaha.png') }}">

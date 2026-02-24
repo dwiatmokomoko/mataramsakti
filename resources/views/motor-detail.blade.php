@@ -809,6 +809,7 @@
                 <div class="action-buttons-section">
                     <a href="{{ asset('PL YMS - JAN 2026.pdf') }}" 
                        download="Daftar Harga Yamaha Jogja 2026.pdf"
+                       target="_blank"
                        class="btn btn-outline-primary btn-lg px-5 me-3">
                         <i class="fas fa-download me-2"></i>Download Daftar Harga
                     </a>
