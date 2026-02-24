@@ -805,7 +805,300 @@ class SEOHelper
             'ready stock yamaha jogja',
             'indent yamaha wates',
             'indent yamaha kulon progo',
-            'indent yamaha jogja'
+            'indent yamaha jogja',
+            
+            // ========================================
+            // TIER 17: BUYING INTENT KEYWORDS (ULTRA DETAILED)
+            // ========================================
+            // Beli Motor
+            'beli motor yamaha jogja',
+            'beli motor yamaha wates',
+            'beli motor yamaha sleman',
+            'beli motor yamaha bantul',
+            'beli motor yamaha gunungkidul',
+            'beli nmax jogja',
+            'beli aerox jogja',
+            'beli r15 jogja',
+            'beli vixion jogja',
+            'beli motor yamaha cash jogja',
+            'beli motor yamaha kredit jogja',
+            'beli motor yamaha bekas jogja',
+            'beli motor yamaha baru jogja',
+            
+            // Jual Motor
+            'jual motor yamaha jogja',
+            'jual motor yamaha wates',
+            'jual nmax jogja',
+            'jual aerox jogja',
+            'jual r15 jogja',
+            'jual motor yamaha murah jogja',
+            'jual motor yamaha baru jogja',
+            
+            // Cari Motor
+            'cari motor yamaha jogja',
+            'cari dealer yamaha jogja',
+            'cari showroom yamaha jogja',
+            'cari motor yamaha murah jogja',
+            'cari motor yamaha dp murah jogja',
+            
+            // Mau Beli
+            'mau beli motor yamaha jogja',
+            'mau kredit motor yamaha jogja',
+            'mau beli nmax jogja',
+            'mau beli aerox jogja',
+            
+            // ========================================
+            // TIER 18: QUESTION KEYWORDS (LONG-TAIL)
+            // ========================================
+            'berapa harga nmax jogja',
+            'berapa harga aerox jogja',
+            'berapa harga r15 jogja',
+            'berapa dp nmax jogja',
+            'berapa cicilan nmax jogja',
+            'berapa angsuran nmax jogja',
+            'dimana beli motor yamaha jogja',
+            'dimana dealer yamaha jogja',
+            'dimana showroom yamaha jogja',
+            'dimana dealer yamaha terdekat',
+            'kapan promo yamaha jogja',
+            'bagaimana cara kredit motor yamaha',
+            'bagaimana cara beli motor yamaha',
+            'apa syarat kredit motor yamaha',
+            'apa promo yamaha jogja',
+            
+            // ========================================
+            // TIER 19: COMPARISON KEYWORDS
+            // ========================================
+            'nmax vs pcx jogja',
+            'aerox vs vario jogja',
+            'r15 vs cbr jogja',
+            'fazzio vs scoopy jogja',
+            'xsr155 vs cb150r jogja',
+            'perbandingan nmax pcx jogja',
+            'perbandingan aerox vario jogja',
+            'lebih bagus nmax atau pcx',
+            'lebih irit nmax atau pcx',
+            'lebih cepat aerox atau vario',
+            'pilih nmax atau pcx jogja',
+            'pilih aerox atau vario jogja',
+            
+            // ========================================
+            // TIER 20: REVIEW & TESTIMONIAL KEYWORDS
+            // ========================================
+            'review nmax jogja',
+            'review aerox jogja',
+            'review r15 jogja',
+            'review dealer yamaha jogja',
+            'review yamaha mataram sakti',
+            'testimoni yamaha mataram sakti',
+            'pengalaman beli motor yamaha jogja',
+            'pengalaman kredit motor yamaha jogja',
+            'kelebihan nmax jogja',
+            'kekurangan nmax jogja',
+            'kelebihan aerox jogja',
+            'kekurangan aerox jogja',
+            
+            // ========================================
+            // TIER 21: SPECIFICATION KEYWORDS
+            // ========================================
+            'spesifikasi nmax 2026',
+            'spesifikasi aerox 2026',
+            'spesifikasi r15 2026',
+            'spesifikasi vixion 2026',
+            'spesifikasi lengkap nmax',
+            'spesifikasi lengkap aerox',
+            'fitur nmax 2026',
+            'fitur aerox 2026',
+            'teknologi nmax 2026',
+            'teknologi aerox 2026',
+            'mesin nmax 2026',
+            'mesin aerox 2026',
+            'cc nmax',
+            'cc aerox',
+            'cc r15',
+            'tenaga nmax',
+            'tenaga aerox',
+            'top speed nmax',
+            'top speed aerox',
+            'konsumsi bbm nmax',
+            'konsumsi bbm aerox',
+            'irit nmax',
+            'irit aerox',
+            
+            // ========================================
+            // TIER 22: COLOR KEYWORDS
+            // ========================================
+            'warna nmax 2026',
+            'warna aerox 2026',
+            'warna r15 2026',
+            'warna vixion 2026',
+            'warna fazzio 2026',
+            'warna baru nmax 2026',
+            'warna baru aerox 2026',
+            'warna terbaru nmax',
+            'warna terbaru aerox',
+            'pilihan warna nmax jogja',
+            'pilihan warna aerox jogja',
+            
+            // ========================================
+            // TIER 23: ACCESSORIES & SPARE PARTS
+            // ========================================
+            'aksesoris yamaha jogja',
+            'aksesoris nmax jogja',
+            'aksesoris aerox jogja',
+            'spare part yamaha jogja',
+            'spare part nmax jogja',
+            'spare part aerox jogja',
+            'onderdil yamaha jogja',
+            'suku cadang yamaha jogja',
+            'helm yamaha jogja',
+            'jaket yamaha jogja',
+            
+            // ========================================
+            // TIER 24: SERVICE KEYWORDS
+            // ========================================
+            'service yamaha mataram sakti',
+            'service yamaha wates',
+            'service yamaha jogja',
+            'service nmax jogja',
+            'service aerox jogja',
+            'bengkel yamaha mataram sakti',
+            'bengkel yamaha wates',
+            'bengkel yamaha jogja',
+            'servis berkala yamaha jogja',
+            'ganti oli yamaha jogja',
+            'tune up yamaha jogja',
+            'spare part yamaha mataram sakti',
+            'spare part original yamaha jogja',
+            
+            // ========================================
+            // TIER 25: INSURANCE & WARRANTY
+            // ========================================
+            'asuransi motor yamaha jogja',
+            'garansi motor yamaha jogja',
+            'garansi yamaha mataram sakti',
+            'asuransi nmax jogja',
+            'asuransi aerox jogja',
+            
+            // ========================================
+            // TIER 26: TRADE-IN KEYWORDS
+            // ========================================
+            'trade in motor yamaha jogja',
+            'tukar tambah motor yamaha jogja',
+            'tukar tambah motor lama jogja',
+            'trade in nmax jogja',
+            'trade in aerox jogja',
+            'jual motor lama beli yamaha baru',
+            'tukar tambah motor bekas jogja',
+            
+            // ========================================
+            // TIER 27: EVENT & COMMUNITY
+            // ========================================
+            'event yamaha jogja',
+            'komunitas yamaha jogja',
+            'club nmax jogja',
+            'club aerox jogja',
+            'club r15 jogja',
+            'gathering yamaha jogja',
+            'touring yamaha jogja',
+            
+            // ========================================
+            // TIER 28: URGENCY KEYWORDS
+            // ========================================
+            'motor yamaha ready stock jogja',
+            'nmax ready stock jogja',
+            'aerox ready stock jogja',
+            'r15 ready stock jogja',
+            'motor yamaha indent jogja',
+            'motor yamaha cepat jogja',
+            'beli motor yamaha hari ini',
+            'promo yamaha hari ini',
+            'diskon yamaha hari ini',
+            
+            // ========================================
+            // TIER 29: SEASONAL KEYWORDS
+            // ========================================
+            'promo yamaha lebaran 2026',
+            'promo yamaha tahun baru 2026',
+            'promo yamaha akhir tahun',
+            'promo yamaha ramadan 2026',
+            'promo yamaha natal 2026',
+            'promo yamaha imlek 2026',
+            'promo yamaha kemerdekaan',
+            
+            // ========================================
+            // TIER 30: DEMOGRAPHIC KEYWORDS
+            // ========================================
+            'motor yamaha untuk mahasiswa jogja',
+            'motor yamaha untuk wanita jogja',
+            'motor yamaha untuk ojol jogja',
+            'motor yamaha untuk keluarga jogja',
+            'motor yamaha untuk anak muda jogja',
+            'motor yamaha untuk ibu rumah tangga',
+            'motor yamaha untuk pekerja jogja',
+            'motor yamaha murah untuk mahasiswa',
+            'motor yamaha irit untuk ojol',
+            
+            // ========================================
+            // TIER 31: PAYMENT METHOD KEYWORDS
+            // ========================================
+            'kredit motor yamaha baf jogja',
+            'kredit motor yamaha adira jogja',
+            'kredit motor yamaha wom finance jogja',
+            'kredit motor yamaha bca finance jogja',
+            'kredit motor yamaha mandiri jogja',
+            'kredit motor yamaha acc jogja',
+            'leasing motor yamaha jogja',
+            'finance motor yamaha jogja',
+            
+            // ========================================
+            // TIER 32: DOCUMENT KEYWORDS
+            // ========================================
+            'syarat kredit motor yamaha jogja',
+            'syarat beli motor yamaha jogja',
+            'dokumen kredit motor yamaha',
+            'ktp luar kota beli motor yamaha jogja',
+            'kredit motor yamaha ktp luar jogja',
+            'bpkb motor yamaha jogja',
+            'stnk motor yamaha jogja',
+            
+            // ========================================
+            // TIER 33: TIME-BASED KEYWORDS
+            // ========================================
+            'dealer yamaha buka hari ini',
+            'dealer yamaha buka minggu',
+            'dealer yamaha buka 24 jam',
+            'sales yamaha 24 jam jogja',
+            'beli motor yamaha malam ini',
+            'showroom yamaha buka sekarang',
+            
+            // ========================================
+            // TIER 34: SOCIAL PROOF KEYWORDS
+            // ========================================
+            'dealer yamaha terpercaya jogja',
+            'dealer yamaha resmi jogja',
+            'dealer yamaha terbaik jogja',
+            'dealer yamaha termurah jogja',
+            'dealer yamaha terlengkap jogja',
+            'showroom yamaha terbesar jogja',
+            'yamaha mataram sakti terpercaya',
+            'yamaha mataram sakti resmi',
+            
+            // ========================================
+            // TIER 35: MOBILE & ONLINE KEYWORDS
+            // ========================================
+            'beli motor yamaha online jogja',
+            'kredit motor yamaha online jogja',
+            'simulasi kredit motor yamaha online',
+            'harga motor yamaha online jogja',
+            'booking motor yamaha online jogja',
+            'pesan motor yamaha online jogja',
+            'wa dealer yamaha jogja',
+            'whatsapp yamaha mataram sakti',
+            'chat dealer yamaha jogja',
+            'kontak dealer yamaha jogja',
+            'nomor dealer yamaha jogja',
+            'telepon dealer yamaha jogja'
         ];
         
         $allKeywords = array_merge($defaultKeywords, $keywords);
