@@ -5,7 +5,7 @@
         use App\Helpers\SEOHelper;
         
         // Generate location-specific title with 2026
-        $motorTitle = $motor->name . ' Yamaha Mataram Sakti Jogja 2026 - Harga OTR Termurah | Kredit DP 0% Cicilan Ringan';
+        $motorTitle = $motor->name . ' Yamaha Mataram Sakti Jogja Wates Sleman Bantul Gunungkidul 2026 - Harga OTR Termurah | Kredit DP 0%';
         
         // Get price range
         $minPrice = $motor->models->min('price_otr');
@@ -16,12 +16,12 @@
         }
         
         // Rich description with comprehensive info
-        $motorDescription = "🏍️ Jual {$motor->name} Yamaha Mataram Sakti Jogja - Harga OTR Jogja 2026 mulai {$priceText}. " .
-                           "✅ Dealer Resmi Yamaha Mataram Sakti melayani Wates, Sleman, Bantul, Kulon Progo, Gunung Kidul. " .
-                           "✅ Promo DP 0%, DP Murah, Cicilan 0%, Kredit Tanpa Survey, Angsuran Ringan mulai 500rb/bulan. " .
-                           "✅ Spesifikasi Lengkap {$motor->name} 2026, Warna Terbaru, Review, Test Drive Gratis. " .
-                           "✅ Trade-In Motor Lama, Garansi Resmi Yamaha Indonesia, Layanan Purna Jual Terpercaya. " .
-                           "📱 Sales Yamaha Mataram Sakti 24 Jam: 0856-4195-6326. Showroom Yamaha Mataram Sakti Terlengkap di Yogyakarta. Ready Stock!";
+        $motorDescription = "🏍️ Jual {$motor->name} Yamaha Mataram Sakti Jogja Wates Sleman Bantul Gunungkidul - Harga OTR Jogja 2026 mulai {$priceText}. " .
+                           "✅ Dealer Resmi Yamaha Mataram Sakti melayani Wates, Sentolo, Nanggulan, Galur, Pengasih, Kulon Progo, Sleman, Depok, Godean, Seturan, Gejayan, Bantul, Sewon, Kasihan, Gunungkidul, Wonosari, Playen. " .
+                           "✅ Promo DP 0%, DP 500rb, DP 1 Juta, DP Murah, Cicilan 0%, Kredit Tanpa Survey, Angsuran Ringan mulai 500rb/bulan. " .
+                           "✅ Spesifikasi Lengkap {$motor->name} 2026, Warna Terbaru, Review, Perbandingan, Test Drive Gratis. " .
+                           "✅ Trade-In Motor Lama Harga Terbaik, Garansi Resmi Yamaha Indonesia, Layanan Purna Jual Terpercaya, Service Berkala, Spare Part Original. " .
+                           "📱 Sales Yamaha Mataram Sakti 24 Jam: 0856-4195-6326. Showroom Yamaha Mataram Sakti Terlengkap di Yogyakarta. Ready Stock Semua Warna!";
         
         // Comprehensive location-specific keywords
         $motorKeywords = [

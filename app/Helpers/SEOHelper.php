@@ -6,7 +6,7 @@ class SEOHelper
 {
     public static function generateTitle($title = null, $suffix = true)
     {
-        $baseTitle = 'Yamaha Mataram Sakti Jogja - Dealer Resmi Motor Yamaha Jogja Wates Sleman Bantul | Harga OTR 2026 Termurah';
+        $baseTitle = 'Dealer Yamaha Jogja Wates Sleman Bantul Gunungkidul - Yamaha Mataram Sakti | Harga Motor 2026 OTR Termurah';
         
         if (!$title) {
             return $baseTitle;
@@ -21,7 +21,7 @@ class SEOHelper
     
     public static function generateDescription($description = null)
     {
-        $defaultDescription = 'Yamaha Mataram Sakti - Dealer Resmi Yamaha Jogja. Showroom Motor Yamaha Terdekat di Wates, Kulon Progo. Harga OTR 2026 NMAX, Aerox, Fazzio, R15, XSR155 termurah se-Jogja. Promo DP 0%, kredit tanpa survey, cicilan ringan. Melayani Wates, Sentolo, Nanggulan, Sleman, Bantul, Gunung Kidul. Sales Yamaha Mataram Sakti 24 Jam WA 0856-4195-6326. Ready stock!';
+        $defaultDescription = 'Dealer Yamaha Jogja Wates Sleman Bantul Gunungkidul - Yamaha Mataram Sakti adalah dealer resmi motor Yamaha terpercaya. Showroom terdekat di Wates, Kulon Progo. Harga OTR 2026 NMAX, Aerox, Fazzio, R15, Vixion, XSR155, Lexi, XMAX, MT15, Grand Filano termurah se-Jogja. Promo DP 0%, DP 500rb, DP 1 juta, kredit tanpa survey, cicilan ringan mulai 500rb/bulan. Melayani Wates, Sentolo, Nanggulan, Galur, Pengasih, Sleman, Depok, Godean, Bantul, Sewon, Kasihan, Gunungkidul, Wonosari. Sales Yamaha Mataram Sakti 24 Jam WA 0856-4195-6326. Ready stock semua tipe! Buka Senin-Minggu 08:00-17:00.';
         
         return $description ?: $defaultDescription;
     }
@@ -36,6 +36,9 @@ class SEOHelper
             'yamaha mataram sakti jogja',
             'yamaha mataram sakti wates',
             'yamaha mataram sakti kulon progo',
+            'yamaha mataram sakti sleman',
+            'yamaha mataram sakti bantul',
+            'yamaha mataram sakti gunungkidul',
             'dealer yamaha mataram sakti',
             'dealer yamaha mataram sakti jogja',
             'showroom yamaha mataram sakti',
@@ -54,7 +57,17 @@ class SEOHelper
             'mataram sakti kulon progo',
             
             // ========================================
-            // TIER 1: ULTRA HIGH PRIORITY - WATES & KULON PROGO
+            // TIER 1: ULTRA HIGH PRIORITY - MULTI LOCATION
+            // ========================================
+            'dealer yamaha jogja wates sleman bantul',
+            'dealer yamaha jogja wates sleman bantul gunungkidul',
+            'yamaha jogja wates sleman bantul',
+            'motor yamaha jogja wates sleman bantul',
+            'showroom yamaha jogja wates sleman bantul',
+            'harga motor yamaha jogja wates sleman bantul',
+            
+            // ========================================
+            // TIER 2: WATES & KULON PROGO
             // ========================================
             'dealer yamaha wates',
             'yamaha wates',
@@ -76,18 +89,26 @@ class SEOHelper
             'kredit motor yamaha kulon progo',
             'yamaha wates terdekat',
             'yamaha kulon progo terdekat',
+            'dealer yamaha terdekat wates',
+            'dealer yamaha terdekat kulon progo',
             
             // Kecamatan di Kulon Progo (EXHAUSTIVE)
             'yamaha sentolo',
             'dealer yamaha sentolo',
+            'motor yamaha sentolo',
+            'harga motor yamaha sentolo',
             'yamaha nanggulan',
             'dealer yamaha nanggulan',
+            'motor yamaha nanggulan',
             'yamaha galur',
             'dealer yamaha galur',
+            'motor yamaha galur',
             'yamaha lendah',
             'dealer yamaha lendah',
+            'motor yamaha lendah',
             'yamaha pengasih',
             'dealer yamaha pengasih',
+            'motor yamaha pengasih',
             'yamaha panjatan',
             'dealer yamaha panjatan',
             'yamaha girimulyo',
@@ -102,7 +123,7 @@ class SEOHelper
             'dealer yamaha temon',
             
             // ========================================
-            // TIER 2: HIGH PRIORITY - JOGJA GENERAL
+            // TIER 3: JOGJA GENERAL
             // ========================================
             'dealer yamaha jogja',
             'yamaha jogja',
@@ -120,23 +141,38 @@ class SEOHelper
             'promo yamaha jogja 2026',
             'kredit motor yamaha jogja',
             'yamaha jogja terdekat',
+            'dealer yamaha terdekat jogja',
+            'dealer yamaha terdekat di jogja',
+            'showroom yamaha terdekat jogja',
+            'motor yamaha terdekat jogja',
             
             // ========================================
-            // TIER 3: SLEMAN AREA (EXHAUSTIVE)
+            // TIER 4: SLEMAN AREA (EXHAUSTIVE)
             // ========================================
             'dealer yamaha sleman',
             'yamaha sleman',
             'showroom yamaha sleman',
+            'motor yamaha sleman',
+            'harga motor yamaha sleman',
+            'harga motor yamaha sleman 2026',
+            'promo yamaha sleman',
+            'kredit motor yamaha sleman',
+            'dealer yamaha terdekat sleman',
             'yamaha depok sleman',
             'dealer yamaha depok',
+            'motor yamaha depok',
             'yamaha seturan',
             'dealer yamaha seturan',
+            'motor yamaha seturan',
             'yamaha gejayan',
             'dealer yamaha gejayan',
+            'motor yamaha gejayan',
             'yamaha godean',
             'dealer yamaha godean',
+            'motor yamaha godean',
             'yamaha kalasan',
             'dealer yamaha kalasan',
+            'motor yamaha kalasan',
             'yamaha jalan magelang',
             'dealer yamaha jalan magelang',
             'yamaha jalan kaliurang',
@@ -145,10 +181,13 @@ class SEOHelper
             'dealer yamaha jakal',
             'yamaha mlati',
             'dealer yamaha mlati',
+            'motor yamaha mlati',
             'yamaha gamping',
             'dealer yamaha gamping',
+            'motor yamaha gamping',
             'yamaha ngaglik',
             'dealer yamaha ngaglik',
+            'motor yamaha ngaglik',
             'yamaha seyegan',
             'dealer yamaha seyegan',
             'yamaha minggir',
@@ -165,31 +204,45 @@ class SEOHelper
             'dealer yamaha cangkringan',
             'yamaha prambanan',
             'dealer yamaha prambanan',
+            'motor yamaha prambanan',
             
             // ========================================
-            // TIER 4: BANTUL AREA (EXHAUSTIVE)
+            // TIER 5: BANTUL AREA (EXHAUSTIVE)
             // ========================================
             'dealer yamaha bantul',
             'yamaha bantul',
             'showroom yamaha bantul',
+            'motor yamaha bantul',
+            'harga motor yamaha bantul',
+            'harga motor yamaha bantul 2026',
+            'promo yamaha bantul',
+            'kredit motor yamaha bantul',
+            'dealer yamaha terdekat bantul',
             'yamaha sewon',
             'dealer yamaha sewon',
+            'motor yamaha sewon',
             'yamaha kasihan',
             'dealer yamaha kasihan',
+            'motor yamaha kasihan',
             'yamaha jalan parangtritis',
             'dealer yamaha jalan parangtritis',
             'yamaha banguntapan',
             'dealer yamaha banguntapan',
+            'motor yamaha banguntapan',
             'yamaha imogiri',
             'dealer yamaha imogiri',
+            'motor yamaha imogiri',
             'yamaha pandak',
             'dealer yamaha pandak',
+            'motor yamaha pandak',
             'yamaha bambanglipuro',
             'dealer yamaha bambanglipuro',
             'yamaha piyungan',
             'dealer yamaha piyungan',
+            'motor yamaha piyungan',
             'yamaha pleret',
             'dealer yamaha pleret',
+            'motor yamaha pleret',
             'yamaha jetis bantul',
             'dealer yamaha jetis bantul',
             'yamaha sanden',
@@ -200,38 +253,69 @@ class SEOHelper
             'dealer yamaha pundong',
             'yamaha dlingo',
             'dealer yamaha dlingo',
+            'motor yamaha dlingo',
             
             // ========================================
-            // TIER 5: GUNUNG KIDUL AREA
+            // TIER 6: GUNUNG KIDUL AREA (EXHAUSTIVE)
             // ========================================
             'dealer yamaha gunung kidul',
             'yamaha gunung kidul',
+            'dealer yamaha gunungkidul',
+            'yamaha gunungkidul',
+            'showroom yamaha gunung kidul',
+            'motor yamaha gunung kidul',
+            'harga motor yamaha gunung kidul',
+            'harga motor yamaha gunungkidul 2026',
+            'promo yamaha gunung kidul',
+            'kredit motor yamaha gunung kidul',
+            'dealer yamaha terdekat gunung kidul',
             'yamaha wonosari',
             'dealer yamaha wonosari',
+            'motor yamaha wonosari',
+            'harga motor yamaha wonosari',
             'yamaha playen',
             'dealer yamaha playen',
+            'motor yamaha playen',
             'yamaha gedangsari',
             'dealer yamaha gedangsari',
+            'motor yamaha gedangsari',
             'yamaha nglipar',
             'dealer yamaha nglipar',
+            'motor yamaha nglipar',
             'yamaha semanu',
             'dealer yamaha semanu',
+            'motor yamaha semanu',
+            'yamaha karangmojo',
+            'dealer yamaha karangmojo',
+            'yamaha ponjong',
+            'dealer yamaha ponjong',
+            'yamaha rongkop',
+            'dealer yamaha rongkop',
+            'yamaha semin',
+            'dealer yamaha semin',
+            'yamaha ngawen',
+            'dealer yamaha ngawen',
             
             // ========================================
-            // TIER 6: KOTA YOGYAKARTA
+            // TIER 7: KOTA YOGYAKARTA
             // ========================================
             'yamaha kota yogyakarta',
             'dealer yamaha kota yogyakarta',
+            'motor yamaha kota yogyakarta',
             'yamaha umbulharjo',
             'dealer yamaha umbulharjo',
+            'motor yamaha umbulharjo',
             'yamaha kotagede',
             'dealer yamaha kotagede',
+            'motor yamaha kotagede',
             'yamaha jetis',
             'dealer yamaha jetis',
+            'motor yamaha jetis',
             'yamaha malioboro',
             'dealer yamaha malioboro',
             'yamaha gondokusuman',
             'dealer yamaha gondokusuman',
+            'motor yamaha gondokusuman',
             'yamaha mergangsan',
             'dealer yamaha mergangsan',
             'yamaha mantrijeron',
@@ -248,18 +332,183 @@ class SEOHelper
             'dealer yamaha ngampilan',
             'yamaha wirobrajan',
             'dealer yamaha wirobrajan',
+            'motor yamaha wirobrajan',
             'yamaha tegalrejo',
             'dealer yamaha tegalrejo',
+            'motor yamaha tegalrejo',
             
             // ========================================
-            // TIER 7: HARGA & PROMO (ULTRA SPECIFIC)
+            // TIER 8: HARGA & PROMO (ULTRA SPECIFIC + EXHAUSTIVE)
             // ========================================
+            // Harga Mataram Sakti
             'harga nmax mataram sakti',
             'harga aerox mataram sakti',
             'harga fazzio mataram sakti',
             'harga r15 mataram sakti',
             'harga xsr155 mataram sakti',
+            'harga lexi mataram sakti',
+            'harga xmax mataram sakti',
+            'harga mt15 mataram sakti',
+            'harga vixion mataram sakti',
+            'harga grand filano mataram sakti',
+            
+            // Harga per Lokasi - NMAX
             'harga nmax wates',
+            'harga nmax kulon progo',
+            'harga nmax jogja',
+            'harga nmax sleman',
+            'harga nmax bantul',
+            'harga nmax gunungkidul',
+            'harga nmax wonosari',
+            'harga nmax 2026 jogja',
+            'harga nmax 2026 wates',
+            'harga otr nmax jogja',
+            'harga otr nmax wates',
+            'harga cash nmax jogja',
+            'harga kredit nmax jogja',
+            
+            // Harga per Lokasi - Aerox
+            'harga aerox wates',
+            'harga aerox kulon progo',
+            'harga aerox jogja',
+            'harga aerox sleman',
+            'harga aerox bantul',
+            'harga aerox gunungkidul',
+            'harga aerox wonosari',
+            'harga aerox 2026 jogja',
+            'harga aerox 2026 wates',
+            'harga otr aerox jogja',
+            'harga otr aerox wates',
+            'harga cash aerox jogja',
+            'harga kredit aerox jogja',
+            
+            // Harga per Lokasi - Fazzio
+            'harga fazzio wates',
+            'harga fazzio kulon progo',
+            'harga fazzio jogja',
+            'harga fazzio sleman',
+            'harga fazzio bantul',
+            'harga fazzio gunungkidul',
+            'harga fazzio 2026 jogja',
+            'harga otr fazzio jogja',
+            
+            // Harga per Lokasi - R15
+            'harga r15 wates',
+            'harga r15 kulon progo',
+            'harga r15 jogja',
+            'harga r15 sleman',
+            'harga r15 bantul',
+            'harga r15 gunungkidul',
+            'harga r15 2026 jogja',
+            'harga otr r15 jogja',
+            'harga r15 v4 jogja',
+            
+            // Harga per Lokasi - XSR155
+            'harga xsr155 wates',
+            'harga xsr155 kulon progo',
+            'harga xsr155 jogja',
+            'harga xsr155 sleman',
+            'harga xsr155 bantul',
+            'harga xsr155 2026 jogja',
+            'harga otr xsr155 jogja',
+            
+            // Harga per Lokasi - Lexi
+            'harga lexi wates',
+            'harga lexi kulon progo',
+            'harga lexi jogja',
+            'harga lexi sleman',
+            'harga lexi bantul',
+            'harga lexi 2026 jogja',
+            'harga otr lexi jogja',
+            
+            // Harga per Lokasi - XMAX
+            'harga xmax wates',
+            'harga xmax kulon progo',
+            'harga xmax jogja',
+            'harga xmax sleman',
+            'harga xmax bantul',
+            'harga xmax 2026 jogja',
+            'harga otr xmax jogja',
+            
+            // Harga per Lokasi - MT15
+            'harga mt15 wates',
+            'harga mt15 kulon progo',
+            'harga mt15 jogja',
+            'harga mt15 sleman',
+            'harga mt15 bantul',
+            'harga mt15 2026 jogja',
+            'harga otr mt15 jogja',
+            
+            // Harga per Lokasi - Vixion
+            'harga vixion wates',
+            'harga vixion kulon progo',
+            'harga vixion jogja',
+            'harga vixion sleman',
+            'harga vixion bantul',
+            'harga vixion 2026 jogja',
+            'harga otr vixion jogja',
+            
+            // Harga per Lokasi - Grand Filano
+            'harga grand filano wates',
+            'harga grand filano kulon progo',
+            'harga grand filano jogja',
+            'harga grand filano sleman',
+            'harga grand filano bantul',
+            'harga grand filano 2026 jogja',
+            
+            // Harga per Lokasi - Gear 125
+            'harga gear 125 wates',
+            'harga gear 125 kulon progo',
+            'harga gear 125 jogja',
+            'harga gear 125 sleman',
+            'harga gear 125 bantul',
+            
+            // Harga per Lokasi - Mio M3
+            'harga mio m3 wates',
+            'harga mio m3 kulon progo',
+            'harga mio m3 jogja',
+            'harga mio m3 sleman',
+            'harga mio m3 bantul',
+            
+            // Harga per Lokasi - Fino
+            'harga fino wates',
+            'harga fino kulon progo',
+            'harga fino jogja',
+            'harga fino sleman',
+            'harga fino bantul',
+            
+            // Harga per Lokasi - Soul GT
+            'harga soul gt wates',
+            'harga soul gt kulon progo',
+            'harga soul gt jogja',
+            'harga soul gt sleman',
+            'harga soul gt bantul',
+            
+            // Promo Spesifik per Lokasi
+            'promo motor yamaha wates',
+            'promo motor yamaha kulon progo',
+            'promo motor yamaha jogja',
+            'promo motor yamaha sleman',
+            'promo motor yamaha bantul',
+            'promo motor yamaha gunungkidul',
+            'promo yamaha wates 2026',
+            'promo yamaha jogja 2026',
+            'promo yamaha sleman 2026',
+            'promo yamaha bantul 2026',
+            'diskon yamaha wates',
+            'diskon yamaha kulon progo',
+            'diskon yamaha jogja',
+            'diskon yamaha sleman',
+            'diskon yamaha bantul',
+            'cashback yamaha wates',
+            'cashback yamaha kulon progo',
+            'cashback yamaha jogja',
+            'cashback yamaha sleman',
+            'cashback yamaha bantul',
+            'promo dp 0 yamaha jogja',
+            'promo dp 0 yamaha wates',
+            'promo dp murah yamaha jogja',
+            'promo cicilan 0 yamaha jogja',
             'harga nmax kulon progo',
             'harga nmax jogja',
             'harga aerox wates',
@@ -305,13 +554,20 @@ class SEOHelper
             'cashback yamaha jogja',
             
             // ========================================
-            // TIER 8: KREDIT & FINANSIAL (ULTRA DETAILED)
+            // TIER 9: KREDIT & FINANSIAL (ULTRA DETAILED + EXHAUSTIVE)
             // ========================================
+            // Kredit Mataram Sakti
             'kredit motor yamaha mataram sakti',
             'kredit nmax mataram sakti',
             'kredit aerox mataram sakti',
+            'kredit r15 mataram sakti',
+            'kredit fazzio mataram sakti',
             'dp 0 yamaha mataram sakti',
+            'dp murah yamaha mataram sakti',
             'cicilan ringan yamaha mataram sakti',
+            'angsuran murah yamaha mataram sakti',
+            
+            // Kredit per Lokasi - General
             'kredit motor yamaha wates',
             'kredit motor yamaha kulon progo',
             'kredit motor yamaha jogja',
