@@ -14,14 +14,42 @@
     </url>
     
     <!-- ========================================
-         NMAX LANDING PAGE - ULTRA HIGH PRIORITY
-         Halaman khusus NMAX untuk ranking
+         MOTOR LANDING PAGES - ULTRA HIGH PRIORITY
+         Halaman khusus per motor untuk ranking
          ======================================== -->
     <url>
         <loc>http://yamahajogja.id:20275/nmax-jogja</loc>
         <lastmod>2026-02-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.99</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/aerox-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.98</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/r15-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.98</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/vixion-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.98</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/xmax-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.98</priority>
     </url>
     
     <!-- ========================================

@@ -63,32 +63,57 @@ class HomeController extends Controller
     
     public function nmaxJogja()
     {
-        // Find NMAX motor
-        $nmaxMotor = Motor::where('name', 'LIKE', '%NMAX%')->first();
+        return $this->motorLandingPage('NMAX', 'nmax-jogja');
+    }
+    
+    public function aeroxJogja()
+    {
+        return $this->motorLandingPage('AEROX', 'aerox-jogja');
+    }
+    
+    public function r15Jogja()
+    {
+        return $this->motorLandingPage('R15', 'r15-jogja');
+    }
+    
+    public function vixionJogja()
+    {
+        return $this->motorLandingPage('VIXION', 'vixion-jogja');
+    }
+    
+    public function xmaxJogja()
+    {
+        return $this->motorLandingPage('XMAX', 'xmax-jogja');
+    }
+    
+    private function motorLandingPage($motorName, $viewName)
+    {
+        // Find motor by name
+        $motor = Motor::where('name', 'LIKE', '%' . $motorName . '%')->first();
         
-        if (!$nmaxMotor) {
-            // Fallback to first motor if NMAX not found
-            $nmaxMotor = Motor::first();
+        if (!$motor) {
+            // Fallback to first motor if not found
+            $motor = Motor::first();
         }
         
-        // Load all NMAX models and variants
-        $nmaxMotor->load(['models.variants', 'models' => function($query) {
+        // Load all models and variants
+        $motor->load(['models.variants', 'models' => function($query) {
             $query->where('is_active', true)->orderBy('price_otr', 'asc');
         }]);
         
-        // Get all NMAX models for display
-        $nmaxModels = $nmaxMotor->models;
+        // Get all models for display
+        $motorModels = $motor->models;
         
-        // Get related motors (other maxi scooters)
+        // Get related motors (same category)
         $relatedMotors = MotorModel::with(['motor', 'availableVariants'])
-            ->whereHas('motor', function($query) use ($nmaxMotor) {
-                $query->where('category', $nmaxMotor->category)
-                      ->where('id', '!=', $nmaxMotor->id);
+            ->whereHas('motor', function($query) use ($motor) {
+                $query->where('category', $motor->category)
+                      ->where('id', '!=', $motor->id);
             })
             ->where('is_active', true)
             ->take(3)
             ->get();
         
-        return view('nmax-jogja', compact('nmaxMotor', 'nmaxModels', 'relatedMotors'));
+        return view($viewName, compact('motor', 'motorModels', 'relatedMotors'));
     }
 }

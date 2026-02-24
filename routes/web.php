@@ -42,7 +42,8 @@ Route::get('/dealer-yamaha-wonosari', function () {
     return view('location-wonosari');
 })->name('location.wonosari');
 
-// NMAX-Specific Landing Pages for SEO Ranking
+// Motor-Specific Landing Pages for SEO Ranking
+// NMAX
 Route::get('/nmax-jogja', [HomeController::class, 'nmaxJogja'])->name('nmax.jogja');
 Route::get('/yamaha-nmax-jogja', function () {
     return redirect()->route('nmax.jogja', [], 301);
@@ -55,6 +56,42 @@ Route::get('/kredit-nmax-jogja', function () {
 });
 Route::get('/promo-nmax-jogja', function () {
     return redirect()->route('nmax.jogja', [], 301);
+});
+
+// AEROX
+Route::get('/aerox-jogja', [HomeController::class, 'aeroxJogja'])->name('aerox.jogja');
+Route::get('/yamaha-aerox-jogja', function () {
+    return redirect()->route('aerox.jogja', [], 301);
+});
+Route::get('/harga-aerox-jogja', function () {
+    return redirect()->route('aerox.jogja', [], 301);
+});
+
+// R15
+Route::get('/r15-jogja', [HomeController::class, 'r15Jogja'])->name('r15.jogja');
+Route::get('/yamaha-r15-jogja', function () {
+    return redirect()->route('r15.jogja', [], 301);
+});
+Route::get('/harga-r15-jogja', function () {
+    return redirect()->route('r15.jogja', [], 301);
+});
+
+// VIXION
+Route::get('/vixion-jogja', [HomeController::class, 'vixionJogja'])->name('vixion.jogja');
+Route::get('/yamaha-vixion-jogja', function () {
+    return redirect()->route('vixion.jogja', [], 301);
+});
+Route::get('/harga-vixion-jogja', function () {
+    return redirect()->route('vixion.jogja', [], 301);
+});
+
+// XMAX
+Route::get('/xmax-jogja', [HomeController::class, 'xmaxJogja'])->name('xmax.jogja');
+Route::get('/yamaha-xmax-jogja', function () {
+    return redirect()->route('xmax.jogja', [], 301);
+});
+Route::get('/harga-xmax-jogja', function () {
+    return redirect()->route('xmax.jogja', [], 301);
 });
 
 // Add login route for Laravel's auth system
