@@ -1,94 +1,462 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     
-    <!-- Homepage - Priority Tertinggi -->
+    <!-- ========================================
+         HOMEPAGE - PRIORITY TERTINGGI
+         ======================================== -->
     <url>
         <loc>http://yamahajogja.id:20275/</loc>
-        <lastmod>2026-02-06</lastmod>
+        <lastmod>2026-02-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     
-    <!-- Halaman Motor - High Priority -->
+    <!-- ========================================
+         HALAMAN MOTOR - HIGH PRIORITY
+         Semua model motor Yamaha
+         ======================================== -->
+    
+    <!-- NMAX Series -->
     <url>
         <loc>http://yamahajogja.id:20275/motor/1</loc>
-        <lastmod>2026-02-06</lastmod>
+        <lastmod>2026-02-24</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.95</priority>
     </url>
     
+    <!-- Aerox Series -->
     <url>
         <loc>http://yamahajogja.id:20275/motor/2</loc>
-        <lastmod>2026-02-06</lastmod>
+        <lastmod>2026-02-24</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.95</priority>
     </url>
     
+    <!-- R15 Series -->
     <url>
         <loc>http://yamahajogja.id:20275/motor/3</loc>
-        <lastmod>2026-02-06</lastmod>
+        <lastmod>2026-02-24</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.95</priority>
     </url>
     
+    <!-- Vixion Series -->
     <url>
         <loc>http://yamahajogja.id:20275/motor/4</loc>
-        <lastmod>2026-02-06</lastmod>
+        <lastmod>2026-02-24</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.95</priority>
     </url>
     
+    <!-- Fazzio Series -->
     <url>
         <loc>http://yamahajogja.id:20275/motor/5</loc>
-        <lastmod>2026-02-06</lastmod>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    
+    <!-- XSR155 -->
+    <url>
+        <loc>http://yamahajogja.id:20275/motor/6</loc>
+        <lastmod>2026-02-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     
-    <!-- Add more motor pages as needed -->
+    <!-- Lexi -->
+    <url>
+        <loc>http://yamahajogja.id:20275/motor/7</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
     
-    <!-- Location Pages - High Priority for Local SEO -->
+    <!-- XMAX -->
+    <url>
+        <loc>http://yamahajogja.id:20275/motor/8</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- MT15 -->
+    <url>
+        <loc>http://yamahajogja.id:20275/motor/9</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Grand Filano -->
+    <url>
+        <loc>http://yamahajogja.id:20275/motor/10</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <!-- Gear 125 -->
+    <url>
+        <loc>http://yamahajogja.id:20275/motor/11</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <!-- Mio M3 -->
+    <url>
+        <loc>http://yamahajogja.id:20275/motor/12</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <!-- Fino -->
+    <url>
+        <loc>http://yamahajogja.id:20275/motor/13</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <!-- Soul GT -->
+    <url>
+        <loc>http://yamahajogja.id:20275/motor/14</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <!-- Freego -->
+    <url>
+        <loc>http://yamahajogja.id:20275/motor/15</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <!-- ========================================
+         LOCATION PAGES - HIGH PRIORITY FOR LOCAL SEO
+         Halaman khusus untuk setiap wilayah
+         ======================================== -->
+    
+    <!-- Kulon Progo -->
     <url>
         <loc>http://yamahajogja.id:20275/dealer-yamaha-wates</loc>
-        <lastmod>2026-02-06</lastmod>
+        <lastmod>2026-02-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
     
     <url>
         <loc>http://yamahajogja.id:20275/dealer-yamaha-kulon-progo</loc>
-        <lastmod>2026-02-06</lastmod>
+        <lastmod>2026-02-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
     
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-sentolo</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-nanggulan</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-galur</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <!-- Sleman -->
     <url>
         <loc>http://yamahajogja.id:20275/dealer-yamaha-sleman</loc>
-        <lastmod>2026-02-06</lastmod>
+        <lastmod>2026-02-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
     
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-depok</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-godean</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-mlati</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-gamping</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <!-- Bantul -->
     <url>
         <loc>http://yamahajogja.id:20275/dealer-yamaha-bantul</loc>
-        <lastmod>2026-02-06</lastmod>
+        <lastmod>2026-02-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
     
     <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-sewon</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-kasihan</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-banguntapan</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <!-- Gunung Kidul -->
+    <url>
         <loc>http://yamahajogja.id:20275/dealer-yamaha-gunung-kidul</loc>
-        <lastmod>2026-02-06</lastmod>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-gunungkidul</loc>
+        <lastmod>2026-02-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
     
     <url>
         <loc>http://yamahajogja.id:20275/dealer-yamaha-wonosari</loc>
-        <lastmod>2026-02-06</lastmod>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-playen</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <!-- Kota Yogyakarta -->
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-yogyakarta</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    
+    <!-- ========================================
+         CATEGORY PAGES - MEDIUM PRIORITY
+         Halaman kategori motor
+         ======================================== -->
+    <url>
+        <loc>http://yamahajogja.id:20275/motor-matic-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/motor-sport-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/motor-maxi-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/motor-moped-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- ========================================
+         PROMO & KREDIT PAGES - MEDIUM PRIORITY
+         Halaman promo dan kredit
+         ======================================== -->
+    <url>
+        <loc>http://yamahajogja.id:20275/promo-yamaha-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/kredit-motor-yamaha-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/dp-0-yamaha-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/cicilan-ringan-yamaha-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <!-- ========================================
+         INFORMATIONAL PAGES - MEDIUM PRIORITY
+         Halaman informasi
+         ======================================== -->
+    <url>
+        <loc>http://yamahajogja.id:20275/tentang-kami</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/kontak</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/lokasi-showroom</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/testimoni</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- ========================================
+         PRICE PAGES - HIGH PRIORITY
+         Halaman harga per motor
+         ======================================== -->
+    <url>
+        <loc>http://yamahajogja.id:20275/harga-nmax-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/harga-aerox-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/harga-r15-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/harga-vixion-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/harga-fazzio-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <!-- ========================================
+         COMPARISON PAGES - MEDIUM PRIORITY
+         Halaman perbandingan motor
+         ======================================== -->
+    <url>
+        <loc>http://yamahajogja.id:20275/nmax-vs-pcx</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/aerox-vs-vario</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+    
+    <url>
+        <loc>http://yamahajogja.id:20275/r15-vs-cbr</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+    
+    <!-- ========================================
+         STATIC PAGES - LOW PRIORITY
+         Halaman statis
+         ======================================== -->
+    <url>
+        <loc>http://yamahajogja.id:20275/robots.txt</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.1</priority>
     </url>
     
 </urlset>
