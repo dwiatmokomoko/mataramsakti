@@ -30,7 +30,53 @@ class SEOHelper
     {
         $defaultKeywords = [
             // ========================================
-            // TIER 0: BRAND NAME - ULTRA CRITICAL
+            // TIER 0A: NMAX ULTRA PRIORITY - RANKING TARGET
+            // ========================================
+            'nmax',
+            'yamaha nmax',
+            'nmax jogja',
+            'yamaha nmax jogja',
+            'nmax jogja 2026',
+            'yamaha nmax jogja 2026',
+            'harga nmax',
+            'harga yamaha nmax',
+            'harga nmax jogja',
+            'harga nmax jogja 2026',
+            'harga otr nmax jogja',
+            'nmax mataram sakti',
+            'nmax mataram sakti jogja',
+            'yamaha nmax mataram sakti',
+            'dealer nmax jogja',
+            'dealer yamaha nmax jogja',
+            'showroom nmax jogja',
+            'beli nmax jogja',
+            'jual nmax jogja',
+            'kredit nmax jogja',
+            'promo nmax jogja',
+            'nmax turbo jogja',
+            'nmax connected jogja',
+            'nmax tech max jogja',
+            'nmax wates',
+            'nmax sleman',
+            'nmax bantul',
+            'nmax gunungkidul',
+            'nmax kulon progo',
+            'spesifikasi nmax 2026',
+            'review nmax jogja',
+            'warna nmax 2026',
+            'nmax vs pcx jogja',
+            'berapa harga nmax jogja',
+            'dimana beli nmax jogja',
+            'nmax ready stock jogja',
+            'dp nmax jogja',
+            'cicilan nmax jogja',
+            'angsuran nmax jogja',
+            'simulasi kredit nmax jogja',
+            'test drive nmax jogja',
+            'trade in nmax jogja',
+            
+            // ========================================
+            // TIER 0B: BRAND NAME - ULTRA CRITICAL
             // ========================================
             'yamaha mataram sakti',
             'yamaha mataram sakti jogja',

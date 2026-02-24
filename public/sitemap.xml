@@ -14,6 +14,17 @@
     </url>
     
     <!-- ========================================
+         NMAX LANDING PAGE - ULTRA HIGH PRIORITY
+         Halaman khusus NMAX untuk ranking
+         ======================================== -->
+    <url>
+        <loc>http://yamahajogja.id:20275/nmax-jogja</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.99</priority>
+    </url>
+    
+    <!-- ========================================
          HALAMAN MOTOR - HIGH PRIORITY
          Semua model motor Yamaha
          ======================================== -->

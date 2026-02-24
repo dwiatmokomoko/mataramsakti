@@ -42,6 +42,21 @@ Route::get('/dealer-yamaha-wonosari', function () {
     return view('location-wonosari');
 })->name('location.wonosari');
 
+// NMAX-Specific Landing Pages for SEO Ranking
+Route::get('/nmax-jogja', [HomeController::class, 'nmaxJogja'])->name('nmax.jogja');
+Route::get('/yamaha-nmax-jogja', function () {
+    return redirect()->route('nmax.jogja', [], 301);
+});
+Route::get('/harga-nmax-jogja', function () {
+    return redirect()->route('nmax.jogja', [], 301);
+});
+Route::get('/kredit-nmax-jogja', function () {
+    return redirect()->route('nmax.jogja', [], 301);
+});
+Route::get('/promo-nmax-jogja', function () {
+    return redirect()->route('nmax.jogja', [], 301);
+});
+
 // Add login route for Laravel's auth system
 Route::get('/login', [AdminController::class, 'login'])->name('login');
 

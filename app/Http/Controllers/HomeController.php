@@ -60,4 +60,35 @@ class HomeController extends Controller
         $company = CompanyInfo::first();
         return view('contact', compact('company'));
     }
+    
+    public function nmaxJogja()
+    {
+        // Find NMAX motor
+        $nmaxMotor = Motor::where('name', 'LIKE', '%NMAX%')->first();
+        
+        if (!$nmaxMotor) {
+            // Fallback to first motor if NMAX not found
+            $nmaxMotor = Motor::first();
+        }
+        
+        // Load all NMAX models and variants
+        $nmaxMotor->load(['models.variants', 'models' => function($query) {
+            $query->where('is_active', true)->orderBy('price_otr', 'asc');
+        }]);
+        
+        // Get all NMAX models for display
+        $nmaxModels = $nmaxMotor->models;
+        
+        // Get related motors (other maxi scooters)
+        $relatedMotors = MotorModel::with(['motor', 'availableVariants'])
+            ->whereHas('motor', function($query) use ($nmaxMotor) {
+                $query->where('category', $nmaxMotor->category)
+                      ->where('id', '!=', $nmaxMotor->id);
+            })
+            ->where('is_active', true)
+            ->take(3)
+            ->get();
+        
+        return view('nmax-jogja', compact('nmaxMotor', 'nmaxModels', 'relatedMotors'));
+    }
 }
