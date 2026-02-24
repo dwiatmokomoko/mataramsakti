@@ -5,7 +5,7 @@
         use App\Helpers\SEOHelper;
         
         // Generate location-specific title with 2026
-        $motorTitle = $motor->name . ' Jogja - Harga OTR & Kredit Murah 2026';
+        $motorTitle = $motor->name . ' Yamaha Mataram Sakti Jogja 2026 - Harga OTR Termurah | Kredit DP 0% Cicilan Ringan';
         
         // Get price range
         $minPrice = $motor->models->min('price_otr');
@@ -16,65 +16,117 @@
         }
         
         // Rich description with comprehensive info
-        $motorDescription = "Jual {$motor->name} Yamaha di Jogja - Harga OTR Jogja 2026 mulai {$priceText}. " .
-                           "Dealer resmi Yamaha Jogja melayani Sleman, Bantul, Kulon Progo, Gunung Kidul. " .
-                           "Promo DP murah, cicilan 0%, kredit tanpa survey, angsuran ringan. " .
-                           "Spesifikasi lengkap {$motor->name}, test drive gratis, trade-in, garansi resmi, dan layanan purna jual terpercaya. " .
-                           "Showroom Yamaha terlengkap di Yogyakarta.";
+        $motorDescription = "🏍️ Jual {$motor->name} Yamaha Mataram Sakti Jogja - Harga OTR Jogja 2026 mulai {$priceText}. " .
+                           "✅ Dealer Resmi Yamaha Mataram Sakti melayani Wates, Sleman, Bantul, Kulon Progo, Gunung Kidul. " .
+                           "✅ Promo DP 0%, DP Murah, Cicilan 0%, Kredit Tanpa Survey, Angsuran Ringan mulai 500rb/bulan. " .
+                           "✅ Spesifikasi Lengkap {$motor->name} 2026, Warna Terbaru, Review, Test Drive Gratis. " .
+                           "✅ Trade-In Motor Lama, Garansi Resmi Yamaha Indonesia, Layanan Purna Jual Terpercaya. " .
+                           "📱 Sales Yamaha Mataram Sakti 24 Jam: 0856-4195-6326. Showroom Yamaha Mataram Sakti Terlengkap di Yogyakarta. Ready Stock!";
         
         // Comprehensive location-specific keywords
         $motorKeywords = [
-            // Model + Lokasi Utama
+            // PRIMARY KEYWORDS - ULTRA HIGH PRIORITY
+            strtolower($motor->name),
+            'yamaha ' . strtolower($motor->name),
             strtolower($motor->name) . ' jogja',
             'yamaha ' . strtolower($motor->name) . ' jogja',
+            strtolower($motor->name) . ' jogja 2026',
+            'harga ' . strtolower($motor->name),
             'harga ' . strtolower($motor->name) . ' jogja',
             'harga ' . strtolower($motor->name) . ' jogja 2026',
             'harga otr ' . strtolower($motor->name) . ' jogja',
             'harga otr ' . strtolower($motor->name) . ' jogja 2026',
             
-            // Model + Kabupaten
+            // YAMAHA MATARAM SAKTI KEYWORDS
+            strtolower($motor->name) . ' yamaha mataram sakti',
+            strtolower($motor->name) . ' mataram sakti',
+            strtolower($motor->name) . ' mataram sakti jogja',
+            'yamaha mataram sakti ' . strtolower($motor->name),
+            'harga ' . strtolower($motor->name) . ' mataram sakti',
+            'harga ' . strtolower($motor->name) . ' yamaha mataram sakti',
+            'dealer yamaha mataram sakti',
+            'yamaha mataram sakti jogja',
+            'yamaha mataram sakti wates',
+            'yamaha mataram sakti kulon progo',
+            'showroom yamaha mataram sakti',
+            'promo yamaha mataram sakti',
+            'kredit ' . strtolower($motor->name) . ' mataram sakti',
+            
+            // LOCATION SPECIFIC
+            strtolower($motor->name) . ' wates',
             strtolower($motor->name) . ' sleman',
             strtolower($motor->name) . ' bantul',
             strtolower($motor->name) . ' kulon progo',
-            strtolower($motor->name) . ' wates',
+            'yamaha ' . strtolower($motor->name) . ' wates',
             'yamaha ' . strtolower($motor->name) . ' sleman',
             'yamaha ' . strtolower($motor->name) . ' bantul',
+            'harga ' . strtolower($motor->name) . ' wates',
+            'harga ' . strtolower($motor->name) . ' sleman',
+            'harga ' . strtolower($motor->name) . ' bantul',
             
-            // Buying Intent
+            // BUYING INTENT - HIGH CONVERSION
+            'kredit ' . strtolower($motor->name),
             'kredit ' . strtolower($motor->name) . ' jogja',
             'kredit yamaha ' . strtolower($motor->name) . ' jogja',
             'cicilan ' . strtolower($motor->name) . ' jogja',
             'dp ' . strtolower($motor->name) . ' jogja',
-            'dp minim ' . strtolower($motor->name) . ' jogja',
+            'dp 0 ' . strtolower($motor->name) . ' jogja',
+            'dp murah ' . strtolower($motor->name) . ' jogja',
             'angsuran ' . strtolower($motor->name) . ' jogja',
+            'angsuran ringan ' . strtolower($motor->name) . ' jogja',
+            'promo ' . strtolower($motor->name),
             'promo ' . strtolower($motor->name) . ' jogja',
             'promo yamaha ' . strtolower($motor->name) . ' jogja',
             'promo yamaha ' . strtolower($motor->name) . ' jogja 2026',
             'diskon ' . strtolower($motor->name) . ' jogja',
+            'cashback ' . strtolower($motor->name) . ' jogja',
             
-            // Specifications
+            // SPECIFICATIONS & REVIEWS
             'spesifikasi ' . strtolower($motor->name),
             'spesifikasi ' . strtolower($motor->name) . ' 2026',
+            'spesifikasi lengkap ' . strtolower($motor->name),
+            'review ' . strtolower($motor->name),
             'review ' . strtolower($motor->name) . ' jogja',
+            'review ' . strtolower($motor->name) . ' 2026',
+            'warna ' . strtolower($motor->name),
             'warna ' . strtolower($motor->name) . ' jogja',
             'warna baru ' . strtolower($motor->name) . ' 2026',
+            'warna terbaru ' . strtolower($motor->name) . ' 2026',
             
-            // Category
-            strtolower($motor->category) . ' yamaha jogja',
-            'motor ' . strtolower($motor->category) . ' jogja',
+            // CATEGORY SPECIFIC
+            'motor ' . strtolower($motor->category) . ' yamaha',
+            'motor ' . strtolower($motor->category) . ' yamaha jogja',
             'motor ' . strtolower($motor->category) . ' terbaik jogja',
+            strtolower($motor->category) . ' yamaha jogja',
             
-            // Dealer
+            // DEALER SPECIFIC
             'dealer yamaha jogja',
             'dealer resmi yamaha jogja',
             'showroom yamaha jogja',
+            'jual ' . strtolower($motor->name) . ' jogja',
             
-            // Long-tail
+            // LONG-TAIL KEYWORDS
             'beli ' . strtolower($motor->name) . ' di jogja',
+            'beli ' . strtolower($motor->name) . ' cash jogja',
+            'beli ' . strtolower($motor->name) . ' kredit jogja',
             'indent ' . strtolower($motor->name) . ' jogja',
             'test drive ' . strtolower($motor->name) . ' jogja',
             'simulasi kredit ' . strtolower($motor->name) . ' jogja',
-            'syarat kredit ' . strtolower($motor->name) . ' jogja'
+            'syarat kredit ' . strtolower($motor->name) . ' jogja',
+            'trade in ' . strtolower($motor->name) . ' jogja',
+            'tukar tambah ' . strtolower($motor->name) . ' jogja',
+            
+            // COMPARISON KEYWORDS
+            strtolower($motor->name) . ' vs',
+            'perbandingan ' . strtolower($motor->name),
+            'kelebihan ' . strtolower($motor->name),
+            'kekurangan ' . strtolower($motor->name),
+            
+            // YEAR SPECIFIC
+            strtolower($motor->name) . ' 2026',
+            strtolower($motor->name) . ' terbaru',
+            strtolower($motor->name) . ' terbaru 2026',
+            'yamaha ' . strtolower($motor->name) . ' terbaru 2026'
         ];
         
         $motorImage = $motor->models->first()?->image ? 
@@ -755,11 +807,11 @@
 
                 {{-- Action Buttons --}}
                 <div class="action-buttons-section">
-                    <button class="btn btn-outline-primary btn-lg px-5 me-3" 
-                            data-bs-toggle="modal" 
-                            data-bs-target="#creditModal">
-                        <i class="fas fa-calculator me-2"></i>Simulasi Kredit
-                    </button>
+                    <a href="{{ asset('PL YMS - JAN 2026.pdf') }}" 
+                       download="Daftar Harga Yamaha Jogja 2026.pdf"
+                       class="btn btn-outline-primary btn-lg px-5 me-3">
+                        <i class="fas fa-download me-2"></i>Download Daftar Harga
+                    </a>
                     <a href="https://wa.me/6285641956326?text=Halo%20Yamaha%20Mataram%20Sakti,%20saya%20lihat%20di%20web%20dan%20ingin%20bertanya%20tentang%20{{ urlencode($motor->name) }}" target="_blank" class="btn btn-primary btn-lg px-5">
                         <i class="fab fa-whatsapp me-2"></i>Konsultasi Pembelian
                     </a>
@@ -941,189 +993,9 @@
     </div>
 </div>
 
-{{-- Credit Calculator Modal --}}
-<div class="modal fade" id="creditModal" tabindex="-1">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title">
-                    <i class="fas fa-calculator me-2"></i>Simulasi Kredit - {{ $motor->name }}
-                </h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                @php
-                    $firstModel = $motor->models->first();
-                    $motorPrice = $firstModel ? $firstModel->price_otr : $motor->price_otr;
-                    $motorFormattedPrice = $firstModel ? $firstModel->formatted_price_otr : $motor->formatted_price_otr;
-                @endphp
-                <input type="hidden" id="motorPriceInput" value="{{ $motorPrice }}">
-                
-                <div class="row mb-4">
-                    @if($motor->models->count() > 1)
-                    <div class="col-md-4">
-                        <label for="motorModelSelect" class="form-label fw-bold">Pilih Tipe</label>
-                        <select class="form-select form-select-lg" id="motorModelSelect" onchange="updateMotorPrice()">
-                            @foreach($motor->models as $model)
-                                <option value="{{ $model->price_otr }}" data-formatted="{{ $model->formatted_price_otr }}">
-                                    {{ $model->full_name }} - {{ $model->formatted_price_otr }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="motorPrice" class="form-label fw-bold">Harga Motor (OTR)</label>
-                        <input type="text" class="form-control form-control-lg" id="motorPrice" 
-                               value="{{ $motorFormattedPrice }}" readonly>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="dpAmount" class="form-label fw-bold">Uang Muka (DP)</label>
-                        <input type="number" class="form-control form-control-lg" id="dpAmount" 
-                               value="0" 
-                               min="0" max="{{ $motorPrice }}"
-                               placeholder="Masukkan DP">
-                    </div>
-                    @else
-                    <div class="col-md-6">
-                        <label for="motorPrice" class="form-label fw-bold">Harga Motor (OTR)</label>
-                        <input type="text" class="form-control form-control-lg" id="motorPrice" 
-                               value="{{ $motorFormattedPrice }}" readonly>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="dpAmount" class="form-label fw-bold">Uang Muka (DP)</label>
-                        <input type="number" class="form-control form-control-lg" id="dpAmount" 
-                               value="0" 
-                               min="0" max="{{ $motorPrice }}"
-                               placeholder="Masukkan DP">
-                    </div>
-                    @endif
-                </div>
-
-                <div class="alert alert-info">
-                    <i class="fas fa-info-circle me-2"></i>
-                    <strong>Pilih Paket Kredit:</strong> Klik pada salah satu paket di bawah untuk melihat detail cicilan
-                </div>
-
-                <div id="creditPackages" class="row g-3">
-                    <!-- Paket kredit akan ditampilkan di sini -->
-                </div>
-
-                <div id="creditResult" class="mt-4" style="display: none;">
-                    <div class="card border-primary">
-                        <div class="card-header bg-primary text-white">
-                            <h6 class="mb-0"><i class="fas fa-file-invoice-dollar me-2"></i>Detail Cicilan</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="row text-center">
-                                <div class="col-md-3">
-                                    <div class="p-3 bg-light rounded">
-                                        <small class="text-muted d-block mb-1">Tenor</small>
-                                        <strong class="h5 text-primary" id="selectedTenor">-</strong>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="p-3 bg-light rounded">
-                                        <small class="text-muted d-block mb-1">Cicilan/Bulan</small>
-                                        <strong class="h5 text-success" id="monthlyPayment">-</strong>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="p-3 bg-light rounded">
-                                        <small class="text-muted d-block mb-1">Total Bayar</small>
-                                        <strong class="h6 text-info" id="totalPayment">-</strong>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="p-3 bg-light rounded">
-                                        <small class="text-muted d-block mb-1">Total Bunga</small>
-                                        <strong class="h6 text-warning" id="totalInterest">-</strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <small class="text-muted">
-                                    <i class="fas fa-exclamation-triangle me-1"></i>
-                                    *Simulasi ini hanya perkiraan berdasarkan skema kredit Yamaha. Untuk informasi akurat dan proses pengajuan, silakan hubungi dealer kami.
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    <i class="fas fa-times me-2"></i>Tutup
-                </button>
-                <a href="https://wa.me/6285641956326?text=Halo%20Yamaha%20Mataram%20Sakti,%20saya%20lihat%20di%20web%20dan%20ingin%20bertanya%20tentang%20simulasi%20kredit%20{{ urlencode($motor->name) }}" 
-                   target="_blank" class="btn btn-success">
-                    <i class="fab fa-whatsapp me-2"></i>Hubungi Dealer
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-.credit-package-card {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid #e0e0e0;
-}
-
-.credit-package-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-color: #1e3c72;
-}
-
-.credit-package-card.selected {
-    border-color: #1e3c72;
-    background-color: #f0f4ff;
-}
-
-.credit-package-card .badge {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-}
-
-.credit-package-card .installment-amount {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1e3c72;
-}
-</style>
-
 <script>
-// Function to update motor price when model is selected
-function updateMotorPrice() {
-    const select = document.getElementById('motorModelSelect');
-    if (!select) return;
-    
-    const selectedOption = select.options[select.selectedIndex];
-    const newPrice = parseInt(selectedOption.value);
-    const formattedPrice = selectedOption.getAttribute('data-formatted');
-    
-    // Update hidden input
-    document.getElementById('motorPriceInput').value = newPrice;
-    
-    // Update display price
-    document.getElementById('motorPrice').value = formattedPrice;
-    
-    // Update DP max value
-    document.getElementById('dpAmount').setAttribute('max', newPrice);
-    
-    // Reset DP to 0
-    document.getElementById('dpAmount').value = 0;
-    
-    // Hide result
-    document.getElementById('creditResult').style.display = 'none';
-    
-    // Recalculate packages
-    displayCreditPackages();
-}
-
 document.addEventListener('DOMContentLoaded', function() {
-    let currentMotorPrice = {{ $firstModel ? $firstModel->price_otr : $motor->price_otr }};
+
 
     // Variant Navigation
     const variantTabs = document.querySelectorAll('.variant-tab');
@@ -1239,12 +1111,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 priceElement.textContent = variantPriceFormatted;
                 priceElement.style.transform = 'scale(1)';
                 priceElement.style.opacity = '1';
-                
-                // Update credit calculator values
-                document.getElementById('motorPrice').value = variantPriceFormatted;
-                document.getElementById('motorPriceInput').value = variantPrice;
-                document.getElementById('dpAmount').value = Math.round(variantPrice * 0.2);
-                currentMotorPrice = variantPrice;
             }, 300);
         }
         
@@ -1348,10 +1214,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // 2. Update Price
             if (newPrice) {
                 document.getElementById('currentPrice').textContent = newPriceFormatted;
-                document.getElementById('motorPrice').value = newPriceFormatted;
-                document.getElementById('motorPriceInput').value = newPrice;
-                document.getElementById('dpAmount').value = Math.round(newPrice * 0.2);
-                currentMotorPrice = newPrice;
             }
 
             // 3. Update Color Name
@@ -1380,232 +1242,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-// Tabel angsuran Yamaha berdasarkan PL YMS - JAN 2026
-// Format: { dp: nilai_dp, installments: { 11: angsuran_11bln, 17: angsuran_17bln, ... } }
-const installmentTables = {
-    // Tabel untuk AEROX 155 (28.550.000)
-    '28550000': [
-        { dp: 2900000, installments: { 11: 2798000, 17: 1917000, 23: 1498000, 29: 1247000, 35: 1089000 } },
-        { dp: 3000000, installments: { 11: 2788000, 17: 1910000, 23: 1492000, 29: 1243000, 35: 1085000 } },
-        { dp: 3500000, installments: { 11: 2737000, 17: 1875000, 23: 1465000, 29: 1220000, 35: 1065000 } },
-        { dp: 4000000, installments: { 11: 2686000, 17: 1848000, 23: 1438000, 29: 1198000, 35: 1046000 } },
-        { dp: 4500000, installments: { 11: 2636000, 17: 1806000, 23: 1411000, 29: 1175000, 35: 1026000 } },
-        { dp: 5000000, installments: { 11: 2585000, 17: 1771000, 23: 1384000, 29: 1153000, 35: 1007000 } },
-        { dp: 5500000, installments: { 11: 2534000, 17: 1736000, 23: 1357000, 29: 1130000, 35: 987000 } },
-        { dp: 6000000, installments: { 11: 2483000, 17: 1701000, 23: 1330000, 29: 1108000, 35: 967000 } },
-        { dp: 6500000, installments: { 11: 2432000, 17: 1667000, 23: 1303000, 29: 1085000, 35: 948000 } },
-        { dp: 7000000, installments: { 11: 2381000, 17: 1632000, 23: 1276000, 29: 1063000, 35: 928000 } },
-        { dp: 7500000, installments: { 11: 2330000, 17: 1597000, 23: 1249000, 29: 1040000, 35: 909000 } },
-        { dp: 8000000, installments: { 11: 2280000, 17: 1562000, 23: 1222000, 29: 1018000, 35: 889000 } },
-        { dp: 8500000, installments: { 11: 2229000, 17: 1528000, 23: 1195000, 29: 995000, 35: 869000 } },
-        { dp: 9000000, installments: { 11: 2178000, 17: 1493000, 23: 1167000, 29: 973000, 35: 850000 } },
-        { dp: 9500000, installments: { 11: 2127000, 17: 1458000, 23: 1140000, 29: 950000, 35: 830000 } },
-        { dp: 10000000, installments: { 11: 2076000, 17: 1423000, 23: 1113000, 29: 928000, 35: 811000 } },
-        { dp: 10500000, installments: { 11: 2025000, 17: 1389000, 23: 1086000, 29: 905000, 35: 791000 } },
-        { dp: 11000000, installments: { 11: 1975000, 17: 1354000, 23: 1059000, 29: 883000, 35: 771000 } },
-        { dp: 11500000, installments: { 11: 1924000, 17: 1319000, 23: 1032000, 29: 860000, 35: 752000 } },
-        { dp: 12000000, installments: { 11: 1873000, 17: 1284000, 23: 1005000, 29: 838000, 35: 732000 } },
-        { dp: 12500000, installments: { 11: 1822000, 17: 1250000, 23: 978000, 29: 815000, 35: 712000 } },
-        { dp: 13000000, installments: { 11: 1771000, 17: 1215000, 23: 951000, 29: 793000, 35: 693000 } },
-        { dp: 13500000, installments: { 11: 1720000, 17: 1180000, 23: 924000, 29: 770000, 35: 673000 } },
-        { dp: 14000000, installments: { 11: 1669000, 17: 1145000, 23: 897000, 29: 748000, 35: 654000 } },
-        { dp: 14500000, installments: { 11: 1619000, 17: 1111000, 23: 869000, 29: 725000, 35: 634000 } },
-        { dp: 15000000, installments: { 11: 1568000, 17: 1076000, 23: 842000, 29: 703000, 35: 614000 } },
-        { dp: 15500000, installments: { 11: 1517000, 17: 1041000, 23: 815000, 29: 680000, 35: 595000 } },
-        { dp: 16000000, installments: { 11: 1466000, 17: 1006000, 23: 788000, 29: 658000, 35: 575000 } },
-        { dp: 16500000, installments: { 11: 1415000, 17: 972000, 23: 761000, 29: 635000, 35: 556000 } }
-    ],
-    // Tabel untuk AEROX 155 CYBERCITY (28.840.000)
-    '28840000': [
-        { dp: 2900000, installments: { 11: 2828000, 17: 1937000, 23: 1514000, 29: 1261000, 35: 1101000 } },
-        { dp: 3000000, installments: { 11: 2818000, 17: 1930000, 23: 1508000, 29: 1256000, 35: 1097000 } },
-        { dp: 3500000, installments: { 11: 2767000, 17: 1895000, 23: 1481000, 29: 1234000, 35: 1077000 } },
-        { dp: 4000000, installments: { 11: 2716000, 17: 1861000, 23: 1454000, 29: 1211000, 35: 1057000 } },
-        { dp: 4500000, installments: { 11: 2665000, 17: 1826000, 23: 1427000, 29: 1189000, 35: 1038000 } },
-        { dp: 5000000, installments: { 11: 2614000, 17: 1791000, 23: 1400000, 29: 1166000, 35: 1018000 } },
-        { dp: 5500000, installments: { 11: 2564000, 17: 1756000, 23: 1373000, 29: 1144000, 35: 999000 } },
-        { dp: 6000000, installments: { 11: 2513000, 17: 1722000, 23: 1346000, 29: 1121000, 35: 979000 } },
-        { dp: 6500000, installments: { 11: 2462000, 17: 1687000, 23: 1319000, 29: 1098000, 35: 959000 } },
-        { dp: 7000000, installments: { 11: 2411000, 17: 1652000, 23: 1292000, 29: 1076000, 35: 940000 } },
-        { dp: 7500000, installments: { 11: 2360000, 17: 1617000, 23: 1265000, 29: 1053000, 35: 920000 } },
-        { dp: 8000000, installments: { 11: 2309000, 17: 1583000, 23: 1237000, 29: 1031000, 35: 901000 } },
-        { dp: 8500000, installments: { 11: 2258000, 17: 1548000, 23: 1210000, 29: 1008000, 35: 881000 } },
-        { dp: 9000000, installments: { 11: 2208000, 17: 1513000, 23: 1183000, 29: 986000, 35: 861000 } },
-        { dp: 9500000, installments: { 11: 2157000, 17: 1478000, 23: 1156000, 29: 963000, 35: 842000 } },
-        { dp: 10000000, installments: { 11: 2106000, 17: 1444000, 23: 1129000, 29: 941000, 35: 822000 } },
-        { dp: 10500000, installments: { 11: 2055000, 17: 1409000, 23: 1102000, 29: 918000, 35: 802000 } },
-        { dp: 11000000, installments: { 11: 2004000, 17: 1374000, 23: 1075000, 29: 896000, 35: 783000 } },
-        { dp: 11500000, installments: { 11: 1953000, 17: 1339000, 23: 1048000, 29: 873000, 35: 763000 } },
-        { dp: 12000000, installments: { 11: 1903000, 17: 1305000, 23: 1021000, 29: 860000, 35: 744000 } },
-        { dp: 12500000, installments: { 11: 1860000, 17: 1270000, 23: 994000, 29: 828000, 35: 724000 } },
-        { dp: 13000000, installments: { 11: 1809000, 17: 1235000, 23: 967000, 29: 806000, 35: 704000 } },
-        { dp: 13500000, installments: { 11: 1758000, 17: 1200000, 23: 940000, 29: 783000, 35: 685000 } },
-        { dp: 14000000, installments: { 11: 1707000, 17: 1166000, 23: 912000, 29: 761000, 35: 665000 } },
-        { dp: 14500000, installments: { 11: 1656000, 17: 1131000, 23: 885000, 29: 738000, 35: 646000 } },
-        { dp: 15000000, installments: { 11: 1605000, 17: 1096000, 23: 858000, 29: 716000, 35: 626000 } },
-        { dp: 15500000, installments: { 11: 1554000, 17: 1062000, 23: 831000, 29: 693000, 35: 606000 } },
-        { dp: 16000000, installments: { 11: 1503000, 17: 1027000, 23: 804000, 29: 671000, 35: 587000 } },
-        { dp: 16500000, installments: { 11: 1452000, 17: 992000, 23: 777000, 29: 648000, 35: 567000 } }
-    ]
-};
-
-function getInstallmentTable(motorPrice) {
-    // Cari tabel yang exact match atau paling mendekati harga motor
-    const priceStr = motorPrice.toString();
-    
-    // Cek exact match dulu
-    if (installmentTables[priceStr]) {
-        return installmentTables[priceStr];
-    }
-    
-    // Jika tidak ada exact match, cari yang paling dekat
-    const priceKey = Object.keys(installmentTables).reduce((prev, curr) => {
-        return Math.abs(parseInt(curr) - motorPrice) < Math.abs(parseInt(prev) - motorPrice) ? curr : prev;
-    });
-    
-    return installmentTables[priceKey];
-}
-
-function findClosestDP(table, dpAmount) {
-    // Cari DP yang paling mendekati dari tabel
-    return table.reduce((prev, curr) => {
-        return Math.abs(curr.dp - dpAmount) < Math.abs(prev.dp - dpAmount) ? curr : prev;
-    });
-}
-
-function calculateInstallment(motorPrice, dp) {
-    const table = getInstallmentTable(motorPrice);
-    const closestEntry = findClosestDP(table, dp);
-    
-    return closestEntry;
-}
-
-function displayCreditPackages() {
-    const motorPrice = parseInt(document.getElementById('motorPriceInput').value);
-    const dpAmount = parseInt(document.getElementById('dpAmount').value) || 0;
-    const packagesContainer = document.getElementById('creditPackages');
-    
-    // Validasi DP
-    if (dpAmount < 0 || dpAmount > motorPrice) {
-        packagesContainer.innerHTML = `
-            <div class="col-12">
-                <div class="alert alert-warning">
-                    <i class="fas fa-exclamation-triangle me-2"></i>
-                    Mohon masukkan DP yang valid (0 - ${formatRupiah(motorPrice)})
-                </div>
-            </div>
-        `;
-        document.getElementById('creditResult').style.display = 'none';
-        return;
-    }
-    
-    // Cek DP minimum
-    const table = getInstallmentTable(motorPrice);
-    const minDP = table[0].dp;
-    
-    if (dpAmount < minDP) {
-        packagesContainer.innerHTML = `
-            <div class="col-12">
-                <div class="alert alert-warning">
-                    <i class="fas fa-exclamation-triangle me-2"></i>
-                    DP minimum untuk motor ini adalah ${formatRupiah(minDP)}
-                </div>
-            </div>
-        `;
-        document.getElementById('creditResult').style.display = 'none';
-        return;
-    }
-    
-    // Dapatkan data angsuran berdasarkan DP
-    const installmentData = calculateInstallment(motorPrice, dpAmount);
-    const tenors = [11, 17, 23, 29, 35];
-    
-    packagesContainer.innerHTML = '';
-    
-    tenors.forEach((tenor) => {
-        const installment = installmentData.installments[tenor];
-        const totalPayment = (installment * tenor) + dpAmount;
-        const totalInterest = totalPayment - motorPrice;
-        const interestRate = 8.99; // Fixed rate 8.99%
-        
-        const packageCard = `
-            <div class="col-md-4 col-sm-6 mb-3">
-                <div class="credit-package-card card h-100 p-3" 
-                     onclick="selectPackage(${tenor}, ${installment}, ${totalPayment}, ${totalInterest})">
-                    <div class="card-body text-center">
-                        <div class="badge bg-primary mb-3">${tenor} Bulan</div>
-                        <div class="installment-amount mb-2">
-                            ${formatRupiah(installment)}
-                        </div>
-                        <small class="text-muted d-block mb-3">per bulan</small>
-                        <hr>
-                        <div class="small text-start">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="text-muted">Bunga:</span>
-                                <strong>${interestRate}%</strong>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <span class="text-muted">Total Bayar:</span>
-                                <strong class="text-primary">${formatRupiah(totalPayment)}</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        packagesContainer.innerHTML += packageCard;
-    });
-    
-    // Info DP yang digunakan
-    if (installmentData.dp !== dpAmount) {
-        const infoDiv = `
-            <div class="col-12">
-                <div class="alert alert-info">
-                    <i class="fas fa-info-circle me-2"></i>
-                    Perhitungan menggunakan DP terdekat: ${formatRupiah(installmentData.dp)}
-                </div>
-            </div>
-        `;
-        packagesContainer.innerHTML = infoDiv + packagesContainer.innerHTML;
-    }
-}
-
-function selectPackage(tenor, monthly, total, interest) {
-    document.getElementById('selectedTenor').textContent = tenor + ' Bulan';
-    document.getElementById('monthlyPayment').textContent = formatRupiah(monthly);
-    document.getElementById('totalPayment').textContent = formatRupiah(total);
-    document.getElementById('totalInterest').textContent = formatRupiah(interest);
-    document.getElementById('creditResult').style.display = 'block';
-    
-    // Highlight selected package
-    document.querySelectorAll('.credit-package-card').forEach(card => {
-        card.classList.remove('selected');
-    });
-    event.currentTarget.classList.add('selected');
-    
-    // Smooth scroll to result
-    document.getElementById('creditResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-function formatRupiah(amount) {
-    return 'Rp ' + Math.round(amount).toLocaleString('id-ID');
-}
-
-// Event listener untuk perubahan DP
-document.getElementById('dpAmount').addEventListener('input', function() {
-    displayCreditPackages();
-    document.getElementById('creditResult').style.display = 'none';
-});
-
-// Tampilkan paket kredit saat modal dibuka
-document.getElementById('creditModal').addEventListener('shown.bs.modal', function() {
-    displayCreditPackages();
-});
 </script>
-
-{{-- Load Credit Simulator --}}
-<script src="{{ asset('js/credit-simulator.js') }}?v={{ time() }}"></script>
 
 @endsection

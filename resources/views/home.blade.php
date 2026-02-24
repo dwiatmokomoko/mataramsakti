@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
 @section('seo')
+    @php
+        use App\Helpers\SEOHelper;
+    @endphp
     <x-seo 
-        title="Dealer Yamaha Wates Kulon Progo Jogja Sleman Bantul - Harga Motor 2026 Termurah OTR Jogja - Promo DP 0% Kredit Tanpa Survey"
+        title="Yamaha Mataram Sakti Jogja - Dealer Resmi Motor Yamaha Jogja Wates Sleman Bantul 2026 | NMAX Aerox R15 Vixion Fazzio XSR155"
         :suffix="false"
-        description="Dealer Yamaha Wates Kulon Progo Jogja Sleman Bantul - Showroom Motor Yamaha Terdekat di Wates. Harga OTR 2026 NMAX Turbo, Aerox Connected, Fazzio Hybrid, R15 V4, XSR155, Lexi, XMAX termurah se-Jogja. Promo DP 0%, kredit tanpa survey, cicilan ringan mulai 500rb/bulan. Melayani Wates, Sentolo, Nanggulan, Galur, Pengasih, Sleman, Depok, Seturan, Gejayan, Bantul, Sewon, Kasihan, Gunung Kidul. Sales Yamaha 24 Jam WA 0856-4195-6326. Ready stock semua tipe! Buka Senin-Minggu 08:00-17:00."
-        :keywords="['dealer yamaha wates', 'yamaha wates', 'dealer yamaha kulon progo', 'yamaha kulon progo', 'dealer yamaha jogja', 'yamaha jogja', 'dealer yamaha sleman', 'yamaha sleman', 'dealer yamaha bantul', 'yamaha bantul', 'harga motor yamaha wates 2026', 'harga motor yamaha kulon progo 2026', 'harga motor yamaha jogja 2026', 'harga nmax wates', 'harga aerox wates', 'harga fazzio wates', 'kredit motor yamaha wates', 'kredit motor yamaha kulon progo', 'promo yamaha wates', 'promo yamaha kulon progo', 'dp 0 yamaha wates', 'cicilan ringan yamaha wates', 'showroom yamaha wates', 'showroom yamaha kulon progo', 'sales yamaha wates 24 jam']"
+        description="🏍️ YAMAHA MATARAM SAKTI - Dealer Resmi Yamaha Jogja. Jual Motor Yamaha Terbaru 2026: NMAX Turbo, Aerox Connected, R15 V4, Vixion, Fazzio Hybrid, XSR155, Lexi, XMAX, MT15, Grand Filano. ✅ Harga OTR Jogja Termurah ✅ Promo DP 0% ✅ Kredit Tanpa Survey ✅ Cicilan Ringan 500rb/bln ✅ Ready Stock Semua Tipe. Melayani Wates, Kulon Progo, Sleman, Bantul, Gunung Kidul. 📱 Sales 24 Jam: 0856-4195-6326. Showroom Yamaha Mataram Sakti Buka Setiap Hari 08:00-17:00. Garansi Resmi Yamaha Indonesia!"
+        :keywords="['yamaha mataram sakti', 'yamaha mataram sakti jogja', 'dealer yamaha mataram sakti', 'mataram sakti jogja', 'yamaha mataram sakti wates', 'yamaha mataram sakti kulon progo', 'yamaha', 'motor yamaha', 'yamaha jogja', 'dealer yamaha jogja', 'yamaha wates', 'yamaha sleman', 'yamaha bantul', 'yamaha kulon progo', 'nmax', 'nmax jogja', 'nmax mataram sakti', 'harga nmax jogja', 'aerox', 'aerox jogja', 'aerox mataram sakti', 'harga aerox jogja', 'r15', 'r15 jogja', 'r15 mataram sakti', 'harga r15 jogja', 'vixion', 'vixion jogja', 'vixion mataram sakti', 'harga vixion jogja', 'fazzio', 'fazzio jogja', 'xsr155', 'xsr155 jogja', 'lexi', 'lexi jogja', 'xmax', 'xmax jogja', 'mt15', 'mt15 jogja', 'harga motor yamaha jogja', 'harga motor yamaha jogja 2026', 'dealer resmi yamaha jogja', 'showroom yamaha jogja', 'showroom yamaha mataram sakti', 'kredit motor yamaha jogja', 'promo yamaha jogja', 'promo yamaha jogja 2026', 'promo yamaha mataram sakti', 'dp 0 yamaha jogja', 'cicilan ringan yamaha jogja', 'motor yamaha terbaru 2026', 'yamaha jogja terdekat', 'sales yamaha jogja', 'sales yamaha mataram sakti', 'harga otr yamaha jogja']"
         :structured-data="[
             [
                 '@context' => 'https://schema.org',

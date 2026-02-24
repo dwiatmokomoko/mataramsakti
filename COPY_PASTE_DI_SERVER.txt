@@ -1,0 +1,57 @@
+# ========================================
+# COPY-PASTE COMMAND INI DI SERVER
+# ========================================
+
+# 1. Masuk ke folder project
+cd /var/www/html/mataramsakti
+
+# 2. Pull perubahan terbaru
+git pull origin main
+
+# 3. Fix permission untuk log file
+sudo chown -R www-data:www-data storage/
+sudo chmod -R 775 storage/
+sudo chown -R www-data:www-data bootstrap/cache/
+sudo chmod -R 775 bootstrap/cache/
+
+# 4. Clear semua cache
+php artisan view:clear
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan optimize:clear
+
+# 5. Verify files exist
+echo "=== Checking Files ==="
+ls -la public/sitemap.xml
+ls -la public/robots.txt
+ls -la resources/views/location-wates.blade.php
+
+# 6. Test URLs
+echo "=== Testing URLs ==="
+curl -I http://localhost:20275/sitemap.xml
+curl -I http://localhost:20275/robots.txt
+curl -I http://localhost:20275/dealer-yamaha-wates
+curl -I http://localhost:20275/
+
+# 7. Test dari luar (ganti dengan IP/domain Anda)
+echo "=== Testing External URLs ==="
+curl -I http://yamahajogja.id:20275/sitemap.xml
+curl -I http://yamahajogja.id:20275/robots.txt
+curl -I http://yamahajogja.id:20275/dealer-yamaha-wates
+
+# ========================================
+# JIKA SEMUA HTTP 200 OK, DEPLOYMENT BERHASIL!
+# ========================================
+
+# NEXT STEPS:
+# 1. Setup Google Search Console (30 menit)
+#    https://search.google.com/search-console
+#
+# 2. Setup Google My Business (1 jam)
+#    https://business.google.com
+#
+# 3. Baca dokumentasi:
+#    - GOOGLE_SEARCH_CONSOLE_SETUP.md
+#    - GOOGLE_MY_BUSINESS_SETUP.md
+#    - ACTION_PLAN_RANKING_PAGE_1.md

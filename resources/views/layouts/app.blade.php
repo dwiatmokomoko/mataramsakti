@@ -90,9 +90,9 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark yamaha-blue fixed-top" role="navigation" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}" aria-label="Yamaha Motor Indonesia Homepage">
+            <a class="navbar-brand" href="{{ route('home') }}" aria-label="Yamaha Mataram Sakti Homepage">
                 <img src="https://www.yamaha-motor.co.id/web_new/shared/image/logo-sepeda-motor-yamaha-indonesia.png?1741327215" 
-                     alt="Yamaha Motor Indonesia Logo" 
+                     alt="Yamaha Mataram Sakti Jogja Logo" 
                      width="120" 
                      height="40"
                      loading="eager">
@@ -137,7 +137,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5>Yamaha Motor Indonesia</h5>
+                    <h5>Yamaha Mataram Sakti Jogja</h5>
                     <p class="mb-2">Revs Your Heart - Dealer Resmi Yamaha</p>
                     <address class="mb-0">
                         <i class="fas fa-map-marker-alt me-2" aria-hidden="true"></i>
@@ -148,27 +148,27 @@
                     <div class="social-links mb-2">
                         <a href="https://www.facebook.com/YamahaMotorID" 
                            class="text-white me-3" 
-                           aria-label="Facebook Yamaha Motor Indonesia"
+                           aria-label="Facebook Yamaha Mataram Sakti Jogja"
                            target="_blank" 
                            rel="noopener noreferrer">
                             <i class="fab fa-facebook-f" aria-hidden="true"></i>
                         </a>
                         <a href="https://www.instagram.com/yamaha_motor_id" 
                            class="text-white me-3" 
-                           aria-label="Instagram Yamaha Motor Indonesia"
+                           aria-label="Instagram Yamaha Mataram Sakti Jogja"
                            target="_blank" 
                            rel="noopener noreferrer">
                             <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
                         <a href="https://www.youtube.com/YamahaMotorID" 
                            class="text-white" 
-                           aria-label="YouTube Yamaha Motor Indonesia"
+                           aria-label="YouTube Yamaha Mataram Sakti Jogja"
                            target="_blank" 
                            rel="noopener noreferrer">
                             <i class="fab fa-youtube" aria-hidden="true"></i>
                         </a>
                     </div>
-                    <p class="mb-0">&copy; {{ date('Y') }} Yamaha Motor Indonesia. All rights reserved.</p>
+                    <p class="mb-0">&copy; {{ date('Y') }} Yamaha Mataram Sakti Jogja. All rights reserved.</p>
                 </div>
             </div>
         </div>

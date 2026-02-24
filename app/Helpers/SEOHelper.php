@@ -6,7 +6,7 @@ class SEOHelper
 {
     public static function generateTitle($title = null, $suffix = true)
     {
-        $baseTitle = 'Dealer Yamaha Wates Kulon Progo Jogja Sleman Bantul - Harga Motor 2026 Termurah OTR Jogja - Promo DP 0% Kredit Tanpa Survey';
+        $baseTitle = 'Yamaha Mataram Sakti Jogja - Dealer Resmi Motor Yamaha Jogja Wates Sleman Bantul | Harga OTR 2026 Termurah';
         
         if (!$title) {
             return $baseTitle;
@@ -21,7 +21,7 @@ class SEOHelper
     
     public static function generateDescription($description = null)
     {
-        $defaultDescription = 'Dealer Yamaha Wates Kulon Progo Jogja - Showroom Motor Yamaha Terdekat di Wates. Harga OTR 2026 NMAX, Aerox, Fazzio, R15, XSR155 termurah se-Jogja. Promo DP 0%, kredit tanpa survey, cicilan ringan. Melayani Wates, Sentolo, Nanggulan, Galur, Pengasih, Sleman, Bantul, Gunung Kidul. Sales Yamaha 24 Jam WA 0856-4195-6326. Ready stock!';
+        $defaultDescription = 'Yamaha Mataram Sakti - Dealer Resmi Yamaha Jogja. Showroom Motor Yamaha Terdekat di Wates, Kulon Progo. Harga OTR 2026 NMAX, Aerox, Fazzio, R15, XSR155 termurah se-Jogja. Promo DP 0%, kredit tanpa survey, cicilan ringan. Melayani Wates, Sentolo, Nanggulan, Sleman, Bantul, Gunung Kidul. Sales Yamaha Mataram Sakti 24 Jam WA 0856-4195-6326. Ready stock!';
         
         return $description ?: $defaultDescription;
     }
@@ -29,6 +29,30 @@ class SEOHelper
     public static function generateKeywords($keywords = [])
     {
         $defaultKeywords = [
+            // ========================================
+            // TIER 0: BRAND NAME - ULTRA CRITICAL
+            // ========================================
+            'yamaha mataram sakti',
+            'yamaha mataram sakti jogja',
+            'yamaha mataram sakti wates',
+            'yamaha mataram sakti kulon progo',
+            'dealer yamaha mataram sakti',
+            'dealer yamaha mataram sakti jogja',
+            'showroom yamaha mataram sakti',
+            'showroom yamaha mataram sakti jogja',
+            'motor yamaha mataram sakti',
+            'harga motor yamaha mataram sakti',
+            'promo yamaha mataram sakti',
+            'kredit motor yamaha mataram sakti',
+            'sales yamaha mataram sakti',
+            'alamat yamaha mataram sakti',
+            'kontak yamaha mataram sakti',
+            'wa yamaha mataram sakti',
+            'whatsapp yamaha mataram sakti',
+            'mataram sakti jogja',
+            'mataram sakti wates',
+            'mataram sakti kulon progo',
+            
             // ========================================
             // TIER 1: ULTRA HIGH PRIORITY - WATES & KULON PROGO
             // ========================================
@@ -230,6 +254,11 @@ class SEOHelper
             // ========================================
             // TIER 7: HARGA & PROMO (ULTRA SPECIFIC)
             // ========================================
+            'harga nmax mataram sakti',
+            'harga aerox mataram sakti',
+            'harga fazzio mataram sakti',
+            'harga r15 mataram sakti',
+            'harga xsr155 mataram sakti',
             'harga nmax wates',
             'harga nmax kulon progo',
             'harga nmax jogja',
@@ -278,6 +307,11 @@ class SEOHelper
             // ========================================
             // TIER 8: KREDIT & FINANSIAL (ULTRA DETAILED)
             // ========================================
+            'kredit motor yamaha mataram sakti',
+            'kredit nmax mataram sakti',
+            'kredit aerox mataram sakti',
+            'dp 0 yamaha mataram sakti',
+            'cicilan ringan yamaha mataram sakti',
             'kredit motor yamaha wates',
             'kredit motor yamaha kulon progo',
             'kredit motor yamaha jogja',
@@ -330,6 +364,9 @@ class SEOHelper
             // TIER 9: MODEL SPECIFIC (EXHAUSTIVE)
             // ========================================
             // NMAX Series
+            'yamaha nmax mataram sakti',
+            'nmax mataram sakti jogja',
+            'yamaha nmax turbo mataram sakti',
             'yamaha nmax turbo wates',
             'yamaha nmax turbo kulon progo',
             'yamaha nmax turbo jogja',
@@ -341,6 +378,9 @@ class SEOHelper
             'nmax tech max jogja',
             
             // Aerox Series
+            'yamaha aerox mataram sakti',
+            'aerox mataram sakti jogja',
+            'aerox 155 connected mataram sakti',
             'aerox 155 connected wates',
             'aerox 155 connected kulon progo',
             'aerox 155 connected jogja',
@@ -357,6 +397,9 @@ class SEOHelper
             'fazzio neo jogja',
             
             // R Series
+            'yamaha r15 mataram sakti',
+            'r15 mataram sakti jogja',
+            'r15 connected mataram sakti',
             'r15 connected wates',
             'r15 connected kulon progo',
             'r15 connected jogja',
@@ -392,6 +435,10 @@ class SEOHelper
             // ========================================
             // TIER 11: LONG TAIL QUESTIONS
             // ========================================
+            'alamat dealer yamaha mataram sakti',
+            'nomor telepon yamaha mataram sakti',
+            'jam buka yamaha mataram sakti',
+            'cara ke yamaha mataram sakti',
             'dealer yamaha terdekat dari wates',
             'dealer yamaha terdekat dari kulon progo',
             'dealer yamaha terdekat dari jogja',
@@ -411,6 +458,9 @@ class SEOHelper
             // ========================================
             // TIER 12: SERVICE & SPARE PART
             // ========================================
+            'service yamaha mataram sakti',
+            'bengkel yamaha mataram sakti',
+            'spare part yamaha mataram sakti',
             'service yamaha wates',
             'service yamaha kulon progo',
             'service yamaha jogja',
@@ -452,6 +502,11 @@ class SEOHelper
             // ========================================
             // TIER 15: BRAND & TRUST SIGNALS
             // ========================================
+            'dealer resmi yamaha mataram sakti',
+            'dealer 3s yamaha mataram sakti',
+            'yamaha motor indonesia mataram sakti',
+            'sales yamaha mataram sakti',
+            'marketing yamaha mataram sakti',
             'dealer resmi yamaha wates',
             'dealer resmi yamaha kulon progo',
             'dealer resmi yamaha jogja',
@@ -471,6 +526,12 @@ class SEOHelper
             // ========================================
             // TIER 16: CONTACT & URGENCY
             // ========================================
+            'wa dealer yamaha mataram sakti',
+            'whatsapp yamaha mataram sakti',
+            'kontak yamaha mataram sakti',
+            'sales yamaha mataram sakti 24 jam',
+            'ready stock yamaha mataram sakti',
+            'indent yamaha mataram sakti',
             'wa dealer yamaha wates',
             'wa dealer yamaha kulon progo',
             'wa dealer yamaha jogja',
@@ -503,8 +564,8 @@ class SEOHelper
     public static function generateOpenGraphData($data = [])
     {
         $defaults = [
-            'title' => 'Dealer Yamaha Jogja Resmi - Harga Promo & Kredit Murah 2026',
-            'description' => 'Dealer resmi Yamaha Jogja. Jual motor Yamaha terbaru 2026 dengan harga OTR Jogja terbaik, promo DP murah, cicilan 0%. Melayani Sleman, Bantul, Kulon Progo, Gunung Kidul.',
+            'title' => 'Yamaha Mataram Sakti Jogja - Dealer Resmi Motor Yamaha | Harga OTR 2026 Termurah',
+            'description' => 'Dealer resmi Yamaha Mataram Sakti Jogja. Jual motor Yamaha terbaru 2026 dengan harga OTR Jogja terbaik, promo DP murah, cicilan 0%. Melayani Wates, Sleman, Bantul, Kulon Progo, Gunung Kidul.',
             'image' => asset('images/yamaha-og-image.jpg'),
             'url' => request()->url(),
             'type' => 'website',
@@ -518,8 +579,8 @@ class SEOHelper
     {
         $defaults = [
             'card' => 'summary_large_image',
-            'title' => 'Dealer Yamaha Jogja Resmi - Harga Promo & Kredit Murah 2026',
-            'description' => 'Dealer resmi Yamaha Jogja. Jual motor Yamaha terbaru 2026 dengan harga OTR Jogja terbaik, promo DP murah, cicilan 0%.',
+            'title' => 'Yamaha Mataram Sakti Jogja - Dealer Resmi Motor Yamaha | Harga OTR 2026 Termurah',
+            'description' => 'Dealer resmi Yamaha Mataram Sakti Jogja. Jual motor Yamaha terbaru 2026 dengan harga OTR Jogja terbaik, promo DP murah, cicilan 0%.',
             'image' => asset('images/yamaha-twitter-card.jpg'),
             'site' => '@YamahaMotorID'
         ];
@@ -534,11 +595,11 @@ class SEOHelper
                 return [
                     '@context' => 'https://schema.org',
                     '@type' => 'Organization',
-                    'name' => 'Yamaha Wates Kulon Progo',
-                    'alternateName' => 'Dealer Yamaha Wates',
+                    'name' => 'Yamaha Mataram Sakti',
+                    'alternateName' => 'Dealer Yamaha Mataram Sakti Jogja',
                     'url' => config('app.url'),
                     'logo' => asset('images/yamaha-logo.png'),
-                    'description' => 'Dealer resmi Yamaha di Wates, Kulon Progo, Yogyakarta. Melayani penjualan motor Yamaha, service, spare part, dan aksesoris.',
+                    'description' => 'Dealer resmi Yamaha Mataram Sakti di Wates, Kulon Progo, Yogyakarta. Melayani penjualan motor Yamaha, service, spare part, dan aksesoris.',
                     'address' => [
                         '@type' => 'PostalAddress',
                         'streetAddress' => 'Jl. Raya Wates',
@@ -584,10 +645,10 @@ class SEOHelper
                 return array_merge([
                     '@context' => 'https://schema.org',
                     '@type' => 'MotorcycleDealer',
-                    'name' => 'Yamaha Wates Kulon Progo',
-                    'alternateName' => 'Dealer Yamaha Wates',
+                    'name' => 'Yamaha Mataram Sakti',
+                    'alternateName' => 'Dealer Yamaha Mataram Sakti Jogja',
                     'url' => config('app.url'),
-                    'description' => 'Dealer resmi Yamaha di Wates, Kulon Progo, Yogyakarta. Jual motor Yamaha terbaru, service berkala, spare part original, dan aksesoris.',
+                    'description' => 'Dealer resmi Yamaha Mataram Sakti di Wates, Kulon Progo, Yogyakarta. Jual motor Yamaha terbaru, service berkala, spare part original, dan aksesoris.',
                     'image' => asset('images/yamaha-showroom.jpg'),
                     'priceRange' => 'Rp 15.000.000 - Rp 500.000.000',
                     'telephone' => '+62-856-4195-6326',
