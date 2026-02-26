@@ -19,6 +19,9 @@ class SitemapController extends Controller
         // Motors sitemap
         $sitemap .= $this->addSitemapEntry(route('sitemap.motors'), now());
         
+        // Locations sitemap
+        $sitemap .= $this->addSitemapEntry(route('sitemap.locations'), now());
+        
         $sitemap .= '</sitemapindex>';
         
         return response($sitemap, 200, [
@@ -65,6 +68,47 @@ class SitemapController extends Controller
                 }
             }
             
+            $sitemap .= '</url>' . "\n";
+        }
+        
+        $sitemap .= '</urlset>';
+        
+        return response($sitemap, 200, [
+            'Content-Type' => 'application/xml'
+        ]);
+    }
+    
+    public function locations()
+    {
+        $sitemap = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+        $sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+        
+        // All location slugs for DIY
+        $locations = [
+            // Kulon Progo
+            'wates', 'temon', 'panjatan', 'galur', 'lendah', 'sentolo', 'pengasih', 
+            'kokap', 'girimulyo', 'nanggulan', 'kalibawang', 'samigaluh',
+            // Gunungkidul
+            'wonosari', 'playen', 'patuk', 'paliyan', 'panggang', 'tepus', 'semanu', 
+            'karangmojo', 'ponjong', 'rongkop', 'semin', 'nglipar', 'ngawen', 
+            'gedangsari', 'saptosari', 'girisubo', 'tanjungsari', 'purwosari',
+            // Bantul
+            'bantul', 'sewon', 'kasihan', 'pandak', 'pajangan', 'sedayu', 'sanden', 
+            'kretek', 'pundong', 'bambanglipuro', 'jetis-bantul', 'imogiri', 'dlingo', 
+            'banguntapan', 'pleret', 'piyungan', 'srandakan',
+            // Sleman
+            'sleman', 'depok', 'mlati', 'gamping', 'godean', 'moyudan', 'minggir', 
+            'seyegan', 'ngaglik', 'ngemplak', 'kalasan', 'berbah', 'prambanan', 
+            'cangkringan', 'turi', 'pakem', 'tempel',
+            // Kota Yogyakarta
+            'gondokusuman', 'jetis-jogja', 'tegalrejo', 'umbulharjo', 'kotagede', 
+            'mergangsan', 'mantrijeron', 'kraton', 'gondomanan', 'pakualaman', 
+            'danurejan', 'gedongtengen', 'ngampilan', 'wirobrajan'
+        ];
+        
+        foreach ($locations as $location) {
+            $locationUrl = route('location.show', $location);
+            $sitemap .= $this->addUrlEntry($locationUrl, now(), 'weekly', '0.8');
             $sitemap .= '</url>' . "\n";
         }
         

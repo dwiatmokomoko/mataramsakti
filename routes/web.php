@@ -15,32 +15,11 @@ Route::post('/motor/{motor}/calculate-credit', [App\Http\Controllers\MotorDetail
 Route::get('/sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap.index');
 Route::get('/sitemap-main.xml', [App\Http\Controllers\SitemapController::class, 'main'])->name('sitemap.main');
 Route::get('/sitemap-motors.xml', [App\Http\Controllers\SitemapController::class, 'motors'])->name('sitemap.motors');
+Route::get('/sitemap-locations.xml', [App\Http\Controllers\SitemapController::class, 'locations'])->name('sitemap.locations');
 Route::get('/robots.txt', [App\Http\Controllers\RobotsController::class, 'robots'])->name('robots');
 
-// Location-Specific Pages for Local SEO
-Route::get('/dealer-yamaha-wates', function () {
-    return view('location-wates');
-})->name('location.wates');
-
-Route::get('/dealer-yamaha-kulon-progo', function () {
-    return view('location-kulon-progo');
-})->name('location.kulon-progo');
-
-Route::get('/dealer-yamaha-sleman', function () {
-    return view('location-sleman');
-})->name('location.sleman');
-
-Route::get('/dealer-yamaha-bantul', function () {
-    return view('location-bantul');
-})->name('location.bantul');
-
-Route::get('/dealer-yamaha-gunung-kidul', function () {
-    return view('location-gunung-kidul');
-})->name('location.gunung-kidul');
-
-Route::get('/dealer-yamaha-wonosari', function () {
-    return view('location-wonosari');
-})->name('location.wonosari');
+// Location-Specific Pages for Local SEO (All Kecamatan in DIY)
+Route::get('/dealer-yamaha-{location}', [App\Http\Controllers\LocationController::class, 'show'])->name('location.show');
 
 // Motor-Specific Landing Pages for SEO Ranking
 // NMAX

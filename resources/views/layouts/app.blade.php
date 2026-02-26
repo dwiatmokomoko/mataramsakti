@@ -256,7 +256,7 @@
                     <p class="mb-2">Revs Your Heart - Dealer Resmi Yamaha</p>
                     <address class="mb-0">
                         <i class="fas fa-map-marker-alt me-2" aria-hidden="true"></i>
-                        Kulon Progo, Yogyakarta
+                        Yogyakarta
                     </address>
                 </div>
                 <div class="col-md-6 text-md-end">
