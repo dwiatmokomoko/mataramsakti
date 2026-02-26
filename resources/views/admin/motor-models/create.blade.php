@@ -126,6 +126,155 @@
                         </div>
                     </div>
 
+                    <!-- Specifications -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h6 class="text-primary border-bottom pb-2">Spesifikasi Motor</h6>
+                        </div>
+                        
+                        <!-- Engine Specifications -->
+                        <div class="col-12 mb-3">
+                            <div class="card">
+                                <div class="card-header bg-light">
+                                    <strong>Mesin</strong>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[tipe_mesin]" 
+                                                   placeholder="Tipe Mesin" 
+                                                   value="{{ old('specifications.tipe_mesin') }}">
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[kapasitas_mesin]" 
+                                                   placeholder="Kapasitas Mesin (cc)" 
+                                                   value="{{ old('specifications.kapasitas_mesin') }}">
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[diameter_langkah]" 
+                                                   placeholder="Diameter x Langkah" 
+                                                   value="{{ old('specifications.diameter_langkah') }}">
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[daya_maksimum]" 
+                                                   placeholder="Daya Maksimum" 
+                                                   value="{{ old('specifications.daya_maksimum') }}">
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[torsi_maksimum]" 
+                                                   placeholder="Torsi Maksimum" 
+                                                   value="{{ old('specifications.torsi_maksimum') }}">
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[perbandingan_kompresi]" 
+                                                   placeholder="Perbandingan Kompresi" 
+                                                   value="{{ old('specifications.perbandingan_kompresi') }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chassis & Brakes -->
+                        <div class="col-12 mb-3">
+                            <div class="card">
+                                <div class="card-header bg-light">
+                                    <strong>Rangka & Rem</strong>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[tipe_rangka]" 
+                                                   placeholder="Tipe Rangka" 
+                                                   value="{{ old('specifications.tipe_rangka') }}">
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[suspensi_depan]" 
+                                                   placeholder="Suspensi Depan" 
+                                                   value="{{ old('specifications.suspensi_depan') }}">
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[suspensi_belakang]" 
+                                                   placeholder="Suspensi Belakang" 
+                                                   value="{{ old('specifications.suspensi_belakang') }}">
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[rem_depan]" 
+                                                   placeholder="Rem Depan" 
+                                                   value="{{ old('specifications.rem_depan') }}">
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[rem_belakang]" 
+                                                   placeholder="Rem Belakang" 
+                                                   value="{{ old('specifications.rem_belakang') }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dimensions -->
+                        <div class="col-12 mb-3">
+                            <div class="card">
+                                <div class="card-header bg-light">
+                                    <strong>Dimensi</strong>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[panjang_lebar_tinggi]" 
+                                                   placeholder="Panjang x Lebar x Tinggi" 
+                                                   value="{{ old('specifications.panjang_lebar_tinggi') }}">
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[jarak_sumbu_roda]" 
+                                                   placeholder="Jarak Sumbu Roda" 
+                                                   value="{{ old('specifications.jarak_sumbu_roda') }}">
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[tinggi_tempat_duduk]" 
+                                                   placeholder="Tinggi Tempat Duduk" 
+                                                   value="{{ old('specifications.tinggi_tempat_duduk') }}">
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[berat_isi]" 
+                                                   placeholder="Berat Isi" 
+                                                   value="{{ old('specifications.berat_isi') }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Other Specs -->
+                        <div class="col-12 mb-3">
+                            <div class="card">
+                                <div class="card-header bg-light">
+                                    <strong>Lainnya</strong>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[kapasitas_tangki]" 
+                                                   placeholder="Kapasitas Tangki" 
+                                                   value="{{ old('specifications.kapasitas_tangki') }}">
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[tipe_transmisi]" 
+                                                   placeholder="Tipe Transmisi" 
+                                                   value="{{ old('specifications.tipe_transmisi') }}">
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <input type="text" class="form-control form-control-sm" name="specifications[tipe_busi]" 
+                                                   placeholder="Tipe Busi" 
+                                                   value="{{ old('specifications.tipe_busi') }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Status -->
                     <div class="row mb-4">
                         <div class="col-12">

@@ -65,11 +65,28 @@ class MotorController extends Controller
         $request->validate([
             'name' => 'required|string|max:255|unique:motors,name',
             'category' => 'required|string',
+            'model' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'is_active' => 'boolean'
+            'price_otr' => 'nullable|numeric|min:0',
+            'price_dp' => 'nullable|numeric|min:0',
+            'price_installment' => 'nullable|numeric|min:0',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'specifications' => 'nullable|array',
+            'is_active' => 'nullable|boolean',
+            'is_featured' => 'nullable|boolean'
         ]);
 
-        Motor::create($request->all());
+        $data = $request->except(['image', 'is_active', 'is_featured']);
+        
+        // Handle checkboxes
+        $data['is_active'] = $request->has('is_active') ? true : false;
+        $data['is_featured'] = $request->has('is_featured') ? true : false;
+        
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('motors', 'public');
+        }
+
+        Motor::create($data);
 
         return redirect()->route('admin.motors.index')
             ->with('success', 'Motor berhasil ditambahkan');
@@ -92,11 +109,32 @@ class MotorController extends Controller
         $request->validate([
             'name' => 'required|string|max:255|unique:motors,name,' . $motor->id,
             'category' => 'required|string',
+            'model' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'is_active' => 'boolean'
+            'price_otr' => 'nullable|numeric|min:0',
+            'price_dp' => 'nullable|numeric|min:0',
+            'price_installment' => 'nullable|numeric|min:0',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'specifications' => 'nullable|array',
+            'is_active' => 'nullable|boolean',
+            'is_featured' => 'nullable|boolean'
         ]);
 
-        $motor->update($request->all());
+        $data = $request->except(['image', 'is_active', 'is_featured']);
+        
+        // Handle checkboxes
+        $data['is_active'] = $request->has('is_active') ? true : false;
+        $data['is_featured'] = $request->has('is_featured') ? true : false;
+        
+        if ($request->hasFile('image')) {
+            // Delete old image
+            if ($motor->image && \Storage::disk('public')->exists($motor->image)) {
+                \Storage::disk('public')->delete($motor->image);
+            }
+            $data['image'] = $request->file('image')->store('motors', 'public');
+        }
+
+        $motor->update($data);
 
         return redirect()->route('admin.motors.index')
             ->with('success', 'Motor berhasil diupdate');

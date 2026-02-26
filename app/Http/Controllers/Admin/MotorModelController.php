@@ -66,12 +66,16 @@ class MotorModelController extends Controller
             'price_installment' => 'nullable|numeric|min:0',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'specifications' => 'nullable|array',
-            'is_featured' => 'boolean',
-            'is_active' => 'boolean'
+            'is_featured' => 'nullable|boolean',
+            'is_active' => 'nullable|boolean'
         ]);
 
-        $data = $request->all();
+        $data = $request->except(['image']);
         $data['motor_id'] = $motor->id;
+        
+        // Handle checkboxes - if not present in request, set to false
+        $data['is_active'] = $request->has('is_active') ? true : false;
+        $data['is_featured'] = $request->has('is_featured') ? true : false;
         
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('motor-models', 'public');
@@ -105,11 +109,15 @@ class MotorModelController extends Controller
             'price_installment' => 'nullable|numeric|min:0',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'specifications' => 'nullable|array',
-            'is_featured' => 'boolean',
-            'is_active' => 'boolean'
+            'is_featured' => 'nullable|boolean',
+            'is_active' => 'nullable|boolean'
         ]);
 
-        $data = $request->all();
+        $data = $request->except(['image']);
+        
+        // Handle checkboxes - if not present in request, set to false
+        $data['is_active'] = $request->has('is_active') ? true : false;
+        $data['is_featured'] = $request->has('is_featured') ? true : false;
         
         if ($request->hasFile('image')) {
             // Delete old image

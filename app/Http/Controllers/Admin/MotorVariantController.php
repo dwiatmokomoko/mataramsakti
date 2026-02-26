@@ -29,12 +29,15 @@ class MotorVariantController extends Controller
             'color_code' => 'nullable|string|max:255', // Allow CSS gradients
             'price_difference' => 'nullable|numeric',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'is_available' => 'boolean'
+            'is_available' => 'nullable|boolean'
         ]);
 
-        $data = $request->all();
+        $data = $request->except(['image', 'is_available']);
         $data['motor_model_id'] = $motorModel->id;
         $data['price_difference'] = $data['price_difference'] ?? 0;
+        
+        // Handle checkbox - if not present in request, set to false
+        $data['is_available'] = $request->has('is_available') ? true : false;
         
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('motor-variants', 'public');
@@ -58,11 +61,14 @@ class MotorVariantController extends Controller
             'color_code' => 'nullable|string|max:255', // Allow CSS gradients
             'price_difference' => 'nullable|numeric',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'is_available' => 'boolean'
+            'is_available' => 'nullable|boolean'
         ]);
 
-        $data = $request->all();
+        $data = $request->except(['image', 'is_available']);
         $data['price_difference'] = $data['price_difference'] ?? 0;
+        
+        // Handle checkbox - if not present in request, set to false
+        $data['is_available'] = $request->has('is_available') ? true : false;
         
         if ($request->hasFile('image')) {
             // Delete old image

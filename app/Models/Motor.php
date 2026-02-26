@@ -10,11 +10,23 @@ class Motor extends Model
         'name',
         'category',
         'description',
-        'is_active'
+        'is_active',
+        'is_featured',
+        'model',
+        'price_otr',
+        'price_dp',
+        'price_installment',
+        'image',
+        'specifications'
     ];
 
     protected $casts = [
-        'is_active' => 'boolean'
+        'is_active' => 'boolean',
+        'is_featured' => 'boolean',
+        'specifications' => 'array',
+        'price_otr' => 'decimal:0',
+        'price_dp' => 'decimal:0',
+        'price_installment' => 'decimal:0'
     ];
 
     public function models()
@@ -50,28 +62,33 @@ class Motor extends Model
     }
 
     // Untuk compatibility dengan view yang sudah ada
-    public function getPriceOtrAttribute()
+    public function getPriceOtrAttribute($value)
     {
-        return $this->main_model ? $this->main_model->price_otr : 0;
+        // Jika ada main_model dan price_otr motor kosong, gunakan dari model
+        if (!$value && $this->main_model) {
+            return $this->main_model->price_otr;
+        }
+        return $value;
     }
 
     public function getFormattedPriceOtrAttribute()
     {
-        return $this->main_model ? $this->main_model->formatted_price_otr : 'Rp 0';
+        $price = $this->price_otr ?: ($this->main_model ? $this->main_model->price_otr : 0);
+        return 'Rp ' . number_format($price, 0, ',', '.');
     }
 
-    public function getImageAttribute()
+    public function getImageAttribute($value)
     {
+        // Jika ada image di motor, gunakan itu
+        if ($value) {
+            return $value;
+        }
+        // Jika tidak, gunakan dari main_model
         return $this->main_model ? $this->main_model->image : null;
     }
 
     public function getMainImageAttribute()
     {
-        return $this->main_model ? $this->main_model->main_image : null;
-    }
-
-    public function getSpecificationsAttribute()
-    {
-        return $this->main_model ? $this->main_model->specifications : [];
+        return $this->image ?: ($this->main_model ? $this->main_model->main_image : null);
     }
 }
