@@ -1149,19 +1149,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     colorDiv.appendChild(colorSwatch);
                     colorOptionsWrapper.appendChild(colorDiv);
-                    
-                    // Add click event for new color
-                    colorDiv.addEventListener('click', function() {
-                        // Update color name
-                        if (colorNameDisplay) {
-                            colorNameDisplay.textContent = color.name;
-                        }
-                        
-                        // Update active state
-                        document.querySelectorAll('.color-swatch').forEach(swatch => swatch.classList.remove('active'));
-                        colorSwatch.classList.add('active');
-                    });
                 });
+                
+                // Re-attach color handlers after adding new colors
+                attachColorVariantHandlers();
                 
                 // Update color name to first color
                 if (colorNameDisplay && variantColors[0]) {
@@ -1194,39 +1185,59 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Color variant interaction
-    document.querySelectorAll('.color-variant-detail').forEach(variant => {
-        variant.addEventListener('click', function() {
-            const newImage = this.getAttribute('data-image');
-            const newPrice = this.getAttribute('data-price');
-            const newPriceFormatted = this.getAttribute('data-price-formatted');
-            const colorName = this.getAttribute('data-name');
+    // Color variant interaction - Universal handler for both static and dynamic colors
+    function attachColorVariantHandlers() {
+        document.querySelectorAll('.color-variant-detail').forEach(variant => {
+            // Remove old listeners by cloning
+            const newVariant = variant.cloneNode(true);
+            variant.parentNode.replaceChild(newVariant, variant);
+            
+            newVariant.addEventListener('click', function() {
+                const newImage = this.getAttribute('data-image');
+                const newPrice = this.getAttribute('data-price');
+                const newPriceFormatted = this.getAttribute('data-price-formatted');
+                const colorName = this.getAttribute('data-name');
 
-            // 1. Update Image with fade effect
-            if (newImage) {
-                const imgElement = document.getElementById('mainMotorImage');
-                imgElement.style.opacity = 0;
-                setTimeout(() => {
-                    imgElement.src = newImage;
-                    imgElement.style.opacity = 1;
-                }, 200);
-            }
+                // 1. Update Image with fade effect
+                if (newImage) {
+                    const imgElement = document.getElementById('mainMotorImage');
+                    if (imgElement) {
+                        imgElement.style.opacity = 0;
+                        setTimeout(() => {
+                            imgElement.src = newImage;
+                            imgElement.style.opacity = 1;
+                        }, 200);
+                    }
+                }
 
-            // 2. Update Price
-            if (newPrice) {
-                document.getElementById('currentPrice').textContent = newPriceFormatted;
-            }
+                // 2. Update Price
+                if (newPriceFormatted) {
+                    const priceElement = document.getElementById('currentPrice');
+                    if (priceElement) {
+                        priceElement.textContent = newPriceFormatted;
+                    }
+                }
 
-            // 3. Update Color Name
-            if(colorName) {
-                document.getElementById('colorNameDisplay').textContent = colorName;
-            }
+                // 3. Update Color Name
+                if (colorName) {
+                    const colorNameElement = document.getElementById('colorNameDisplay');
+                    if (colorNameElement) {
+                        colorNameElement.textContent = colorName;
+                    }
+                }
 
-            // 4. Update Active State
-            document.querySelectorAll('.color-swatch').forEach(swatch => swatch.classList.remove('active'));
-            this.querySelector('.color-swatch').classList.add('active');
+                // 4. Update Active State
+                document.querySelectorAll('.color-swatch').forEach(swatch => swatch.classList.remove('active'));
+                const thisSwatch = this.querySelector('.color-swatch');
+                if (thisSwatch) {
+                    thisSwatch.classList.add('active');
+                }
+            });
         });
-    });
+    }
+
+    // Initial attachment
+    attachColorVariantHandlers();
 
     // Add smooth hover effects for variant tabs
     document.querySelectorAll('.variant-tab').forEach(tab => {
