@@ -12,7 +12,6 @@ class Motor extends Model
         'description',
         'is_active',
         'is_featured',
-        'model',
         'price_otr',
         'price_dp',
         'price_installment',

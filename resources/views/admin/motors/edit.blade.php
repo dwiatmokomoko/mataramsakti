@@ -29,10 +29,17 @@
                         </div>
                         
                         <div class="col-md-6 mb-3">
-                            <label for="model" class="form-label">Model *</label>
-                            <input type="text" class="form-control @error('model') is-invalid @enderror" 
-                                   id="model" name="model" value="{{ old('model', $motor->model) }}" required>
-                            @error('model')
+                            <label for="category" class="form-label">Kategori *</label>
+                            <select class="form-control @error('category') is-invalid @enderror" 
+                                    id="category" name="category" required>
+                                <option value="">Pilih Kategori</option>
+                                @foreach($categories as $category)
+                                <option value="{{ $category }}" {{ old('category', $motor->category) == $category ? 'selected' : '' }}>
+                                    {{ $category }}
+                                </option>
+                                @endforeach
+                            </select>
+                            @error('category')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
@@ -77,23 +84,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="category" class="form-label">Kategori *</label>
-                            <select class="form-control @error('category') is-invalid @enderror" 
-                                    id="category" name="category" required>
-                                <option value="">Pilih Kategori</option>
-                                @foreach($categories as $category)
-                                <option value="{{ $category }}" {{ old('category', $motor->category) == $category ? 'selected' : '' }}>
-                                    {{ $category }}
-                                </option>
-                                @endforeach
-                            </select>
-                            @error('category')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <label for="image" class="form-label">Gambar Motor</label>
                             <input type="file" class="form-control @error('image') is-invalid @enderror" 
                                    id="image" name="image" accept="image/*">

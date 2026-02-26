@@ -65,7 +65,6 @@ class MotorController extends Controller
         $request->validate([
             'name' => 'required|string|max:255|unique:motors,name',
             'category' => 'required|string',
-            'model' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'price_otr' => 'nullable|numeric|min:0',
             'price_dp' => 'nullable|numeric|min:0',
@@ -109,7 +108,6 @@ class MotorController extends Controller
         $request->validate([
             'name' => 'required|string|max:255|unique:motors,name,' . $motor->id,
             'category' => 'required|string',
-            'model' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'price_otr' => 'nullable|numeric|min:0',
             'price_dp' => 'nullable|numeric|min:0',
