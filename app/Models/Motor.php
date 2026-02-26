@@ -62,33 +62,21 @@ class Motor extends Model
     }
 
     // Untuk compatibility dengan view yang sudah ada
-    public function getPriceOtrAttribute($value)
-    {
-        // Jika ada main_model dan price_otr motor kosong, gunakan dari model
-        if (!$value && $this->main_model) {
-            return $this->main_model->price_otr;
-        }
-        return $value;
-    }
-
     public function getFormattedPriceOtrAttribute()
     {
-        $price = $this->price_otr ?: ($this->main_model ? $this->main_model->price_otr : 0);
-        return 'Rp ' . number_format($price, 0, ',', '.');
-    }
-
-    public function getImageAttribute($value)
-    {
-        // Jika ada image di motor, gunakan itu
-        if ($value) {
-            return $value;
+        $price = $this->attributes['price_otr'] ?? 0;
+        if (!$price && $this->main_model) {
+            $price = $this->main_model->price_otr;
         }
-        // Jika tidak, gunakan dari main_model
-        return $this->main_model ? $this->main_model->image : null;
+        return 'Rp ' . number_format($price, 0, ',', '.');
     }
 
     public function getMainImageAttribute()
     {
-        return $this->image ?: ($this->main_model ? $this->main_model->main_image : null);
+        $image = $this->attributes['image'] ?? null;
+        if ($image) {
+            return $image;
+        }
+        return $this->main_model ? $this->main_model->main_image : null;
     }
 }
