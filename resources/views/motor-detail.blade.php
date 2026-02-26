@@ -647,14 +647,14 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .variant-price-title {
         font-size: 2rem;
         margin-bottom: 15px;
     }
     
     .variant-tabs-wrapper {
-        margin-bottom: 15px; /* Further reduced */
+        margin-bottom: 15px;
     }
     
     /* Keep horizontal layout with wrap - max 3 per row */
@@ -672,7 +672,6 @@
         min-width: calc(33.333% - 6px);
         max-width: calc(33.333% - 6px);
         flex: 0 0 calc(33.333% - 6px);
-        /* Keep trapezoid shape */
         clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
         text-align: center;
     }
@@ -690,58 +689,92 @@
         display: none !important;
     }
     
-    /* Move motor display section up significantly */
+    /* Aggressive spacing reduction */
     .motor-display-section {
-        padding: 15px 15px 30px; /* Reduced top padding more */
-        margin-top: -20px; /* Pull up more */
+        padding: 10px 15px 25px;
+        margin-top: -25px;
     }
     
-    /* Reduce motor image size */
+    /* Smaller motor image */
     .motor-image-main {
-        max-height: 250px; /* Reduced from 300px */
+        max-height: 220px;
         width: auto;
-        margin: 0 auto 15px;
+        margin: 0 auto 10px;
     }
     
-    /* Motor name smaller */
     .motor-model-name {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
+        font-size: 1.4rem;
+        margin-bottom: 8px;
     }
     
-    /* Move color options up more */
+    /* Bring color options up */
     .color-options-wrapper {
-        margin-top: -5px;
-        margin-bottom: 15px;
+        margin-top: 0;
+        margin-bottom: 12px;
     }
     
     .color-swatch {
-        width: 60px;
-        height: 25px;
+        width: 55px;
+        height: 23px;
     }
     
-    /* Reduce price size */
     .price-tag-large {
-        font-size: 2rem;
-        margin-bottom: 15px;
+        font-size: 1.9rem;
+        margin-bottom: 12px;
     }
     
     .btn-lg {
-        padding: 12px 30px;
-        font-size: 1rem;
-        margin-bottom: 10px;
+        padding: 10px 25px;
+        font-size: 0.95rem;
+        margin-bottom: 8px;
     }
     
     .action-buttons-section .btn {
         display: block;
         width: 100%;
-        margin-bottom: 15px;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .variant-price-title {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+    }
+    
+    .variant-tabs-wrapper {
+        margin-bottom: 12px;
+    }
+    
+    .motor-display-section {
+        padding: 8px 12px 20px;
+        margin-top: -30px;
+    }
+    
+    .motor-image-main {
+        max-height: 180px;
+        margin-bottom: 8px;
+    }
+    
+    .motor-model-name {
+        font-size: 1.3rem;
+        margin-bottom: 6px;
+    }
+    
+    .color-options-wrapper {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    
+    .price-tag-large {
+        font-size: 1.7rem;
+        margin-bottom: 10px;
     }
 }
 
 @media (max-width: 576px) {
     .variant-price-title {
-        font-size: 1.75rem;
+        font-size: 1.6rem;
         margin-bottom: 10px;
     }
     
@@ -768,39 +801,76 @@
         line-height: 1.2;
     }
     
-    /* Further reduce spacing on small mobile */
+    /* Maximum compression for small screens */
     .motor-display-section {
-        padding: 10px 10px 25px;
-        margin-top: -25px; /* Pull up even more */
+        padding: 5px 10px 18px;
+        margin-top: -35px;
     }
     
-    /* Smaller motor image on small screens */
+    /* Very small motor image */
     .motor-image-main {
-        max-height: 200px; /* Even smaller */
-        margin-bottom: 10px;
+        max-height: 160px;
+        margin-bottom: 6px;
     }
     
     .motor-model-name {
-        font-size: 1.3rem;
-        margin-bottom: 8px;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
     }
     
     .color-options-wrapper {
-        gap: 8px;
+        gap: 6px;
         margin-top: 0;
-        margin-bottom: 12px;
+        margin-bottom: 8px;
     }
     
-    /* Ensure color name is visible */
+    .color-swatch {
+        width: 50px;
+        height: 20px;
+    }
+    
     .selected-color-name {
-        margin-top: 8px;
-        margin-bottom: 12px;
-        font-size: 0.9rem;
+        margin-top: 6px;
+        margin-bottom: 8px;
+        font-size: 0.85rem;
     }
     
     .price-tag-large {
-        font-size: 1.8rem;
-        margin-bottom: 12px;
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+    
+    .btn-lg {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 400px) {
+    .variant-price-title {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+    }
+    
+    .motor-display-section {
+        padding: 3px 8px 15px;
+        margin-top: -40px;
+    }
+    
+    .motor-image-main {
+        max-height: 140px;
+        margin-bottom: 5px;
+    }
+    
+    .motor-model-name {
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+    }
+    
+    .price-tag-large {
+        font-size: 1.3rem;
+        margin-bottom: 6px;
     }
 }
     }
