@@ -773,8 +773,12 @@
                     {{-- Color Options --}}
                     <div class="color-options-wrapper mb-4">
                         @foreach($availableVariants as $index => $variant)
+                        @php
+                            // Get image from variant, or fallback to model image
+                            $variantImage = $variant->image ?: ($variant->motorModel->image ?? $motor->main_image);
+                        @endphp
                         <div class="color-variant-detail" 
-                             data-image="{{ $variant->image ? asset('storage/' . $variant->image) : '' }}"
+                             data-image="{{ $variantImage ? asset('storage/' . $variantImage) : '' }}"
                              data-price="{{ $variant->final_price }}"
                              data-price-formatted="{{ $variant->formatted_final_price }}"
                              data-name="{{ $variant->color_name }}"
@@ -1198,16 +1202,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 const newPriceFormatted = this.getAttribute('data-price-formatted');
                 const colorName = this.getAttribute('data-name');
 
+                console.log('Color clicked:', {
+                    image: newImage,
+                    price: newPrice,
+                    priceFormatted: newPriceFormatted,
+                    colorName: colorName
+                });
+
                 // 1. Update Image with fade effect
-                if (newImage) {
-                    const imgElement = document.getElementById('mainMotorImage');
-                    if (imgElement) {
-                        imgElement.style.opacity = 0;
-                        setTimeout(() => {
-                            imgElement.src = newImage;
-                            imgElement.style.opacity = 1;
-                        }, 200);
-                    }
+                const imgElement = document.getElementById('mainMotorImage');
+                if (imgElement && newImage && newImage !== '') {
+                    console.log('Updating image to:', newImage);
+                    imgElement.style.opacity = 0;
+                    setTimeout(() => {
+                        imgElement.src = newImage;
+                        imgElement.style.opacity = 1;
+                    }, 200);
+                } else {
+                    console.log('Image not updated:', {
+                        hasElement: !!imgElement,
+                        hasImage: !!newImage,
+                        imageValue: newImage
+                    });
                 }
 
                 // 2. Update Price
