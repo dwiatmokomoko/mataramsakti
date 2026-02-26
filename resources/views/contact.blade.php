@@ -185,19 +185,77 @@
 
             <!-- Map atau Info Tambahan -->
             <div class="card mt-4">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Lokasi Dealer</h5>
-                    <p class="text-muted mb-3">Mudah dijangkau dan strategis di depan SAMSAT Wates</p>
-                    <div class="bg-light p-4 rounded">
-                        <i class="fas fa-map-marked-alt fa-5x text-primary mb-3"></i>
-                        <p class="mb-0">
-                            <strong>Yamaha Mataram Sakti</strong><br>
-                            Kulon Progo, Yogyakarta
-                        </p>
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-4">
+                        <i class="fas fa-map-marked-alt me-2"></i>Lokasi Dealer
+                    </h5>
+                    <p class="text-muted text-center mb-4">Mudah dijangkau dan strategis di depan SAMSAT Wates</p>
+                    
+                    <!-- Google Maps Embed - Responsive -->
+                    <div class="ratio ratio-16x9 mb-4">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.2669691322285!2d110.1668634!3d-7.8671072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7afb15262daec9%3A0xb98156d825cb71e1!2sYamaha%20Mataram%20Sakti%20Kulon%20Progo!5e0!3m2!1sid!2sid!4v1772142727387!5m2!1sid!2sid" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    
+                    <!-- Social Media Links -->
+                    <div class="text-center">
+                        <h6 class="mb-3">Ikuti Kami di Social Media</h6>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <a href="https://www.instagram.com/andilestari227/" target="_blank" rel="noopener noreferrer" 
+                               class="btn btn-outline-primary btn-sm">
+                                <i class="fab fa-instagram me-2"></i>Instagram
+                            </a>
+                            <a href="https://www.facebook.com/share/18PKKcwaEm/" target="_blank" rel="noopener noreferrer" 
+                               class="btn btn-outline-primary btn-sm">
+                                <i class="fab fa-facebook me-2"></i>Facebook
+                            </a>
+                            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $company->phone ?? '6281234567890') }}" 
+                               target="_blank" rel="noopener noreferrer" 
+                               class="btn btn-success btn-sm">
+                                <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+/* Responsive adjustments for contact page */
+@media (max-width: 768px) {
+    .card-body .row .col-md-6 {
+        margin-bottom: 1.5rem;
+    }
+    
+    .d-flex.gap-3 {
+        gap: 0.5rem !important;
+    }
+    
+    .btn-sm {
+        font-size: 0.875rem;
+        padding: 0.375rem 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .bg-primary.rounded-circle {
+        padding: 0.75rem !important;
+    }
+    
+    .bg-primary.rounded-circle i {
+        font-size: 0.875rem;
+    }
+    
+    h5.fw-bold {
+        font-size: 1rem;
+    }
+}
+</style>
 @endsection

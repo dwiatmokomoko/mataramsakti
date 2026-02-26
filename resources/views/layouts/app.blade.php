@@ -58,6 +58,79 @@
             background-color: #1e3c72;
             color: white;
         }
+        
+        /* Responsive Footer */
+        @media (max-width: 768px) {
+            footer .col-md-6 {
+                text-align: center !important;
+            }
+            
+            footer .social-links {
+                justify-content: center;
+                display: flex;
+            }
+            
+            footer .social-links a {
+                font-size: 1.25rem;
+            }
+        }
+        
+        /* Responsive Typography */
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.25rem;
+            }
+            
+            .lead {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Responsive Cards */
+        @media (max-width: 768px) {
+            .card {
+                margin-bottom: 1rem;
+            }
+            
+            .card-body {
+                padding: 1rem;
+            }
+        }
+        
+        /* Responsive Images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Responsive Tables */
+        @media (max-width: 768px) {
+            .table-responsive {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+        
+        /* Responsive Buttons */
+        @media (max-width: 576px) {
+            .btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+            
+            .btn-lg {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
         .yamaha-blue {
             background-color: #1e3c72;
         }
@@ -135,40 +208,40 @@
     <!-- Footer -->
     <footer class="py-4 mt-5" role="contentinfo">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
                     <h5>Yamaha Mataram Sakti Jogja</h5>
                     <p class="mb-2">Revs Your Heart - Dealer Resmi Yamaha</p>
                     <address class="mb-0">
                         <i class="fas fa-map-marker-alt me-2" aria-hidden="true"></i>
-                        Indonesia
+                        Kulon Progo, Yogyakarta
                     </address>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <div class="social-links mb-2">
-                        <a href="https://www.facebook.com/YamahaMotorID" 
+                    <div class="social-links mb-3">
+                        <a href="https://www.facebook.com/share/18PKKcwaEm/" 
                            class="text-white me-3" 
-                           aria-label="Facebook Yamaha Mataram Sakti Jogja"
+                           aria-label="Facebook Yamaha Mataram Sakti"
                            target="_blank" 
                            rel="noopener noreferrer">
                             <i class="fab fa-facebook-f" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.instagram.com/yamaha_motor_id" 
+                        <a href="https://www.instagram.com/andilestari227/" 
                            class="text-white me-3" 
-                           aria-label="Instagram Yamaha Mataram Sakti Jogja"
+                           aria-label="Instagram Yamaha Mataram Sakti"
                            target="_blank" 
                            rel="noopener noreferrer">
                             <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.youtube.com/YamahaMotorID" 
+                        <a href="https://wa.me/6281234567890" 
                            class="text-white" 
-                           aria-label="YouTube Yamaha Mataram Sakti Jogja"
+                           aria-label="WhatsApp Yamaha Mataram Sakti"
                            target="_blank" 
                            rel="noopener noreferrer">
-                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
                         </a>
                     </div>
-                    <p class="mb-0">&copy; {{ date('Y') }} Yamaha Mataram Sakti Jogja. All rights reserved.</p>
+                    <p class="mb-0 small">&copy; {{ date('Y') }} Yamaha Mataram Sakti Jogja. All rights reserved.</p>
                 </div>
             </div>
         </div>
