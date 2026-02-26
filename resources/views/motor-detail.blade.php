@@ -319,8 +319,9 @@
 @media (max-width: 768px) {
     .variant-tab.active {
         background: #1e3c72;
-        border-left: 4px solid #0066cc;
+        border: 2px solid #0066cc;
         font-weight: 700;
+        transform: scale(1.05);
     }
     
     .variant-tab:hover {
@@ -655,69 +656,37 @@
         margin-bottom: 30px;
     }
     
-    /* Vertical layout untuk variant tabs di mobile */
+    /* Wrap layout - max 3 per row on mobile */
     .variant-tabs-wrapper .d-flex {
-        flex-direction: column;
-        align-items: stretch !important;
-        max-height: 400px;
-        overflow-y: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
         padding: 10px;
-        background: #f8f9fa;
-        border-radius: 10px;
-    }
-    
-    /* Custom scrollbar */
-    .variant-tabs-wrapper .d-flex::-webkit-scrollbar {
-        width: 6px;
-    }
-    
-    .variant-tabs-wrapper .d-flex::-webkit-scrollbar-track {
-        background: #e9ecef;
-        border-radius: 10px;
-    }
-    
-    .variant-tabs-wrapper .d-flex::-webkit-scrollbar-thumb {
-        background: #1e3c72;
-        border-radius: 10px;
     }
     
     .variant-tab {
-        padding: 12px 20px;
-        margin: 5px 0;
-        font-size: 0.9rem;
-        min-width: auto;
-        max-width: 100%;
-        width: 100%;
-        clip-path: none; /* Remove trapezoid shape */
+        padding: 10px 15px;
+        margin: 0;
+        font-size: 0.75rem;
+        min-width: calc(33.333% - 8px); /* 3 items per row */
+        max-width: calc(33.333% - 8px);
+        flex: 0 0 calc(33.333% - 8px);
+        clip-path: none; /* Remove trapezoid on mobile */
         border-radius: 8px;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        text-align: center;
     }
     
     .variant-tab span {
         white-space: normal;
         overflow: visible;
         text-overflow: clip;
-        text-align: left;
-    }
-    
-    .variant-tab::after {
-        content: '\f054';
-        font-family: 'Font Awesome 5 Free';
-        font-weight: 900;
-        margin-left: 10px;
-        opacity: 0.5;
-    }
-    
-    .variant-tab.active::after {
-        opacity: 1;
+        line-height: 1.3;
+        display: block;
     }
     
     #prevVariant,
     #nextVariant {
-        display: none !important; /* Hide navigation buttons on mobile */
+        display: none !important;
     }
     
     .price-tag-large {
@@ -752,19 +721,21 @@
 
 @media (max-width: 576px) {
     .variant-tabs-wrapper .d-flex {
-        max-height: 350px;
+        gap: 6px;
         padding: 8px;
     }
     
     .variant-tab {
-        padding: 10px 15px;
-        font-size: 0.85rem;
-        margin: 4px 0;
+        padding: 8px 10px;
+        font-size: 0.7rem;
+        min-width: calc(33.333% - 6px);
+        max-width: calc(33.333% - 6px);
+        flex: 0 0 calc(33.333% - 6px);
     }
     
     .variant-tab span {
-        font-size: 0.85rem;
-        line-height: 1.4;
+        font-size: 0.7rem;
+        line-height: 1.2;
     }
     
     .color-options-wrapper {
