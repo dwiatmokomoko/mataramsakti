@@ -289,6 +289,7 @@
     text-decoration: none;
     position: relative;
     min-width: 140px;
+    max-width: 200px;
     text-align: center;
     /* Trapezoid shape using clip-path */
     clip-path: polygon(15px 0%, 100% 0%, calc(100% - 15px) 100%, 0% 100%);
@@ -297,6 +298,8 @@
 .variant-tab span {
     display: block;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .variant-tab.active {
@@ -640,6 +643,7 @@
         margin: 0 2px;
         font-size: 0.8rem;
         min-width: 100px;
+        max-width: 150px;
     }
     
     .price-tag-large {
@@ -674,9 +678,16 @@
 
 @media (max-width: 576px) {
     .variant-tab {
-        padding: 8px 15px;
+        padding: 8px 12px;
         font-size: 0.7rem;
         min-width: 80px;
+        max-width: 120px;
+        margin: 0 1px;
+    }
+    
+    .variant-tab span {
+        font-size: 0.65rem;
+        line-height: 1.2;
     }
     
     .color-options-wrapper {

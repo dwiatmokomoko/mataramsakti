@@ -131,6 +131,48 @@
                 font-size: 1rem;
             }
         }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            color: #FFF;
+            transform: scale(1.1);
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.4);
+        }
+        
+        .whatsapp-float i {
+            margin-top: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+        }
         .yamaha-blue {
             background-color: #1e3c72;
         }
@@ -233,7 +275,7 @@
                            rel="noopener noreferrer">
                             <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a href="https://wa.me/6281234567890" 
+                        <a href="https://wa.me/6285641956326" 
                            class="text-white" 
                            aria-label="WhatsApp Yamaha Mataram Sakti"
                            target="_blank" 
@@ -246,6 +288,15 @@
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/6285641956326?text=Halo%20Yamaha%20Mataram%20Sakti,%20saya%20ingin%20bertanya%20tentang%20motor" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Chat WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>

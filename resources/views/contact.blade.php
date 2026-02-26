@@ -214,7 +214,7 @@
                                class="btn btn-outline-primary btn-sm">
                                 <i class="fab fa-facebook me-2"></i>Facebook
                             </a>
-                            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $company->phone ?? '6281234567890') }}" 
+                            <a href="https://wa.me/6285641956326" 
                                target="_blank" rel="noopener noreferrer" 
                                class="btn btn-success btn-sm">
                                 <i class="fab fa-whatsapp me-2"></i>WhatsApp
