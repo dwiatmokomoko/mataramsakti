@@ -719,8 +719,12 @@
                          data-price="{{ $model->price_otr }}"
                          data-price-formatted="{{ $model->formatted_price_otr }}"
                          data-image="{{ $model->main_image }}"
-                         data-colors="{{ json_encode($model->availableVariants->map(function($variant) {
-                             return ['name' => $variant->color_name, 'code' => $variant->color_code];
+                         data-colors="{{ json_encode($model->availableVariants->map(function($variant) use ($model) {
+                             return [
+                                 'name' => $variant->color_name, 
+                                 'code' => $variant->color_code,
+                                 'image' => $variant->image ? asset('storage/' . $variant->image) : ($model->image ? asset('storage/' . $model->image) : '')
+                             ];
                          })->toArray()) }}"
                          data-model-id="{{ $model->id }}">
                         <span>{{ $model->name }}</span>
@@ -1123,6 +1127,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const colorOptionsWrapper = document.querySelector('.color-options-wrapper');
         const colorNameDisplay = document.getElementById('colorNameDisplay');
         
+        console.log('Updating colors:', {
+            hasWrapper: !!colorOptionsWrapper,
+            colorsCount: variantColors.length,
+            colors: variantColors
+        });
+        
         if (colorOptionsWrapper && variantColors.length > 0) {
             // Fade out current colors
             colorOptionsWrapper.style.opacity = '0.3';
@@ -1133,11 +1143,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Add new colors
                 variantColors.forEach((color, colorIndex) => {
+                    console.log('Adding color:', color);
+                    
                     const colorDiv = document.createElement('div');
                     colorDiv.className = 'color-variant-detail';
                     colorDiv.setAttribute('data-name', color.name);
                     colorDiv.setAttribute('data-price', variantPrice);
                     colorDiv.setAttribute('data-price-formatted', variantPriceFormatted);
+                    colorDiv.setAttribute('data-image', color.image || variantImage || '');
                     colorDiv.title = color.name;
                     colorDiv.style.cursor = 'pointer';
                     
@@ -1156,6 +1169,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 // Re-attach color handlers after adding new colors
+                console.log('Re-attaching color handlers');
                 attachColorVariantHandlers();
                 
                 // Update color name to first color
