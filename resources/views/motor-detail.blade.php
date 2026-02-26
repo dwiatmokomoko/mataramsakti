@@ -315,13 +315,13 @@
     z-index: 1;
 }
 
-/* Mobile specific active state */
+/* Mobile specific - keep trapezoid but enhance active state */
 @media (max-width: 768px) {
     .variant-tab.active {
         background: #1e3c72;
-        border: 2px solid #0066cc;
+        box-shadow: 0 4px 8px rgba(30, 60, 114, 0.3);
         font-weight: 700;
-        transform: scale(1.05);
+        transform: translateY(-2px);
     }
     
     .variant-tab:hover {
@@ -653,26 +653,26 @@
     }
     
     .variant-tabs-wrapper {
-        margin-bottom: 30px;
+        margin-bottom: 20px; /* Reduced from 30px */
     }
     
-    /* Wrap layout - max 3 per row on mobile */
+    /* Keep horizontal layout with wrap - max 3 per row */
     .variant-tabs-wrapper .d-flex {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 8px;
-        padding: 10px;
+        gap: 4px;
+        padding: 5px;
     }
     
     .variant-tab {
         padding: 10px 15px;
         margin: 0;
         font-size: 0.75rem;
-        min-width: calc(33.333% - 8px); /* 3 items per row */
-        max-width: calc(33.333% - 8px);
-        flex: 0 0 calc(33.333% - 8px);
-        clip-path: none; /* Remove trapezoid on mobile */
-        border-radius: 8px;
+        min-width: calc(33.333% - 6px);
+        max-width: calc(33.333% - 6px);
+        flex: 0 0 calc(33.333% - 6px);
+        /* Keep trapezoid shape */
+        clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
         text-align: center;
     }
     
@@ -689,6 +689,12 @@
         display: none !important;
     }
     
+    /* Move motor display section up */
+    .motor-display-section {
+        padding: 20px 15px 40px; /* Reduced top padding */
+        margin-top: -10px; /* Pull up */
+    }
+    
     .price-tag-large {
         font-size: 2.2rem;
     }
@@ -697,13 +703,15 @@
         max-height: 300px;
     }
     
+    /* Move color options up */
+    .color-options-wrapper {
+        margin-top: -10px;
+        margin-bottom: 20px;
+    }
+    
     .color-swatch {
         width: 60px;
         height: 25px;
-    }
-    
-    .motor-display-section {
-        padding: 40px 15px;
     }
     
     .btn-lg {
@@ -720,17 +728,22 @@
 }
 
 @media (max-width: 576px) {
+    .variant-tabs-wrapper {
+        margin-bottom: 15px;
+    }
+    
     .variant-tabs-wrapper .d-flex {
-        gap: 6px;
-        padding: 8px;
+        gap: 3px;
+        padding: 3px;
     }
     
     .variant-tab {
         padding: 8px 10px;
         font-size: 0.7rem;
-        min-width: calc(33.333% - 6px);
-        max-width: calc(33.333% - 6px);
-        flex: 0 0 calc(33.333% - 6px);
+        min-width: calc(33.333% - 4px);
+        max-width: calc(33.333% - 4px);
+        flex: 0 0 calc(33.333% - 4px);
+        clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
     }
     
     .variant-tab span {
@@ -738,12 +751,28 @@
         line-height: 1.2;
     }
     
+    /* Further reduce spacing on small mobile */
+    .motor-display-section {
+        padding: 15px 10px 30px;
+        margin-top: -15px;
+    }
+    
     .color-options-wrapper {
-        gap: 10px;
+        gap: 8px;
+        margin-top: -15px;
+        margin-bottom: 15px;
     }
     
     .motor-model-name {
         font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    /* Ensure color name is visible */
+    .selected-color-name {
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
     }
 }
 </style>
