@@ -1,208 +1,136 @@
-# Panduan Deployment ke Server Production
+# Deployment Guide - Fix Spesifikasi Motor
 
-## Perubahan File .env untuk Production
+## Perubahan yang Di-push
 
-Ketika deploy ke server production, Anda perlu mengubah beberapa konfigurasi di file `.env`:
+Commit: `e98dca4` - "fix admin page"
 
-### 1. Environment & Debug
-```env
-APP_ENV=production          # Ubah dari 'local' ke 'production'
-APP_DEBUG=false            # Ubah dari 'true' ke 'false' untuk keamanan
-APP_URL=https://yourdomain.com  # Ganti dengan domain Anda
-```
+File yang diubah:
+- `app/Models/Motor.php` - Tambah fillable & casts, hapus accessor specifications
+- `app/Http/Controllers/Admin/MotorController.php` - Fix checkbox & validation
+- `app/Http/Controllers/Admin/MotorModelController.php` - Fix checkbox & validation
+- `app/Http/Controllers/Admin/MotorVariantController.php` - Fix checkbox
+- `resources/views/admin/motor-models/create.blade.php` - Tambah field spesifikasi
+- `resources/views/admin/motor-models/edit.blade.php` - Tambah field spesifikasi
+- `FIX_SPECIFICATIONS_UPDATE.md` - Dokumentasi
 
-### 2. Locale
-```env
-APP_LOCALE=id              # Ubah ke bahasa Indonesia
-APP_FALLBACK_LOCALE=en
-APP_FAKER_LOCALE=id_ID
-```
+## Langkah Deployment di Server
 
-### 3. Database Configuration
-```env
-DB_CONNECTION=pgsql
-DB_HOST=127.0.0.1
-DB_PORT=3424               # Port PostgreSQL di server (biasanya 3424 atau 5432)
-DB_DATABASE=company_profile_xxx
-DB_USERNAME=postgres
-DB_PASSWORD=your_secure_password  # Ganti dengan password yang aman
-```
-
-### 4. Session & Security
-```env
-SESSION_ENCRYPT=true       # Aktifkan enkripsi session
-SESSION_DOMAIN=yourdomain.com  # Set domain untuk session
-```
-
-### 5. File Storage
-```env
-FILESYSTEM_DISK=public     # Untuk upload gambar motor
-```
-
-### 6. Logging
-```env
-LOG_LEVEL=error           # Hanya log error di production
-```
-
-### 7. Mail Configuration (Opsional)
-```env
-MAIL_MAILER=smtp
-MAIL_HOST=smtp.gmail.com
-MAIL_PORT=587
-MAIL_USERNAME=your_email@gmail.com
-MAIL_PASSWORD=your_app_password
-MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS="noreply@yourdomain.com"
-MAIL_FROM_NAME="Yamaha Motor Indonesia"
-```
-
-## Langkah-langkah Deployment
-
-### 1. Di Server Production
+### 1. SSH ke Server
 ```bash
-# Clone repository
-git clone https://github.com/dwiatmokomoko/mataramsakti.git
-cd mataramsakti
+ssh user@yamahajogja.id
+```
 
-# Copy file .env
-cp .env.production .env
+### 2. Masuk ke Direktori Project
+```bash
+cd /path/to/project
+```
 
-# Edit .env sesuai konfigurasi server
-nano .env
+### 3. Pull Perubahan Terbaru
+```bash
+git pull origin main
+```
 
-# Install dependencies
-composer install --optimize-autoloader --no-dev
+### 4. Clear Cache Laravel
+```bash
+php artisan cache:clear
+php artisan config:clear
+php artisan view:clear
+php artisan route:clear
+```
 
-# Generate application key (jika belum ada)
-php artisan key:generate
+### 5. Restart PHP-FPM / Web Server
+```bash
+# Untuk PHP-FPM
+sudo systemctl restart php8.2-fpm
 
-# Setup storage link
-php artisan storage:link
+# Atau untuk Apache
+sudo systemctl restart apache2
 
-# Run migrations
-php artisan migrate --force
+# Atau untuk Nginx
+sudo systemctl restart nginx
+```
 
-# Seed database
-php artisan db:seed --class=CorrectedMotorStructureSeeder
-php artisan db:seed --class=AdminUserSeeder
+## Troubleshooting Error 500
 
-# Clear dan cache config
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+### Error: Database Connection Refused
 
-# Set permissions
+Jika muncul error:
+```
+SQLSTATE[08006] [7] could not connect to server: Connection refused
+Is the server running on host "127.0.0.1" and accepting TCP/IP connections on port 5432?
+```
+
+**Solusi:**
+
+1. Cek status PostgreSQL:
+```bash
+sudo systemctl status postgresql
+```
+
+2. Jika tidak running, start PostgreSQL:
+```bash
+sudo systemctl start postgresql
+```
+
+3. Cek koneksi database di `.env`:
+```bash
+cat .env | grep DB_
+```
+
+Pastikan:
+- `DB_CONNECTION=pgsql`
+- `DB_HOST=127.0.0.1`
+- `DB_PORT=5432`
+- `DB_DATABASE=nama_database`
+- `DB_USERNAME=username`
+- `DB_PASSWORD=password`
+
+4. Test koneksi database:
+```bash
+php artisan tinker
+>>> DB::connection()->getPdo();
+```
+
+### Error: Permission Denied
+
+Jika ada error permission:
+```bash
 sudo chown -R www-data:www-data storage bootstrap/cache
 sudo chmod -R 775 storage bootstrap/cache
 ```
 
-### 2. Konfigurasi Web Server (Apache/Nginx)
+## Verifikasi Deployment
 
-#### Apache (.htaccess sudah ada)
-Pastikan DocumentRoot mengarah ke folder `public/`
-
-#### Nginx
-```nginx
-server {
-    listen 80;
-    server_name yourdomain.com;
-    root /var/www/html/mataramsakti/public;
-
-    add_header X-Frame-Options "SAMEORIGIN";
-    add_header X-Content-Type-Options "nosniff";
-
-    index index.php;
-
-    charset utf-8;
-
-    location / {
-        try_files $uri $uri/ /index.php?$query_string;
-    }
-
-    location = /favicon.ico { access_log off; log_not_found off; }
-    location = /robots.txt  { access_log off; log_not_found off; }
-
-    error_page 404 /index.php;
-
-    location ~ \.php$ {
-        fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
-        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
-        include fastcgi_params;
-    }
-
-    location ~ /\.(?!well-known).* {
-        deny all;
-    }
-}
+### 1. Cek Log Error
+```bash
+tail -f storage/logs/laravel.log
 ```
 
-### 3. SSL Certificate (Recommended)
+### 2. Test Update Motor
+1. Login ke admin: `https://yamahajogja.id/admin`
+2. Buka edit motor: `https://yamahajogja.id/admin/motors/34/edit`
+3. Isi field spesifikasi
+4. Centang/uncheck checkbox status
+5. Klik "Update Motor"
+6. Cek apakah berhasil (redirect ke index tanpa error)
+
+### 3. Cek Frontend
+1. Buka halaman detail motor
+2. Scroll ke bagian "SPECIFICATIONS"
+3. Pastikan spesifikasi muncul (bukan "Spesifikasi belum tersedia")
+
+## Rollback (Jika Diperlukan)
+
+Jika ada masalah serius:
 ```bash
-# Install Certbot
-sudo apt install certbot python3-certbot-apache
-
-# Get SSL certificate
-sudo certbot --apache -d yourdomain.com
-```
-
-## Troubleshooting
-
-### 1. Permission Issues
-```bash
-sudo chown -R www-data:www-data /var/www/html/mataramsakti
-sudo chmod -R 755 /var/www/html/mataramsakti
-sudo chmod -R 775 /var/www/html/mataramsakti/storage
-sudo chmod -R 775 /var/www/html/mataramsakti/bootstrap/cache
-```
-
-### 2. Database Connection Issues
-- Pastikan PostgreSQL berjalan: `sudo systemctl status postgresql`
-- Cek port PostgreSQL: `sudo netstat -plunt | grep postgres`
-- Test koneksi: `php artisan migrate:status`
-
-### 3. File Upload Issues
-```bash
-# Pastikan storage link ada
-php artisan storage:link
-
-# Set permission untuk upload
-sudo chmod -R 775 storage/app/public
-```
-
-### 4. Cache Issues
-```bash
-# Clear semua cache
+git reset --hard HEAD~1
 php artisan cache:clear
-php artisan config:clear
-php artisan route:clear
-php artisan view:clear
-
-# Rebuild cache untuk production
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+sudo systemctl restart php8.2-fpm
 ```
 
-## Keamanan Production
+## Catatan Penting
 
-1. **Jangan commit file .env ke Git**
-2. **Gunakan password database yang kuat**
-3. **Aktifkan HTTPS**
-4. **Set APP_DEBUG=false**
-5. **Gunakan APP_ENV=production**
-6. **Backup database secara berkala**
-
-## Monitoring
-
-### Log Files
-- Laravel logs: `storage/logs/laravel.log`
-- Web server logs: `/var/log/apache2/` atau `/var/log/nginx/`
-
-### Database Backup
-```bash
-# Backup database
-pg_dump -U postgres -h localhost company_profile_xxx > backup_$(date +%Y%m%d).sql
-
-# Restore database
-psql -U postgres -h localhost company_profile_xxx < backup_20260205.sql
-```
+- Perubahan ini TIDAK memerlukan migration database (kolom sudah ada)
+- Tidak ada perubahan pada struktur tabel
+- Hanya perubahan logic di Model, Controller, dan View
+- Pastikan PostgreSQL running sebelum test
