@@ -136,11 +136,12 @@ class LocationController extends Controller
         
         $location = $this->locations[$slug];
         
-        // Get featured motors
+        // Get featured motors (or all active if no featured)
         $motors = Motor::with(['models.variants'])
             ->where('is_active', true)
-            ->where('is_featured', true)
+            ->orderBy('is_featured', 'desc')
             ->orderBy('name')
+            ->limit(6)
             ->get();
         
         // Generate SEO data
