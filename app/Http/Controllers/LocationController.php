@@ -137,7 +137,7 @@ class LocationController extends Controller
         $location = $this->locations[$slug];
         
         // Get featured motors
-        $motors = Motor::with(['motorModels.variants'])
+        $motors = Motor::with(['models.variants'])
             ->where('is_active', true)
             ->where('is_featured', true)
             ->orderBy('name')

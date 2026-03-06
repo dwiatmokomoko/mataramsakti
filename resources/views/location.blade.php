@@ -48,9 +48,9 @@
             @forelse($motors as $motor)
             <div class="col-md-6 col-lg-4">
                 <div class="card h-100 shadow-sm hover-lift">
-                    @if($motor->motorModels->isNotEmpty() && $motor->motorModels->first()->variants->isNotEmpty())
+                    @if($motor->models->isNotEmpty() && $motor->models->first()->variants->isNotEmpty())
                         @php
-                            $firstVariant = $motor->motorModels->first()->variants->first();
+                            $firstVariant = $motor->models->first()->variants->first();
                         @endphp
                         <img src="{{ asset('storage/' . $firstVariant->image) }}" 
                              class="card-img-top" 
