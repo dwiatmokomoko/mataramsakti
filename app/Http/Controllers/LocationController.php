@@ -129,38 +129,42 @@ class LocationController extends Controller
     
     public function show($slug)
     {
-        // Check if location exists
-        if (!isset($this->locations[$slug])) {
-            abort(404);
+        try {
+            // Check if location exists
+            if (!isset($this->locations[$slug])) {
+                abort(404);
+            }
+            
+            $location = $this->locations[$slug];
+            
+            // Get motors - simplified query
+            $motors = Motor::where('is_active', true)
+                ->orderBy('name')
+                ->limit(6)
+                ->get();
+            
+            // Generate SEO data
+            $seoTitle = "Dealer Yamaha {$location['name']} - Motor Yamaha {$location['full_name']} | Harga OTR 2026";
+            $seoDescription = $location['description'] ?? "Dealer resmi Yamaha Mataram Sakti melayani wilayah {$location['full_name']}. Jual motor Yamaha terbaru 2026 dengan harga OTR terbaik, promo DP murah, cicilan 0%, service berkala, dan spare part original. Jarak {$location['distance']}.";
+            
+            $seoKeywords = [
+                "dealer yamaha {$location['name']}",
+                "yamaha {$location['name']}",
+                "motor yamaha {$location['name']}",
+                "harga motor yamaha {$location['name']}",
+                "kredit motor yamaha {$location['name']}",
+                "promo yamaha {$location['name']}",
+                "nmax {$location['name']}",
+                "aerox {$location['name']}",
+                "r15 {$location['name']}",
+                "dealer yamaha {$location['kabupaten']}",
+            ];
+            
+            return view('location', compact('location', 'motors', 'seoTitle', 'seoDescription', 'seoKeywords', 'slug'));
+        } catch (\Exception $e) {
+            \Log::error('LocationController error: ' . $e->getMessage());
+            \Log::error('Stack trace: ' . $e->getTraceAsString());
+            abort(500, 'Error loading location page: ' . $e->getMessage());
         }
-        
-        $location = $this->locations[$slug];
-        
-        // Get featured motors (or all active if no featured)
-        $motors = Motor::with(['models.variants'])
-            ->where('is_active', true)
-            ->orderBy('is_featured', 'desc')
-            ->orderBy('name')
-            ->limit(6)
-            ->get();
-        
-        // Generate SEO data
-        $seoTitle = "Dealer Yamaha {$location['name']} - Motor Yamaha {$location['full_name']} | Harga OTR 2026";
-        $seoDescription = $location['description'] ?? "Dealer resmi Yamaha Mataram Sakti melayani wilayah {$location['full_name']}. Jual motor Yamaha terbaru 2026 dengan harga OTR terbaik, promo DP murah, cicilan 0%, service berkala, dan spare part original. Jarak {$location['distance']}.";
-        
-        $seoKeywords = [
-            "dealer yamaha {$location['name']}",
-            "yamaha {$location['name']}",
-            "motor yamaha {$location['name']}",
-            "harga motor yamaha {$location['name']}",
-            "kredit motor yamaha {$location['name']}",
-            "promo yamaha {$location['name']}",
-            "nmax {$location['name']}",
-            "aerox {$location['name']}",
-            "r15 {$location['name']}",
-            "dealer yamaha {$location['kabupaten']}",
-        ];
-        
-        return view('location', compact('location', 'motors', 'seoTitle', 'seoDescription', 'seoKeywords', 'slug'));
     }
 }

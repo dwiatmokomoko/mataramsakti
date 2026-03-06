@@ -48,11 +48,31 @@
             @forelse($motors as $motor)
             <div class="col-md-6 col-lg-4">
                 <div class="card h-100 shadow-sm hover-lift">
-                    @if($motor->models->isNotEmpty() && $motor->models->first()->variants->isNotEmpty())
-                        @php
-                            $firstVariant = $motor->models->first()->variants->first();
-                        @endphp
-                        <img src="{{ asset('storage/' . $firstVariant->image) }}" 
+                    @php
+                        $hasImage = false;
+                        $imageUrl = '';
+                        
+                        // Try to get image from motor's models
+                        if (method_exists($motor, 'models') && $motor->models && $motor->models->isNotEmpty()) {
+                            $firstModel = $motor->models->first();
+                            if ($firstModel && $firstModel->variants && $firstModel->variants->isNotEmpty()) {
+                                $firstVariant = $firstModel->variants->first();
+                                if ($firstVariant && $firstVariant->image) {
+                                    $hasImage = true;
+                                    $imageUrl = asset('storage/' . $firstVariant->image);
+                                }
+                            }
+                        }
+                        
+                        // Fallback to motor's own image
+                        if (!$hasImage && $motor->image) {
+                            $hasImage = true;
+                            $imageUrl = asset('storage/' . $motor->image);
+                        }
+                    @endphp
+                    
+                    @if($hasImage)
+                        <img src="{{ $imageUrl }}" 
                              class="card-img-top" 
                              alt="{{ $motor->name }}"
                              style="height: 250px; object-fit: cover;">
