@@ -47,58 +47,57 @@
         <div class="row g-4">
             @forelse($motors as $motor)
             <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm hover-lift">
-                    @php
-                        $hasImage = false;
-                        $imageUrl = '';
-                        
-                        // Try to get image from motor's models
-                        if (method_exists($motor, 'models') && $motor->models && $motor->models->isNotEmpty()) {
-                            $firstModel = $motor->models->first();
-                            if ($firstModel && $firstModel->variants && $firstModel->variants->isNotEmpty()) {
-                                $firstVariant = $firstModel->variants->first();
-                                if ($firstVariant && $firstVariant->image) {
-                                    $hasImage = true;
-                                    $imageUrl = asset('storage/' . $firstVariant->image);
+                <a href="{{ route('motor.detail', $motor->id) }}" class="text-decoration-none">
+                    <div class="motor-card">
+                        @php
+                            $hasImage = false;
+                            $imageUrl = '';
+                            
+                            // Try to get image from motor's models
+                            if (method_exists($motor, 'models') && $motor->models && $motor->models->isNotEmpty()) {
+                                $firstModel = $motor->models->first();
+                                if ($firstModel && $firstModel->variants && $firstModel->variants->isNotEmpty()) {
+                                    $firstVariant = $firstModel->variants->first();
+                                    if ($firstVariant && $firstVariant->image) {
+                                        $hasImage = true;
+                                        $imageUrl = asset('storage/' . $firstVariant->image);
+                                    }
                                 }
                             }
-                        }
+                            
+                            // Fallback to motor's own image
+                            if (!$hasImage && $motor->image) {
+                                $hasImage = true;
+                                $imageUrl = asset('storage/' . $motor->image);
+                            }
+                        @endphp
                         
-                        // Fallback to motor's own image
-                        if (!$hasImage && $motor->image) {
-                            $hasImage = true;
-                            $imageUrl = asset('storage/' . $motor->image);
-                        }
-                    @endphp
-                    
-                    @if($hasImage)
-                        <img src="{{ $imageUrl }}" 
-                             class="card-img-top" 
-                             alt="{{ $motor->name }}"
-                             style="height: 250px; object-fit: cover;">
-                    @else
-                        <div class="bg-secondary" style="height: 250px; display: flex; align-items: center; justify-content: center;">
-                            <span class="text-white">No Image</span>
+                        <div class="motor-image-container">
+                            @if($hasImage)
+                                <img src="{{ $imageUrl }}" 
+                                     class="motor-main-image" 
+                                     alt="{{ $motor->name }}">
+                            @else
+                                <div class="text-center text-muted">
+                                    <i class="fas fa-motorcycle fa-4x mb-2"></i>
+                                    <p>No Image</p>
+                                </div>
+                            @endif
                         </div>
-                    @endif
-                    
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $motor->name }}</h5>
-                        <p class="text-muted small">{{ $motor->category }}</p>
-                        <p class="card-text">{{ Str::limit($motor->description, 80) }}</p>
                         
-                        @if($motor->price_otr)
-                        <div class="mb-3">
-                            <span class="text-muted small">Harga OTR {{ $location['kabupaten'] }}:</span>
-                            <h4 class="text-primary mb-0">Rp {{ number_format($motor->price_otr, 0, ',', '.') }}</h4>
+                        <div class="card-body">
+                            <h5 class="motor-title">{{ $motor->name }}</h5>
+                            <p class="motor-model">{{ $motor->category }}</p>
+                            <p class="motor-location">{{ $location['kabupaten'] }}</p>
+                            
+                            @if($motor->price_otr)
+                            <p class="motor-price">Rp {{ number_format($motor->price_otr, 0, ',', '.') }}</p>
+                            @endif
                         </div>
-                        @endif
                         
-                        <a href="{{ route('motor.detail', $motor->id) }}" class="btn btn-primary w-100">
-                            Lihat Detail & Harga
-                        </a>
+                        <span class="btn-details">Details</span>
                     </div>
-                </div>
+                </a>
             </div>
             @empty
             <div class="col-12">
@@ -110,6 +109,120 @@
         </div>
     </div>
 </section>
+
+<style>
+/* ========================= 
+   CARD DESIGN (SESUAI HOME)
+   ========================= */
+.motor-card {
+    background: white;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+.motor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+}
+
+.motor-image-container {
+    padding: 30px 20px 10px 20px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.motor-main-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.motor-card:hover .motor-main-image {
+    transform: scale(1.08);
+}
+
+.card-body {
+    text-align: center;
+    padding: 15px 20px 50px 20px;
+    flex-grow: 1;
+}
+
+.motor-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.motor-model {
+    color: #1e3c72;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.motor-location {
+    color: #95a5a6;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.motor-price {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0;
+}
+
+/* TOMBOL STYLE POJOK KANAN BAWAH */
+.btn-details {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-top-left-radius: 25px; 
+    border-bottom-right-radius: 0;
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-details:hover {
+    background-color: #152c6b;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .motor-card {
+        margin-bottom: 20px;
+    }
+    
+    .motor-image-container {
+        height: 180px;
+    }
+    
+    .motor-title {
+        font-size: 1.1rem;
+    }
+}
+</style>
 
 <!-- Keunggulan Section -->
 <section class="py-5 bg-light">
@@ -248,14 +361,4 @@
     </div>
 </section>
 
-<style>
-.hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-lift:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
-}
-</style>
 @endsection
