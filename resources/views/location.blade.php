@@ -107,6 +107,13 @@
             </div>
             @endforelse
         </div>
+        
+        <!-- Tombol Lihat Motor Lainnya -->
+        <div class="text-center mt-5">
+            <a href="{{ route('home') }}" class="btn btn-outline-primary btn-lg px-5">
+                <i class="fas fa-motorcycle me-2"></i>Lihat Semua Motor Yamaha
+            </a>
+        </div>
     </div>
 </section>
 
