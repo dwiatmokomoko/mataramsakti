@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Motor extends Model
 {
     protected $fillable = [
         'name',
+        'slug',
         'category',
         'description',
         'is_active',
@@ -27,6 +29,64 @@ class Motor extends Model
         'price_dp' => 'decimal:0',
         'price_installment' => 'decimal:0'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Auto-generate slug when creating
+        static::creating(function ($motor) {
+            if (empty($motor->slug)) {
+                $motor->slug = static::generateUniqueSlug($motor->name);
+            }
+        });
+
+        // Update slug when name changes
+        static::updating(function ($motor) {
+            if ($motor->isDirty('name') && empty($motor->slug)) {
+                $motor->slug = static::generateUniqueSlug($motor->name, $motor->id);
+            }
+        });
+    }
+
+    /**
+     * Generate unique slug from name
+     */
+    protected static function generateUniqueSlug($name, $ignoreId = null)
+    {
+        $slug = Str::slug($name);
+        $originalSlug = $slug;
+        $count = 1;
+
+        while (static::slugExists($slug, $ignoreId)) {
+            $slug = $originalSlug . '-' . $count;
+            $count++;
+        }
+
+        return $slug;
+    }
+
+    /**
+     * Check if slug exists
+     */
+    protected static function slugExists($slug, $ignoreId = null)
+    {
+        $query = static::where('slug', $slug);
+        
+        if ($ignoreId) {
+            $query->where('id', '!=', $ignoreId);
+        }
+        
+        return $query->exists();
+    }
+
+    /**
+     * Get route key name for route model binding
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function models()
     {

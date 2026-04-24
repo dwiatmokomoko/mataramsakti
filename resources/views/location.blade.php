@@ -47,7 +47,7 @@
         <div class="row g-4">
             @forelse($motors as $motor)
             <div class="col-md-6 col-lg-4">
-                <a href="{{ route('motor.detail', $motor->id) }}" class="text-decoration-none">
+                <a href="{{ route('motor.detail', $motor) }}" class="text-decoration-none">
                     <div class="motor-card">
                         @php
                             $hasImage = false;
