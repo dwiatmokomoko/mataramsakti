@@ -12,8 +12,9 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Add slug column as nullable first
         Schema::table('motors', function (Blueprint $table) {
-            $table->string('slug')->unique()->after('name');
+            $table->string('slug')->nullable()->after('name');
         });
 
         // Generate slugs for existing motors
@@ -31,6 +32,11 @@ return new class extends Migration
                     ->where('id', $motor->id)
                     ->update(['slug' => $slug]);
             }
+        });
+
+        // Make slug unique and not null after data is populated
+        Schema::table('motors', function (Blueprint $table) {
+            $table->string('slug')->nullable(false)->unique()->change();
         });
     }
 
