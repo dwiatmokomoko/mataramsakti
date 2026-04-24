@@ -1031,7 +1031,7 @@
                     <div class="share-buttons-modern">
                         @php
                             $shareUrl = route('motor.detail', $motor);
-                            $shareText = 'Yamaha' $motor->name . ', Spesifikasi Lengkap dan Harga 2026';
+                            $shareText = 'Yamaha '. $motor->name . ', Spesifikasi Lengkap dan Harga 2026';
                             $shareTextEncoded = urlencode($shareText . ' ' . $shareUrl);
                         @endphp
                         
