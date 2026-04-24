@@ -1086,8 +1086,9 @@
 .share-section-modern {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 15px 0;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
     border-top: 1px solid #e0e0e0;
     margin-top: 20px;
 }
@@ -1158,13 +1159,12 @@
 @media (max-width: 768px) {
     .share-section-modern {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 15px;
     }
     
     .share-buttons-modern {
-        width: 100%;
-        justify-content: flex-start;
+        justify-content: center;
     }
 }
 
