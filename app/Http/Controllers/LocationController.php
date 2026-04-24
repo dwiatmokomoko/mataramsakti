@@ -125,6 +125,36 @@ class LocationController extends Controller
         'gedongtengen' => ['name' => 'Gedongtengen', 'full_name' => 'Gedongtengen, Kota Yogyakarta', 'kabupaten' => 'Kota Yogyakarta', 'distance' => '17 km dari Wates'],
         'ngampilan' => ['name' => 'Ngampilan', 'full_name' => 'Ngampilan, Kota Yogyakarta', 'kabupaten' => 'Kota Yogyakarta', 'distance' => '16 km dari Wates'],
         'wirobrajan' => ['name' => 'Wirobrajan', 'full_name' => 'Wirobrajan, Kota Yogyakarta', 'kabupaten' => 'Kota Yogyakarta', 'distance' => '16 km dari Wates'],
+        
+        // Jawa Tengah - Purworejo
+        'purworejo' => [
+            'name' => 'Purworejo',
+            'full_name' => 'Purworejo, Jawa Tengah',
+            'kabupaten' => 'Purworejo',
+            'description' => 'Dealer resmi Yamaha Mataram Sakti melayani wilayah Purworejo, Jawa Tengah. Jual motor Yamaha terbaru dengan harga OTR terbaik, promo DP murah, cicilan 0%, service berkala, dan spare part original. Melayani penjualan motor Yamaha dengan layanan purna jual terpercaya untuk seluruh wilayah Purworejo.',
+            'distance' => '85 km dari Wates',
+            'priority' => 'high'
+        ],
+        
+        // Jawa Tengah - Magelang
+        'magelang' => [
+            'name' => 'Magelang',
+            'full_name' => 'Magelang, Jawa Tengah',
+            'kabupaten' => 'Magelang',
+            'description' => 'Dealer resmi Yamaha Mataram Sakti melayani wilayah Magelang, Jawa Tengah. Jual motor Yamaha terbaru dengan harga OTR terbaik, promo DP murah, cicilan 0%, service berkala, dan spare part original. Melayani penjualan motor Yamaha dengan layanan purna jual terpercaya untuk seluruh wilayah Magelang.',
+            'distance' => '65 km dari Wates',
+            'priority' => 'high'
+        ],
+        
+        // Jawa Tengah - Klaten
+        'klaten' => [
+            'name' => 'Klaten',
+            'full_name' => 'Klaten, Jawa Tengah',
+            'kabupaten' => 'Klaten',
+            'description' => 'Dealer resmi Yamaha Mataram Sakti melayani wilayah Klaten, Jawa Tengah. Jual motor Yamaha terbaru dengan harga OTR terbaik, promo DP murah, cicilan 0%, service berkala, dan spare part original. Melayani penjualan motor Yamaha dengan layanan purna jual terpercaya untuk seluruh wilayah Klaten.',
+            'distance' => '55 km dari Wates',
+            'priority' => 'high'
+        ],
     ];
     
     public function show($slug)

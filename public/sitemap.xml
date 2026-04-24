@@ -327,6 +327,30 @@
         <priority>0.95</priority>
     </url>
     
+    <!-- Jawa Tengah - Purworejo -->
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-purworejo</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    
+    <!-- Jawa Tengah - Magelang -->
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-magelang</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    
+    <!-- Jawa Tengah - Klaten -->
+    <url>
+        <loc>http://yamahajogja.id:20275/dealer-yamaha-klaten</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    
     <!-- ========================================
          CATEGORY PAGES - MEDIUM PRIORITY
          Halaman kategori motor

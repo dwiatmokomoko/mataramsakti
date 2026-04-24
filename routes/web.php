@@ -21,6 +21,9 @@ Route::get('/robots.txt', [App\Http\Controllers\RobotsController::class, 'robots
 // Location-Specific Pages for Local SEO (All Kecamatan in DIY)
 Route::get('/dealer-yamaha-{location}', [App\Http\Controllers\LocationController::class, 'show'])->name('location.show');
 
+// Public Price List Download Route
+Route::get('/download-price-list/{priceList}', [App\Http\Controllers\PriceListDownloadController::class, 'download'])->name('download-price-list');
+
 // Motor-Specific Landing Pages for SEO Ranking
 // NMAX
 Route::get('/nmax-jogja', [HomeController::class, 'nmaxJogja'])->name('nmax.jogja');
@@ -128,5 +131,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         
         // Testimonial Management
         Route::resource('testimonials', App\Http\Controllers\Admin\TestimonialController::class);
+        
+        // Price List Management
+        Route::get('/price-lists', [App\Http\Controllers\Admin\PriceListController::class, 'index'])->name('price-lists.index');
+        Route::post('/price-lists', [App\Http\Controllers\Admin\PriceListController::class, 'store'])->name('price-lists.store');
+        Route::put('/price-lists/{priceList}', [App\Http\Controllers\Admin\PriceListController::class, 'update'])->name('price-lists.update');
+        Route::delete('/price-lists/{priceList}', [App\Http\Controllers\Admin\PriceListController::class, 'destroy'])->name('price-lists.destroy');
     });
 });
