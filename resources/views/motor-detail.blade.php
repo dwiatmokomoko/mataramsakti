@@ -1003,12 +1003,20 @@
 
                 {{-- Action Buttons --}}
                 <div class="action-buttons-section">
+                    @if($latestPriceList)
+                    <a href="{{ route('download-price-list', $latestPriceList->id) }}" 
+                       target="_blank"
+                       class="btn btn-outline-primary btn-lg px-5 me-3">
+                        <i class="fas fa-download me-2"></i>Download Daftar Harga
+                    </a>
+                    @else
                     <a href="{{ asset('PL YMS - JAN 2026.pdf') }}" 
                        download="Daftar Harga Yamaha Jogja 2026.pdf"
                        target="_blank"
                        class="btn btn-outline-primary btn-lg px-5 me-3">
                         <i class="fas fa-download me-2"></i>Download Daftar Harga
                     </a>
+                    @endif
                     <a href="https://wa.me/6285641956326?text=Halo%20Yamaha%20Mataram%20Sakti,%20saya%20lihat%20di%20web%20dan%20ingin%20bertanya%20tentang%20{{ urlencode($motor->name) }}" target="_blank" class="btn btn-primary btn-lg px-5">
                         <i class="fab fa-whatsapp me-2"></i>Konsultasi Pembelian
                     </a>

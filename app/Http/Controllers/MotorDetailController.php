@@ -25,7 +25,10 @@ class MotorDetailController extends Controller
             ->take(4)
             ->get();
 
-        return view('motor-detail', compact('motor', 'relatedMotors'));
+        // Ambil price list terbaru untuk download
+        $latestPriceList = \App\Models\PriceList::orderBy('created_at', 'desc')->first();
+
+        return view('motor-detail', compact('motor', 'relatedMotors', 'latestPriceList'));
     }
 
     public function calculateCredit(Request $request, Motor $motor)
