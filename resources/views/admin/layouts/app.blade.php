@@ -71,6 +71,10 @@
                            href="{{ route('admin.company.index') }}">
                             <i class="fas fa-building me-2"></i>Info Dealer
                         </a>
+                        <a class="nav-link {{ request()->routeIs('admin.price-lists.*') ? 'active' : '' }}" 
+                           href="{{ route('admin.price-lists.index') }}">
+                            <i class="fas fa-file-pdf me-2"></i>Daftar Harga
+                        </a>
                         <hr class="border-light mx-3">
                         <a class="nav-link" href="{{ route('home') }}" target="_blank">
                             <i class="fas fa-external-link-alt me-2"></i>Lihat Website
