@@ -23,6 +23,24 @@
                            "✅ Trade-In Motor Lama Harga Terbaik, Garansi Resmi Yamaha Indonesia, Layanan Purna Jual Terpercaya, Service Berkala, Spare Part Original. " .
                            "📱 Sales Yamaha Mataram Sakti 24 Jam: 0856-4195-6326. Showroom Yamaha Mataram Sakti Terlengkap di Yogyakarta. Ready Stock Semua Warna!";
         
+        // Get motor image for social sharing
+        $motorImage = null;
+        if ($motor->models && $motor->models->isNotEmpty()) {
+            $firstModel = $motor->models->first();
+            if ($firstModel && $firstModel->variants && $firstModel->variants->isNotEmpty()) {
+                $firstVariant = $firstModel->variants->first();
+                if ($firstVariant && $firstVariant->image) {
+                    $motorImage = asset('storage/' . $firstVariant->image);
+                }
+            }
+        }
+        if (!$motorImage && $motor->image) {
+            $motorImage = asset('storage/' . $motor->image);
+        }
+        if (!$motorImage) {
+            $motorImage = asset('images/yamaha-logo.png'); // Fallback image
+        }
+        
         // Comprehensive location-specific keywords
         $motorKeywords = [
             // PRIMARY KEYWORDS - ULTRA HIGH PRIORITY
@@ -128,10 +146,6 @@
             strtolower($motor->name) . ' terbaru 2026',
             'yamaha ' . strtolower($motor->name) . ' terbaru 2026'
         ];
-        
-        $motorImage = $motor->models->first()?->image ? 
-                     asset('storage/' . $motor->models->first()->image) : 
-                     asset('images/yamaha-' . strtolower($motor->name) . '.jpg');
         
         // Enhanced structured data with location and offers
         $structuredData = [
