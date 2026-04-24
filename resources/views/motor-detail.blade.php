@@ -1021,10 +1021,214 @@
                         <i class="fab fa-whatsapp me-2"></i>Konsultasi Pembelian
                     </a>
                 </div>
+
+                {{-- Share Buttons --}}
+                <div class="share-section mt-4">
+                    <h6 class="mb-3"><i class="fas fa-share-alt me-2"></i>Bagikan Motor Ini:</h6>
+                    <div class="share-buttons d-flex flex-wrap gap-2">
+                        @php
+                            $shareUrl = route('motor.detail', $motor);
+                            $shareText = $motor->name . ', Spesifikasi Lengkap dan Harga 2026';
+                            $shareTextEncoded = urlencode($shareText . ' ' . $shareUrl);
+                        @endphp
+                        
+                        {{-- WhatsApp --}}
+                        <a href="https://wa.me/?text={{ $shareTextEncoded }}" 
+                           target="_blank" 
+                           class="btn btn-success btn-share"
+                           title="Bagikan via WhatsApp">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                        </a>
+                        
+                        {{-- Facebook --}}
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($shareUrl) }}" 
+                           target="_blank" 
+                           class="btn btn-primary btn-share"
+                           title="Bagikan ke Facebook">
+                            <i class="fab fa-facebook-f me-2"></i>Facebook
+                        </a>
+                        
+                        {{-- Twitter --}}
+                        <a href="https://twitter.com/intent/tweet?text={{ $shareTextEncoded }}" 
+                           target="_blank" 
+                           class="btn btn-info btn-share"
+                           title="Bagikan ke Twitter">
+                            <i class="fab fa-twitter me-2"></i>Twitter
+                        </a>
+                        
+                        {{-- Telegram --}}
+                        <a href="https://t.me/share/url?url={{ urlencode($shareUrl) }}&text={{ urlencode($shareText) }}" 
+                           target="_blank" 
+                           class="btn btn-primary btn-share"
+                           style="background-color: #0088cc;"
+                           title="Bagikan ke Telegram">
+                            <i class="fab fa-telegram-plane me-2"></i>Telegram
+                        </a>
+                        
+                        {{-- Copy Link --}}
+                        <button type="button" 
+                                class="btn btn-secondary btn-share" 
+                                onclick="copyShareLink()"
+                                title="Salin Link">
+                            <i class="fas fa-link me-2"></i>Salin Link
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+.share-section {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+}
+
+.share-section h6 {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.btn-share {
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-share:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-share i {
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .share-buttons {
+        flex-direction: column;
+    }
+    
+    .btn-share {
+        width: 100%;
+        justify-content: center;
+    }
+}
+</style>
+
+<script>
+function copyShareLink() {
+    const shareUrl = "{{ route('motor.detail', $motor) }}";
+    const shareText = "{{ $motor->name }}, Spesifikasi Lengkap dan Harga 2026 " + shareUrl;
+    
+    // Try to use modern clipboard API
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareText).then(function() {
+            // Show success message
+            showCopySuccess();
+        }).catch(function(err) {
+            // Fallback to old method
+            fallbackCopyTextToClipboard(shareText);
+        });
+    } else {
+        // Fallback for older browsers
+        fallbackCopyTextToClipboard(shareText);
+    }
+}
+
+function fallbackCopyTextToClipboard(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.width = "2em";
+    textArea.style.height = "2em";
+    textArea.style.padding = "0";
+    textArea.style.border = "none";
+    textArea.style.outline = "none";
+    textArea.style.boxShadow = "none";
+    textArea.style.background = "transparent";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            showCopySuccess();
+        } else {
+            alert('Gagal menyalin link. Silakan salin manual.');
+        }
+    } catch (err) {
+        alert('Gagal menyalin link. Silakan salin manual.');
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+function showCopySuccess() {
+    // Create toast notification
+    const toast = document.createElement('div');
+    toast.className = 'copy-success-toast';
+    toast.innerHTML = '<i class="fas fa-check-circle me-2"></i>Link berhasil disalin!';
+    toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #28a745;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        z-index: 9999;
+        font-weight: 600;
+        animation: slideInRight 0.3s ease;
+    `;
+    
+    document.body.appendChild(toast);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        toast.style.animation = 'slideOutRight 0.3s ease';
+        setTimeout(() => {
+            document.body.removeChild(toast);
+        }, 300);
+    }, 3000);
+}
+
+// Add animation styles
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideOutRight {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
+</script>
 
 {{-- Specifications Section --}}
 @php
