@@ -1002,7 +1002,7 @@
                 </div>
 
                 {{-- Action Buttons --}}
-                <div class="action-buttons-section">
+                <div class="action-buttons-section mb-4">
                     @if($latestPriceList)
                     <a href="{{ route('download-price-list', $latestPriceList->id) }}" 
                        target="_blank"
@@ -1022,10 +1022,13 @@
                     </a>
                 </div>
 
-                {{-- Share Buttons --}}
-                <div class="share-section mt-4">
-                    <h6 class="mb-3"><i class="fas fa-share-alt me-2"></i>Bagikan Motor Ini:</h6>
-                    <div class="share-buttons d-flex flex-wrap gap-2">
+                {{-- Share Buttons - Modern Design --}}
+                <div class="share-section-modern">
+                    <div class="share-label">
+                        <i class="fas fa-share-alt"></i>
+                        <span>Bagikan Motor Ini:</span>
+                    </div>
+                    <div class="share-buttons-modern">
                         @php
                             $shareUrl = route('motor.detail', $motor);
                             $shareText = $motor->name . ', Spesifikasi Lengkap dan Harga 2026';
@@ -1035,42 +1038,41 @@
                         {{-- WhatsApp --}}
                         <a href="https://wa.me/?text={{ $shareTextEncoded }}" 
                            target="_blank" 
-                           class="btn btn-success btn-share"
+                           class="share-btn share-whatsapp"
                            title="Bagikan via WhatsApp">
-                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                         
                         {{-- Facebook --}}
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($shareUrl) }}" 
                            target="_blank" 
-                           class="btn btn-primary btn-share"
+                           class="share-btn share-facebook"
                            title="Bagikan ke Facebook">
-                            <i class="fab fa-facebook-f me-2"></i>Facebook
+                            <i class="fab fa-facebook-f"></i>
                         </a>
                         
                         {{-- Twitter --}}
                         <a href="https://twitter.com/intent/tweet?text={{ $shareTextEncoded }}" 
                            target="_blank" 
-                           class="btn btn-info btn-share"
+                           class="share-btn share-twitter"
                            title="Bagikan ke Twitter">
-                            <i class="fab fa-twitter me-2"></i>Twitter
+                            <i class="fab fa-twitter"></i>
                         </a>
                         
                         {{-- Telegram --}}
                         <a href="https://t.me/share/url?url={{ urlencode($shareUrl) }}&text={{ urlencode($shareText) }}" 
                            target="_blank" 
-                           class="btn btn-primary btn-share"
-                           style="background-color: #0088cc;"
+                           class="share-btn share-telegram"
                            title="Bagikan ke Telegram">
-                            <i class="fab fa-telegram-plane me-2"></i>Telegram
+                            <i class="fab fa-telegram-plane"></i>
                         </a>
                         
                         {{-- Copy Link --}}
                         <button type="button" 
-                                class="btn btn-secondary btn-share" 
+                                class="share-btn share-copy" 
                                 onclick="copyShareLink()"
                                 title="Salin Link">
-                            <i class="fas fa-link me-2"></i>Salin Link
+                            <i class="fas fa-link"></i>
                         </button>
                     </div>
                 </div>
@@ -1080,43 +1082,101 @@
 </div>
 
 <style>
-.share-section {
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 15px;
-    border: 1px solid #e0e0e0;
+/* Modern Share Section */
+.share-section-modern {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 0;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 20px;
 }
 
-.share-section h6 {
-    color: #2c3e50;
-    font-weight: 600;
+.share-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6c757d;
+    font-weight: 500;
+    font-size: 0.95rem;
+    white-space: nowrap;
 }
 
-.btn-share {
-    padding: 10px 20px;
-    font-weight: 600;
-    border-radius: 10px;
+.share-label i {
+    font-size: 1.1rem;
+}
+
+.share-buttons-modern {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
-    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.btn-share:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+.share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    color: white;
 }
 
-.btn-share i {
-    font-size: 1rem;
+.share-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
 }
 
+.share-facebook {
+    background: linear-gradient(135deg, #1877F2 0%, #0C63D4 100%);
+}
+
+.share-twitter {
+    background: linear-gradient(135deg, #1DA1F2 0%, #0C85D0 100%);
+}
+
+.share-telegram {
+    background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
+}
+
+.share-copy {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .share-buttons {
+    .share-section-modern {
         flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
     }
     
-    .btn-share {
+    .share-buttons-modern {
         width: 100%;
-        justify-content: center;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .action-buttons-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .action-buttons-section .btn {
+        width: 100%;
+        margin: 0 !important;
     }
 }
 </style>
@@ -1129,14 +1189,11 @@ function copyShareLink() {
     // Try to use modern clipboard API
     if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(shareText).then(function() {
-            // Show success message
             showCopySuccess();
         }).catch(function(err) {
-            // Fallback to old method
             fallbackCopyTextToClipboard(shareText);
         });
     } else {
-        // Fallback for older browsers
         fallbackCopyTextToClipboard(shareText);
     }
 }
@@ -1162,38 +1219,40 @@ function fallbackCopyTextToClipboard(text) {
         const successful = document.execCommand('copy');
         if (successful) {
             showCopySuccess();
-        } else {
-            alert('Gagal menyalin link. Silakan salin manual.');
         }
     } catch (err) {
-        alert('Gagal menyalin link. Silakan salin manual.');
+        console.error('Copy failed');
     }
     
     document.body.removeChild(textArea);
 }
 
 function showCopySuccess() {
-    // Create toast notification
+    // Create modern toast notification
     const toast = document.createElement('div');
-    toast.className = 'copy-success-toast';
-    toast.innerHTML = '<i class="fas fa-check-circle me-2"></i>Link berhasil disalin!';
+    toast.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-check-circle" style="font-size: 1.2rem;"></i>
+            <span>Link berhasil disalin!</span>
+        </div>
+    `;
     toast.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        background: #28a745;
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
         color: white;
-        padding: 15px 25px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        padding: 16px 24px;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(40, 167, 69, 0.3);
         z-index: 9999;
-        font-weight: 600;
-        animation: slideInRight 0.3s ease;
+        font-weight: 500;
+        font-size: 0.95rem;
+        animation: slideInRight 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     `;
     
     document.body.appendChild(toast);
     
-    // Remove after 3 seconds
     setTimeout(() => {
         toast.style.animation = 'slideOutRight 0.3s ease';
         setTimeout(() => {
@@ -1203,31 +1262,34 @@ function showCopySuccess() {
 }
 
 // Add animation styles
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
+if (!document.getElementById('share-animations')) {
+    const style = document.createElement('style');
+    style.id = 'share-animations';
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
-        to {
-            transform: translateX(0);
-            opacity: 1;
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
         }
-    }
-    
-    @keyframes slideOutRight {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
+    `;
+    document.head.appendChild(style);
+}
 </script>
 
 {{-- Specifications Section --}}
